@@ -1,0 +1,31 @@
+grammar fr.enseeiht.GAME with org.eclipse.xtext.common.Terminals
+
+generate gAME "http://www.enseeiht.fr/GAME"
+
+Jeu:
+	'jeu' name=ID
+	'avec' 'explorateur' explorateur=[Explorateur]
+	'dans' 'territoire' territoire=[Territoire];
+
+Territoire:
+	'territoire' name=ID
+	'couvre' Composants+=[Composantterritoire]+;
+
+Composantterritoire:
+	Chemin
+	| Lieu;
+
+Lieu:
+	'lieu' name=ID
+	'conaissances' conaissances+=[Conaissance]+
+	'objets' objets+=[Objet]+
+	'personnes' personnes+=[Personne]+;
+
+Chemin:
+	'chemin' name=ID
+	'de' depart=[Lieu]
+	'vers' arrive=[Lieu]
+;
+
+Explorateur:
+	'explorateur' name=ID 'tailleM' tailleM=INT;
