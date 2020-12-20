@@ -4,28 +4,76 @@ generate gAME "http://www.enseeiht.fr/GAME"
 
 Jeu:
 	'jeu' name=ID
-	'avec' 'explorateur' explorateur=[Explorateur]
-	'dans' 'territoire' territoire=[Territoire];
+	'explorateur' explorateur=[Explorateur]
+	'territoire' territoire=[Territoire]
+	composantsJeu+=ComposantJ;
+
+ComposantJ:
+	Explorateur
+	| Territoire
+	| ComposantT
+	| Objet
+	| Connaissance
+	| Personne
+	| Condition;
 
 Territoire:
 	'territoire' name=ID
-	'couvre' Composants+=[Composantterritoire]+;
+	'couvre' Composants+=(ComposantT)+;
 
-Composantterritoire:
+ComposantT:
 	Chemin
 	| Lieu;
 
 Lieu:
 	'lieu' name=ID
-	'conaissances' conaissances+=[Conaissance]+
+	'conaissances' conaissances+=[Connaissance]+
 	'objets' objets+=[Objet]+
-	'personnes' personnes+=[Personne]+;
+	'personnes' personnes+=[Personne]+
+	'description' description=[DescriptionTextuelle];
+
+DescriptionTextuelle:
+	'(' text=STRING ')';
 
 Chemin:
 	'chemin' name=ID
 	'de' depart=[Lieu]
 	'vers' arrive=[Lieu]
-;
+	'description' description=[DescriptionTextuelle]
+	ouverture=Ouverture 'selon' conditionsVisibilite+=[Condition]+
+	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
 
 Explorateur:
-	'explorateur' name=ID 'tailleM' tailleM=INT;
+	'explorateur' name=ID
+	'tailleM' tailleM=INT
+	'inventaire' objets+=[Objet]+;
+
+Objet:
+	'objet' name=ID
+	'taille' taille=INT
+	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
+
+Connaissance:
+	'connaissance' name=ID
+	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
+
+Personne:
+	'personne' name=ID
+	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
+
+Condition:
+	'condition' name=ID;
+
+enum Visibilite:
+	Visible='visible'
+	| Invisible='invisible';
+
+enum Ouverture:
+	Ouvert='ouvert'
+	| Ferme='ferme';
+	
+	
+	
+	
+	
+	
