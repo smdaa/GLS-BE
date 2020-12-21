@@ -54,6 +54,7 @@ Explorateur:
 
 Objet:
 	'objet' name=ID
+	'description' description=[DescriptionTextuelle];
 	'taille' taille=INT
 	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
 
