@@ -6,10 +6,10 @@ Jeu:
 	'jeu' name=ID '{'
 	'joueur' explorateur=[Explorateur]
 	'territoire' territoire=[Territoire]
-	composantsJeu+=ComposantJ;
+	composantsJeu+=ComposantJ*;
 	/* Peut-etre à déplacer autre part */
 	'pointDepart' pointDepart = Lieu
-	'pointFin' (pointFin = Lieu)+
+	'pointFin' (pointFin += Lieu)+
 	'}'
 
 ComposantJ:
