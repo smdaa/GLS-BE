@@ -3,13 +3,14 @@ grammar fr.enseeiht.GAME with org.eclipse.xtext.common.Terminals
 generate gAME "http://www.enseeiht.fr/GAME"
 
 Jeu:
-	'jeu' name=ID
+	'jeu' name=ID '{'
 	'joueur' explorateur=[Explorateur]
 	'territoire' territoire=[Territoire]
 	composantsJeu+=ComposantJ;
 	/* Peut-etre à déplacer autre part */
 	'pointDepart' pointDepart = Lieu
 	'pointFin' (pointFin = Lieu)+
+	'}'
 
 ComposantJ:
 	ComposantT
@@ -25,53 +26,64 @@ Territoire:
 ComposantT:
 	Chemin
 	| Lieu;
-
-Lieu:
-	'lieu' name=ID
-	'description' description=[DescriptionTextuelle];
-	'conaissances' conaissances+=[Connaissance]+
-	'objets' objets+=[Objet]+
-	'personnes' personnes+=[Personne]+
-
+	
 DescriptionTextuelle:
 	'(' text=STRING ')'
 	(conditions+=Condition)*;
 
+Lieu:
+	'lieu' name=ID '{'
+	'description' description=[DescriptionTextuelle];
+	'conaissances' conaissances+=[Connaissance]+
+	'objets' objets+=[Objet]+
+	'personnes' personnes+=[Personne]+
+	'}'
+
 Chemin:
-	'chemin' name=ID
+	'chemin' name=ID '{'
 	'description' description=[DescriptionTextuelle];
 	'de' depart=[Lieu]
 	'vers' arrive=[Lieu]
 	ouverture=Ouverture 'selon' conditionsVisibilite+=[Condition]+
 	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
+	'}'
 
 Explorateur:
-	'explorateur' name=ID
+	'explorateur' name=ID '{'
 	'tailleM' tailleM=INT
 	'connaissances' connaissances+=[Connaissance]+
 	'inventaire' objets+=[Objet]+
 	'localisation' localisation=[Lieu];
+	'}'
 
 Objet:
-	'objet' name=ID
+	'objet' name=ID '{'
 	'description' description=[DescriptionTextuelle];
 	'taille' taille=INT
 	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
+	'}'
 
 Connaissance:
 	'connaissance' name=ID
 	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
 
 Personne:
-	'personne' name=ID
+	'personne' name=ID '{'
 	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+
 	interaction=Interaction;
+	'}'
 
 Interaction:
 	'interaction' name=ID
 	'connaissancesDonne' (connaissances+=[Connaissance])?
 	'objetsDonne' (objetsDonne+=[Objet])?
 	'objetsPris' (objetsPris+=[Objet])?;
+
+Action:
+	'action' name=ID'{'
+	'}'
+
+
 
 Condition:
 	'condition' name=ID;
