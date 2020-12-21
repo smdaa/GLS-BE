@@ -28,10 +28,10 @@ ComposantT:
 
 Lieu:
 	'lieu' name=ID
+	'description' description=[DescriptionTextuelle];
 	'conaissances' conaissances+=[Connaissance]+
 	'objets' objets+=[Objet]+
 	'personnes' personnes+=[Personne]+
-	'description' description=[DescriptionTextuelle];
 
 DescriptionTextuelle:
 	'(' text=STRING ')'
@@ -39,9 +39,9 @@ DescriptionTextuelle:
 
 Chemin:
 	'chemin' name=ID
+	'description' description=[DescriptionTextuelle];
 	'de' depart=[Lieu]
 	'vers' arrive=[Lieu]
-	'description' description=[DescriptionTextuelle]
 	ouverture=Ouverture 'selon' conditionsVisibilite+=[Condition]+
 	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
 
