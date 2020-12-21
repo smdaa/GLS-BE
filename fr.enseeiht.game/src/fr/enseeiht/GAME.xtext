@@ -4,14 +4,12 @@ generate gAME "http://www.enseeiht.fr/GAME"
 
 Jeu:
 	'jeu' name=ID
-	'explorateur' explorateur=[Explorateur]
+	'joueur' explorateur=[Explorateur]
 	'territoire' territoire=[Territoire]
 	composantsJeu+=ComposantJ;
 
 ComposantJ:
-	Explorateur
-	| Territoire
-	| ComposantT
+	ComposantT
 	| Objet
 	| Connaissance
 	| Personne
@@ -33,7 +31,8 @@ Lieu:
 	'description' description=[DescriptionTextuelle];
 
 DescriptionTextuelle:
-	'(' text=STRING ')';
+	'(' text=STRING ')'
+	(conditions+=Condition)*;
 
 Chemin:
 	'chemin' name=ID
@@ -46,7 +45,8 @@ Chemin:
 Explorateur:
 	'explorateur' name=ID
 	'tailleM' tailleM=INT
-	'inventaire' objets+=[Objet]+;
+	'inventaire' objets+=[Objet]+
+	'localisation' localisation=[Lieu];
 
 Objet:
 	'objet' name=ID
@@ -59,7 +59,14 @@ Connaissance:
 
 Personne:
 	'personne' name=ID
-	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
+	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+
+	interaction=Interaction;
+
+Interaction:
+	'interaction' name=ID
+	'connaissancesDonne' (connaissances+=[Connaissance])?
+	'objetsDonne' (objetsDonne+=[Objet])?
+	'objetsPris' (objetsPris+=[Objet])?;
 
 Condition:
 	'condition' name=ID;
