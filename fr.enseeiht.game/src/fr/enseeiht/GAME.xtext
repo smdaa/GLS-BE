@@ -7,6 +7,9 @@ Jeu:
 	'joueur' explorateur=[Explorateur]
 	'territoire' territoire=[Territoire]
 	composantsJeu+=ComposantJ;
+	/* Peut-etre à déplacer autre part */
+	'pointDepart' pointDepart = Lieu
+	'pointFin' (pointFin = Lieu)+
 
 ComposantJ:
 	ComposantT
@@ -45,6 +48,7 @@ Chemin:
 Explorateur:
 	'explorateur' name=ID
 	'tailleM' tailleM=INT
+	'connaissances' connaissances+=[Connaissance]+
 	'inventaire' objets+=[Objet]+
 	'localisation' localisation=[Lieu];
 
