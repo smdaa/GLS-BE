@@ -81,6 +81,11 @@ Interaction:
 
 Action:
 	'action' name=ID'{'
+	'choixPrecedent'  choixPrecedent += [Choix]*
+	'conditions' conditions += [Condition]*
+	'objetsDonnes' objetsDonnes += [Objet]*
+	'objetsConsommes' objetsConsommes += [Objet]*;
+
 	'}'
 
 
