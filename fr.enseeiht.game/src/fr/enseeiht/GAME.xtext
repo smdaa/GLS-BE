@@ -34,9 +34,9 @@ DescriptionTextuelle:
 Lieu:
 	'lieu' name=ID '{'
 	'description' description=[DescriptionTextuelle];
-	'conaissances' conaissances+=[Connaissance]+
-	'objets' objets+=[Objet]+
-	'personnes' personnes+=[Personne]+
+	'conaissances' conaissances+=[Connaissance]*
+	'objets' objets+=[Objet]*
+	'personnes' personnes+=[Personne]*
 	'}'
 
 Chemin:
