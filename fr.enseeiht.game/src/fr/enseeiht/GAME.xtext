@@ -4,105 +4,86 @@ generate gAME "http://www.enseeiht.fr/GAME"
 
 Jeu:
 	'jeu' name=ID '{'
-	'joueur' explorateur=[Explorateur]
-	'territoire' territoire=[Territoire]
-	composantsJeu+=ComposantJ*;
-	/* Peut-etre à déplacer autre part */
+	explorateur=Explorateur
 	'pointDepart' pointDepart = Lieu
 	'pointFin' (pointFin += Lieu)+
-	'}'
-
-ComposantJ:
-	ComposantT
-	| Objet
-	| Connaissance
-	| Personne
-	| Condition;
-
-Territoire:
-	'territoire' name=ID
-	'couvre' Composants+=(ComposantT)+;
-
-ComposantT:
-	Chemin
-	| Lieu;
-	
-DescriptionTextuelle:
-	'(' text=STRING ')'
-	(conditions+=Condition)*;
-
-Lieu:
-	'lieu' name=ID '{'
-	'description' description=[DescriptionTextuelle];
-	'conaissances' conaissances+=[Connaissance]*
-	'objets' objets+=[Objet]*
-	'personnes' personnes+=[Personne]*
-	'}'
+	lieux+=Lieu*
+	Objets+=Objet*
+	Connaissances+=Connaissance*
+	personnes+=Personne*
+	chemins+=Chemin*
+	'}';
 
 Chemin:
 	'chemin' name=ID '{'
-	'description' description=[DescriptionTextuelle];
+	(descriptions=Description)?
 	'de' depart=[Lieu]
 	'vers' arrive=[Lieu]
-	ouverture=Ouverture 'selon' conditionsVisibilite+=[Condition]+
-	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
-	'}'
-
-Explorateur:
-	'explorateur' name=ID '{'
-	'tailleM' tailleM=INT
-	'connaissances' connaissances+=[Connaissance]+
-	'inventaire' objets+=[Objet]+
-	'localisation' localisation=[Lieu];
-	'}'
-
-Objet:
-	'objet' name=ID '{'
-	'description' description=[DescriptionTextuelle];
-	'taille' taille=INT
-	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
-	'}'
-
-Connaissance:
-	'connaissance' name=ID
-	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+;
+	visibilite=Visibilite 'si' conditionsVisibilite=Condition
+	ouverture=Ouverture 'si' conditionsOuverture=Condition
+	'}'	
+;
 
 Personne:
 	'personne' name=ID '{'
-	visibilite=Visibilite 'selon' conditionsVisibilite+=[Condition]+
-	interaction=Interaction;
-	'}'
+	descriptions=Description
+	interaction=Interaction
+	visibilite=Visibilite 'si' conditionsVisibilite=Condition
+	'}';
 
 Interaction:
-	'interaction' name=ID
-	'connaissancesDonne' (connaissances+=[Connaissance])?
-	'objetsDonne' (objetsDonne+=[Objet])?
-	'objetsPris' (objetsPris+=[Objet])?;
+	'interaction' '{'
+	(choix+=Choix)+
+	'}';
+
+Choix:
+	'choix' name=ID '{'
+	(actions+=Action)*
+	'}';
 
 Action:
-	'action' name=ID'{'
-	'choixPrecedent'  choixPrecedent += [Choix]*
-	'conditions' conditions += [Condition]*
-	'objetsDonnes' objetsDonnes += [Objet]*
-	'objetsConsommes' objetsConsommes += [Objet]*;
+	'action' name=ID '{'
+	
+	'}'	
+;
 
-	'}'
+Objet:
+	'objet' name=ID '{' 
+	(descriptions+=Description)? 
+	'taille' taille=INT 
+	'}';
 
-
+Description:
+	'description' '{' 
+	text=STRING  
+	'}';
 
 Condition:
-	'condition' name=ID;
+	'condition' name=ID '{' '}';
+
+Connaissance:
+	'connaissance' name=ID '{' '}';
+
+Explorateur:
+	'explorateur' name=ID '{' 
+	'taille' taille=INT 
+	'inventaireO' (objets+=[Objet])* 
+	'inventaireC' (connaissances+=[Connaissance])* 
+	'localisation' localisation=[Lieu] 
+	'}';
+
+Lieu:
+	'lieu' name=ID '{' 
+		(descriptions+=Description)?
+		('objets' objets+=[Objet])*
+		('connaissances' connaissances+=[Connaissance])*
+		('personnes' personnes+=[Personne])*
+	'}';
 
 enum Visibilite:
 	Visible='visible'
 	| Invisible='invisible';
-
+	
 enum Ouverture:
-	Ouvert='ouvert'
+	Ouvert='ouvert'	
 	| Ferme='ferme';
-	
-	
-	
-	
-	
-	

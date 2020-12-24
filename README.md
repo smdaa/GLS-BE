@@ -1,6 +1,6 @@
 # GLS-BE
 ## Exigence
-* E1 : visiter un territoire composé de lieux connectés par des chemins
+- [x] E1 : visiter un territoire composé de lieux connectés par des chemins
 * E2 : Le **joueur** unique est l’explorateur
 * E3 : L’explorateur possède un nombre illimité de **connaissances** et un nombre limité **d’objets**
 * E4 : Un explorateur peut posséder **plusieurs exemplaires** d’un même objet
