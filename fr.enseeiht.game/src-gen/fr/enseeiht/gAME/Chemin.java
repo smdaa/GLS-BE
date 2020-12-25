@@ -20,6 +20,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.enseeiht.gAME.Chemin#getArrive <em>Arrive</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Chemin#getVisibilite <em>Visibilite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Chemin#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Chemin#getOuverture <em>Ouverture</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Chemin#getConditionsOuverture <em>Conditions Ouverture</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.gAME.GAMEPackage#getChemin()
@@ -162,5 +164,52 @@ public interface Chemin extends EObject
    * @generated
    */
   void setConditionsVisibilite(Condition value);
+
+  /**
+   * Returns the value of the '<em><b>Ouverture</b></em>' attribute.
+   * The literals are from the enumeration {@link fr.enseeiht.gAME.Ouverture}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ouverture</em>' attribute.
+   * @see fr.enseeiht.gAME.Ouverture
+   * @see #setOuverture(Ouverture)
+   * @see fr.enseeiht.gAME.GAMEPackage#getChemin_Ouverture()
+   * @model
+   * @generated
+   */
+  Ouverture getOuverture();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.gAME.Chemin#getOuverture <em>Ouverture</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ouverture</em>' attribute.
+   * @see fr.enseeiht.gAME.Ouverture
+   * @see #getOuverture()
+   * @generated
+   */
+  void setOuverture(Ouverture value);
+
+  /**
+   * Returns the value of the '<em><b>Conditions Ouverture</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Conditions Ouverture</em>' containment reference.
+   * @see #setConditionsOuverture(Condition)
+   * @see fr.enseeiht.gAME.GAMEPackage#getChemin_ConditionsOuverture()
+   * @model containment="true"
+   * @generated
+   */
+  Condition getConditionsOuverture();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.gAME.Chemin#getConditionsOuverture <em>Conditions Ouverture</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Conditions Ouverture</em>' containment reference.
+   * @see #getConditionsOuverture()
+   * @generated
+   */
+  void setConditionsOuverture(Condition value);
 
 } // Chemin

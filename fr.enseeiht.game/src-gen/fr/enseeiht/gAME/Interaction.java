@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link fr.enseeiht.gAME.Interaction#getEchanges <em>Echanges</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Interaction#getChoix <em>Choix</em>}</li>
  * </ul>
  *
@@ -25,6 +26,18 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Interaction extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Echanges</b></em>' containment reference list.
+   * The list contents are of type {@link fr.enseeiht.gAME.Echange}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Echanges</em>' containment reference list.
+   * @see fr.enseeiht.gAME.GAMEPackage#getInteraction_Echanges()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Echange> getEchanges();
+
   /**
    * Returns the value of the '<em><b>Choix</b></em>' containment reference list.
    * The list contents are of type {@link fr.enseeiht.gAME.Choix}.

@@ -26,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -38,6 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getExplorateur <em>Explorateur</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getPointDepart <em>Point Depart</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getPointFin <em>Point Fin</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getLieux <em>Lieux</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getObjets <em>Objets</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getConnaissances <em>Connaissances</em>}</li>
@@ -78,6 +81,26 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
    * @ordered
    */
   protected Explorateur explorateur;
+
+  /**
+   * The cached value of the '{@link #getPointDepart() <em>Point Depart</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPointDepart()
+   * @generated
+   * @ordered
+   */
+  protected Lieu pointDepart;
+
+  /**
+   * The cached value of the '{@link #getPointFin() <em>Point Fin</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getPointFin()
+   * @generated
+   * @ordered
+   */
+  protected EList<Lieu> pointFin;
 
   /**
    * The cached value of the '{@link #getLieux() <em>Lieux</em>}' containment reference list.
@@ -231,6 +254,66 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
    * @generated
    */
   @Override
+  public Lieu getPointDepart()
+  {
+    if (pointDepart != null && pointDepart.eIsProxy())
+    {
+      InternalEObject oldPointDepart = (InternalEObject)pointDepart;
+      pointDepart = (Lieu)eResolveProxy(oldPointDepart);
+      if (pointDepart != oldPointDepart)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GAMEPackage.JEU__POINT_DEPART, oldPointDepart, pointDepart));
+      }
+    }
+    return pointDepart;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Lieu basicGetPointDepart()
+  {
+    return pointDepart;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setPointDepart(Lieu newPointDepart)
+  {
+    Lieu oldPointDepart = pointDepart;
+    pointDepart = newPointDepart;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.JEU__POINT_DEPART, oldPointDepart, pointDepart));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Lieu> getPointFin()
+  {
+    if (pointFin == null)
+    {
+      pointFin = new EObjectResolvingEList<Lieu>(Lieu.class, this, GAMEPackage.JEU__POINT_FIN);
+    }
+    return pointFin;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Lieu> getLieux()
   {
     if (lieux == null)
@@ -340,6 +423,11 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
         return getName();
       case GAMEPackage.JEU__EXPLORATEUR:
         return getExplorateur();
+      case GAMEPackage.JEU__POINT_DEPART:
+        if (resolve) return getPointDepart();
+        return basicGetPointDepart();
+      case GAMEPackage.JEU__POINT_FIN:
+        return getPointFin();
       case GAMEPackage.JEU__LIEUX:
         return getLieux();
       case GAMEPackage.JEU__OBJETS:
@@ -370,6 +458,13 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
         return;
       case GAMEPackage.JEU__EXPLORATEUR:
         setExplorateur((Explorateur)newValue);
+        return;
+      case GAMEPackage.JEU__POINT_DEPART:
+        setPointDepart((Lieu)newValue);
+        return;
+      case GAMEPackage.JEU__POINT_FIN:
+        getPointFin().clear();
+        getPointFin().addAll((Collection<? extends Lieu>)newValue);
         return;
       case GAMEPackage.JEU__LIEUX:
         getLieux().clear();
@@ -411,6 +506,12 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
       case GAMEPackage.JEU__EXPLORATEUR:
         setExplorateur((Explorateur)null);
         return;
+      case GAMEPackage.JEU__POINT_DEPART:
+        setPointDepart((Lieu)null);
+        return;
+      case GAMEPackage.JEU__POINT_FIN:
+        getPointFin().clear();
+        return;
       case GAMEPackage.JEU__LIEUX:
         getLieux().clear();
         return;
@@ -444,6 +545,10 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case GAMEPackage.JEU__EXPLORATEUR:
         return explorateur != null;
+      case GAMEPackage.JEU__POINT_DEPART:
+        return pointDepart != null;
+      case GAMEPackage.JEU__POINT_FIN:
+        return pointFin != null && !pointFin.isEmpty();
       case GAMEPackage.JEU__LIEUX:
         return lieux != null && !lieux.isEmpty();
       case GAMEPackage.JEU__OBJETS:

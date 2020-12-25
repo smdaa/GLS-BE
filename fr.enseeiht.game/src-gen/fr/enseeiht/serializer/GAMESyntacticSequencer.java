@@ -11,6 +11,9 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
+import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
 import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 
@@ -18,10 +21,16 @@ import org.eclipse.xtext.serializer.sequencer.AbstractSyntacticSequencer;
 public class GAMESyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected GAMEGrammarAccess grammarAccess;
+	protected AbstractElementAlias match_Condition___ConnaissancesKeyword_5_0_NecessairesKeyword_5_1__q;
+	protected AbstractElementAlias match_Condition___ObjetsKeyword_3_0_NecessairesKeyword_3_1__q;
+	protected AbstractElementAlias match_Condition___ObjetsKeyword_4_0_ManquantsKeyword_4_1__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (GAMEGrammarAccess) access;
+		match_Condition___ConnaissancesKeyword_5_0_NecessairesKeyword_5_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getConditionAccess().getConnaissancesKeyword_5_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getNecessairesKeyword_5_1()));
+		match_Condition___ObjetsKeyword_3_0_NecessairesKeyword_3_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getConditionAccess().getObjetsKeyword_3_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getNecessairesKeyword_3_1()));
+		match_Condition___ObjetsKeyword_4_0_ManquantsKeyword_4_1__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getConditionAccess().getObjetsKeyword_4_0()), new TokenAlias(false, false, grammarAccess.getConditionAccess().getManquantsKeyword_4_1()));
 	}
 	
 	@Override
@@ -36,8 +45,54 @@ public class GAMESyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			acceptNodes(getLastNavigableState(), syntaxNodes);
+			if (match_Condition___ConnaissancesKeyword_5_0_NecessairesKeyword_5_1__q.equals(syntax))
+				emit_Condition___ConnaissancesKeyword_5_0_NecessairesKeyword_5_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Condition___ObjetsKeyword_3_0_NecessairesKeyword_3_1__q.equals(syntax))
+				emit_Condition___ObjetsKeyword_3_0_NecessairesKeyword_3_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Condition___ObjetsKeyword_4_0_ManquantsKeyword_4_1__q.equals(syntax))
+				emit_Condition___ObjetsKeyword_4_0_ManquantsKeyword_4_1__q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
+	/**
+	 * Ambiguous syntax:
+	 *     ('connaissances' 'necessaires')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID '{' ('objets' 'necessaires')? ('objets' 'manquants')? (ambiguity) '}' (rule end)
+	 *     objets+=[Objet|ID] ('objets' 'manquants')? (ambiguity) '}' (rule end)
+	 *     objets+=[Objet|ID] (ambiguity) '}' (rule end)
+	 */
+	protected void emit_Condition___ConnaissancesKeyword_5_0_NecessairesKeyword_5_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('objets' 'necessaires')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID '{' (ambiguity) 'objets' 'manquants' objets+=[Objet|ID]
+	 *     name=ID '{' (ambiguity) ('objets' 'manquants')? 'connaissances' 'necessaires' connaissances+=[Connaissance|ID]
+	 *     name=ID '{' (ambiguity) ('objets' 'manquants')? ('connaissances' 'necessaires')? '}' (rule end)
+	 */
+	protected void emit_Condition___ObjetsKeyword_3_0_NecessairesKeyword_3_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('objets' 'manquants')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     name=ID '{' ('objets' 'necessaires')? (ambiguity) 'connaissances' 'necessaires' connaissances+=[Connaissance|ID]
+	 *     name=ID '{' ('objets' 'necessaires')? (ambiguity) ('connaissances' 'necessaires')? '}' (rule end)
+	 *     objets+=[Objet|ID] (ambiguity) 'connaissances' 'necessaires' connaissances+=[Connaissance|ID]
+	 *     objets+=[Objet|ID] (ambiguity) ('connaissances' 'necessaires')? '}' (rule end)
+	 */
+	protected void emit_Condition___ObjetsKeyword_4_0_ManquantsKeyword_4_1__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
 }

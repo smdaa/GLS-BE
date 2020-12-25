@@ -1,28 +1,39 @@
 jeu enigme {
 	explorateur toto {
 		taille 3
-		inventaireO  tentative
+		inventaireO  tentative tentative tentative
 		inventaireC
 		localisation enigme
 	}
+	pointDepart enigme
+	pointFin succes echec
 	lieu enigme {
-		personnes sphinx
+		description {
+			"Lieu Enigme"
+		}
+		personnes trouvable sphinx
+		cheminspossible en2s en2e
 	}
 	lieu succes {
-
+		description {
+			"Lieu Succes"
+		}
+		
 	}
 	lieu echec {
-		
+		description {
+			"Lieu Echec"
+		}
 	}
 	objet tentative {
 		description {
 			"une tentative pour repondre a l'enigme"
 		}
 		taille 1
-		
+		visible
 	}
 	connaissance reussite {
-		
+		visible
 	}
 	personne sphinx {
 		description {
@@ -30,11 +41,26 @@ jeu enigme {
 		}
 		interaction {
 			choix choix1 {
-				
+				action ok {
+					description {
+						"bonne réponse : + reussite"
+					}
+					echange {
+						connaissancesDonne reussite
+					}
+				}
+				action ko {
+					description {
+						"mauvais réponse : - tentative"
+					}
+					echange {
+						objetsPris tentative
+					}
+				}
 			}
 		}
-		visible si condition c1 {
-			
+		visible si condition c {
+			objets necessaires tentative
 		}
 	}
 	chemin en2s {
@@ -44,8 +70,9 @@ jeu enigme {
 		de enigme
 		vers succes
 		visible si condition c2 {
-			
-		}
+			connaissances necessaires reussite
+		} 
+		ouvert
 	}
 	chemin en2e {
 		description {
@@ -54,8 +81,8 @@ jeu enigme {
 		de enigme
 		vers echec
 		visible si condition c3 {
-			
+			objets manquants tentative
 		}
+		ouvert
 	}
-
 }

@@ -4,6 +4,7 @@
 package fr.enseeiht.gAME.impl;
 
 import fr.enseeiht.gAME.Choix;
+import fr.enseeiht.gAME.Echange;
 import fr.enseeiht.gAME.GAMEPackage;
 import fr.enseeiht.gAME.Interaction;
 
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link fr.enseeiht.gAME.impl.InteractionImpl#getEchanges <em>Echanges</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.InteractionImpl#getChoix <em>Choix</em>}</li>
  * </ul>
  *
@@ -36,6 +38,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class InteractionImpl extends MinimalEObjectImpl.Container implements Interaction
 {
+  /**
+   * The cached value of the '{@link #getEchanges() <em>Echanges</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEchanges()
+   * @generated
+   * @ordered
+   */
+  protected EList<Echange> echanges;
+
   /**
    * The cached value of the '{@link #getChoix() <em>Choix</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -73,6 +85,21 @@ public class InteractionImpl extends MinimalEObjectImpl.Container implements Int
    * @generated
    */
   @Override
+  public EList<Echange> getEchanges()
+  {
+    if (echanges == null)
+    {
+      echanges = new EObjectContainmentEList<Echange>(Echange.class, this, GAMEPackage.INTERACTION__ECHANGES);
+    }
+    return echanges;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Choix> getChoix()
   {
     if (choix == null)
@@ -92,6 +119,8 @@ public class InteractionImpl extends MinimalEObjectImpl.Container implements Int
   {
     switch (featureID)
     {
+      case GAMEPackage.INTERACTION__ECHANGES:
+        return ((InternalEList<?>)getEchanges()).basicRemove(otherEnd, msgs);
       case GAMEPackage.INTERACTION__CHOIX:
         return ((InternalEList<?>)getChoix()).basicRemove(otherEnd, msgs);
     }
@@ -108,6 +137,8 @@ public class InteractionImpl extends MinimalEObjectImpl.Container implements Int
   {
     switch (featureID)
     {
+      case GAMEPackage.INTERACTION__ECHANGES:
+        return getEchanges();
       case GAMEPackage.INTERACTION__CHOIX:
         return getChoix();
     }
@@ -125,6 +156,10 @@ public class InteractionImpl extends MinimalEObjectImpl.Container implements Int
   {
     switch (featureID)
     {
+      case GAMEPackage.INTERACTION__ECHANGES:
+        getEchanges().clear();
+        getEchanges().addAll((Collection<? extends Echange>)newValue);
+        return;
       case GAMEPackage.INTERACTION__CHOIX:
         getChoix().clear();
         getChoix().addAll((Collection<? extends Choix>)newValue);
@@ -143,6 +178,9 @@ public class InteractionImpl extends MinimalEObjectImpl.Container implements Int
   {
     switch (featureID)
     {
+      case GAMEPackage.INTERACTION__ECHANGES:
+        getEchanges().clear();
+        return;
       case GAMEPackage.INTERACTION__CHOIX:
         getChoix().clear();
         return;
@@ -160,6 +198,8 @@ public class InteractionImpl extends MinimalEObjectImpl.Container implements Int
   {
     switch (featureID)
     {
+      case GAMEPackage.INTERACTION__ECHANGES:
+        return echanges != null && !echanges.isEmpty();
       case GAMEPackage.INTERACTION__CHOIX:
         return choix != null && !choix.isEmpty();
     }

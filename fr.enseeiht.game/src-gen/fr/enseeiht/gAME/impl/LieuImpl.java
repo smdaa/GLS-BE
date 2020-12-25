@@ -3,6 +3,7 @@
  */
 package fr.enseeiht.gAME.impl;
 
+import fr.enseeiht.gAME.Chemin;
 import fr.enseeiht.gAME.Connaissance;
 import fr.enseeiht.gAME.Description;
 import fr.enseeiht.gAME.GAMEPackage;
@@ -40,6 +41,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.enseeiht.gAME.impl.LieuImpl#getObjets <em>Objets</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.LieuImpl#getConnaissances <em>Connaissances</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.LieuImpl#getPersonnes <em>Personnes</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.LieuImpl#getCheminspossible <em>Cheminspossible</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,6 +107,16 @@ public class LieuImpl extends MinimalEObjectImpl.Container implements Lieu
    * @ordered
    */
   protected EList<Personne> personnes;
+
+  /**
+   * The cached value of the '{@link #getCheminspossible() <em>Cheminspossible</em>}' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCheminspossible()
+   * @generated
+   * @ordered
+   */
+  protected EList<Chemin> cheminspossible;
 
   /**
    * <!-- begin-user-doc -->
@@ -218,6 +230,21 @@ public class LieuImpl extends MinimalEObjectImpl.Container implements Lieu
    * @generated
    */
   @Override
+  public EList<Chemin> getCheminspossible()
+  {
+    if (cheminspossible == null)
+    {
+      cheminspossible = new EObjectResolvingEList<Chemin>(Chemin.class, this, GAMEPackage.LIEU__CHEMINSPOSSIBLE);
+    }
+    return cheminspossible;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -248,6 +275,8 @@ public class LieuImpl extends MinimalEObjectImpl.Container implements Lieu
         return getConnaissances();
       case GAMEPackage.LIEU__PERSONNES:
         return getPersonnes();
+      case GAMEPackage.LIEU__CHEMINSPOSSIBLE:
+        return getCheminspossible();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -282,6 +311,10 @@ public class LieuImpl extends MinimalEObjectImpl.Container implements Lieu
         getPersonnes().clear();
         getPersonnes().addAll((Collection<? extends Personne>)newValue);
         return;
+      case GAMEPackage.LIEU__CHEMINSPOSSIBLE:
+        getCheminspossible().clear();
+        getCheminspossible().addAll((Collection<? extends Chemin>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -311,6 +344,9 @@ public class LieuImpl extends MinimalEObjectImpl.Container implements Lieu
       case GAMEPackage.LIEU__PERSONNES:
         getPersonnes().clear();
         return;
+      case GAMEPackage.LIEU__CHEMINSPOSSIBLE:
+        getCheminspossible().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -335,6 +371,8 @@ public class LieuImpl extends MinimalEObjectImpl.Container implements Lieu
         return connaissances != null && !connaissances.isEmpty();
       case GAMEPackage.LIEU__PERSONNES:
         return personnes != null && !personnes.isEmpty();
+      case GAMEPackage.LIEU__CHEMINSPOSSIBLE:
+        return cheminspossible != null && !cheminspossible.isEmpty();
     }
     return super.eIsSet(featureID);
   }

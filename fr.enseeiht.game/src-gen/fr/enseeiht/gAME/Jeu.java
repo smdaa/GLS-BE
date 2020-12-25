@@ -18,6 +18,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getName <em>Name</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getExplorateur <em>Explorateur</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Jeu#getPointDepart <em>Point Depart</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Jeu#getPointFin <em>Point Fin</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getLieux <em>Lieux</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getObjets <em>Objets</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getConnaissances <em>Connaissances</em>}</li>
@@ -74,6 +76,40 @@ public interface Jeu extends EObject
    * @generated
    */
   void setExplorateur(Explorateur value);
+
+  /**
+   * Returns the value of the '<em><b>Point Depart</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Point Depart</em>' reference.
+   * @see #setPointDepart(Lieu)
+   * @see fr.enseeiht.gAME.GAMEPackage#getJeu_PointDepart()
+   * @model
+   * @generated
+   */
+  Lieu getPointDepart();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.gAME.Jeu#getPointDepart <em>Point Depart</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Point Depart</em>' reference.
+   * @see #getPointDepart()
+   * @generated
+   */
+  void setPointDepart(Lieu value);
+
+  /**
+   * Returns the value of the '<em><b>Point Fin</b></em>' reference list.
+   * The list contents are of type {@link fr.enseeiht.gAME.Lieu}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Point Fin</em>' reference list.
+   * @see fr.enseeiht.gAME.GAMEPackage#getJeu_PointFin()
+   * @model
+   * @generated
+   */
+  EList<Lieu> getPointFin();
 
   /**
    * Returns the value of the '<em><b>Lieux</b></em>' containment reference list.

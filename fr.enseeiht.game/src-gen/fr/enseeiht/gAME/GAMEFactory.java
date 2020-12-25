@@ -69,6 +69,24 @@ public interface GAMEFactory extends EFactory
   Choix createChoix();
 
   /**
+   * Returns a new object of class '<em>Action</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Action</em>'.
+   * @generated
+   */
+  Action createAction();
+
+  /**
+   * Returns a new object of class '<em>Echange</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Echange</em>'.
+   * @generated
+   */
+  Echange createEchange();
+
+  /**
    * Returns a new object of class '<em>Objet</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

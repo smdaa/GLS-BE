@@ -3,6 +3,8 @@
  */
 package fr.enseeiht.gAME;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.gAME.Condition#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Condition#getObjets <em>Objets</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Condition#getConnaissances <em>Connaissances</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.gAME.GAMEPackage#getCondition()
@@ -44,5 +48,29 @@ public interface Condition extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Objets</b></em>' reference list.
+   * The list contents are of type {@link fr.enseeiht.gAME.Objet}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Objets</em>' reference list.
+   * @see fr.enseeiht.gAME.GAMEPackage#getCondition_Objets()
+   * @model
+   * @generated
+   */
+  EList<Objet> getObjets();
+
+  /**
+   * Returns the value of the '<em><b>Connaissances</b></em>' reference list.
+   * The list contents are of type {@link fr.enseeiht.gAME.Connaissance}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Connaissances</em>' reference list.
+   * @see fr.enseeiht.gAME.GAMEPackage#getCondition_Connaissances()
+   * @model
+   * @generated
+   */
+  EList<Connaissance> getConnaissances();
 
 } // Condition

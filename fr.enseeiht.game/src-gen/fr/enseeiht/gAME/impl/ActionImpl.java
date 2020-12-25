@@ -4,8 +4,9 @@
 package fr.enseeiht.gAME.impl;
 
 import fr.enseeiht.gAME.Action;
-import fr.enseeiht.gAME.Choix;
 import fr.enseeiht.gAME.Condition;
+import fr.enseeiht.gAME.Description;
+import fr.enseeiht.gAME.Echange;
 import fr.enseeiht.gAME.GAMEPackage;
 
 import java.util.Collection;
@@ -26,20 +27,21 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Choix</b></em>'.
+ * An implementation of the model object '<em><b>Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link fr.enseeiht.gAME.impl.ChoixImpl#getName <em>Name</em>}</li>
- *   <li>{@link fr.enseeiht.gAME.impl.ChoixImpl#getActions <em>Actions</em>}</li>
- *   <li>{@link fr.enseeiht.gAME.impl.ChoixImpl#getConditions <em>Conditions</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ActionImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ActionImpl#getDescriptions <em>Descriptions</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ActionImpl#getConditions <em>Conditions</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ActionImpl#getEchanges <em>Echanges</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
+public class ActionImpl extends MinimalEObjectImpl.Container implements Action
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -62,14 +64,14 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
+   * The cached value of the '{@link #getDescriptions() <em>Descriptions</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getActions()
+   * @see #getDescriptions()
    * @generated
    * @ordered
    */
-  protected EList<Action> actions;
+  protected EList<Description> descriptions;
 
   /**
    * The cached value of the '{@link #getConditions() <em>Conditions</em>}' containment reference list.
@@ -82,11 +84,21 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   protected EList<Condition> conditions;
 
   /**
+   * The cached value of the '{@link #getEchanges() <em>Echanges</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEchanges()
+   * @generated
+   * @ordered
+   */
+  protected EList<Echange> echanges;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ChoixImpl()
+  protected ActionImpl()
   {
     super();
   }
@@ -99,7 +111,7 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   @Override
   protected EClass eStaticClass()
   {
-    return GAMEPackage.Literals.CHOIX;
+    return GAMEPackage.Literals.ACTION;
   }
 
   /**
@@ -124,7 +136,7 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.CHOIX__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.ACTION__NAME, oldName, name));
   }
 
   /**
@@ -133,13 +145,13 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
    * @generated
    */
   @Override
-  public EList<Action> getActions()
+  public EList<Description> getDescriptions()
   {
-    if (actions == null)
+    if (descriptions == null)
     {
-      actions = new EObjectContainmentEList<Action>(Action.class, this, GAMEPackage.CHOIX__ACTIONS);
+      descriptions = new EObjectContainmentEList<Description>(Description.class, this, GAMEPackage.ACTION__DESCRIPTIONS);
     }
-    return actions;
+    return descriptions;
   }
 
   /**
@@ -152,9 +164,24 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   {
     if (conditions == null)
     {
-      conditions = new EObjectContainmentEList<Condition>(Condition.class, this, GAMEPackage.CHOIX__CONDITIONS);
+      conditions = new EObjectContainmentEList<Condition>(Condition.class, this, GAMEPackage.ACTION__CONDITIONS);
     }
     return conditions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Echange> getEchanges()
+  {
+    if (echanges == null)
+    {
+      echanges = new EObjectContainmentEList<Echange>(Echange.class, this, GAMEPackage.ACTION__ECHANGES);
+    }
+    return echanges;
   }
 
   /**
@@ -167,10 +194,12 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   {
     switch (featureID)
     {
-      case GAMEPackage.CHOIX__ACTIONS:
-        return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
-      case GAMEPackage.CHOIX__CONDITIONS:
+      case GAMEPackage.ACTION__DESCRIPTIONS:
+        return ((InternalEList<?>)getDescriptions()).basicRemove(otherEnd, msgs);
+      case GAMEPackage.ACTION__CONDITIONS:
         return ((InternalEList<?>)getConditions()).basicRemove(otherEnd, msgs);
+      case GAMEPackage.ACTION__ECHANGES:
+        return ((InternalEList<?>)getEchanges()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -185,12 +214,14 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   {
     switch (featureID)
     {
-      case GAMEPackage.CHOIX__NAME:
+      case GAMEPackage.ACTION__NAME:
         return getName();
-      case GAMEPackage.CHOIX__ACTIONS:
-        return getActions();
-      case GAMEPackage.CHOIX__CONDITIONS:
+      case GAMEPackage.ACTION__DESCRIPTIONS:
+        return getDescriptions();
+      case GAMEPackage.ACTION__CONDITIONS:
         return getConditions();
+      case GAMEPackage.ACTION__ECHANGES:
+        return getEchanges();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -206,16 +237,20 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   {
     switch (featureID)
     {
-      case GAMEPackage.CHOIX__NAME:
+      case GAMEPackage.ACTION__NAME:
         setName((String)newValue);
         return;
-      case GAMEPackage.CHOIX__ACTIONS:
-        getActions().clear();
-        getActions().addAll((Collection<? extends Action>)newValue);
+      case GAMEPackage.ACTION__DESCRIPTIONS:
+        getDescriptions().clear();
+        getDescriptions().addAll((Collection<? extends Description>)newValue);
         return;
-      case GAMEPackage.CHOIX__CONDITIONS:
+      case GAMEPackage.ACTION__CONDITIONS:
         getConditions().clear();
         getConditions().addAll((Collection<? extends Condition>)newValue);
+        return;
+      case GAMEPackage.ACTION__ECHANGES:
+        getEchanges().clear();
+        getEchanges().addAll((Collection<? extends Echange>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -231,14 +266,17 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   {
     switch (featureID)
     {
-      case GAMEPackage.CHOIX__NAME:
+      case GAMEPackage.ACTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case GAMEPackage.CHOIX__ACTIONS:
-        getActions().clear();
+      case GAMEPackage.ACTION__DESCRIPTIONS:
+        getDescriptions().clear();
         return;
-      case GAMEPackage.CHOIX__CONDITIONS:
+      case GAMEPackage.ACTION__CONDITIONS:
         getConditions().clear();
+        return;
+      case GAMEPackage.ACTION__ECHANGES:
+        getEchanges().clear();
         return;
     }
     super.eUnset(featureID);
@@ -254,12 +292,14 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
   {
     switch (featureID)
     {
-      case GAMEPackage.CHOIX__NAME:
+      case GAMEPackage.ACTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case GAMEPackage.CHOIX__ACTIONS:
-        return actions != null && !actions.isEmpty();
-      case GAMEPackage.CHOIX__CONDITIONS:
+      case GAMEPackage.ACTION__DESCRIPTIONS:
+        return descriptions != null && !descriptions.isEmpty();
+      case GAMEPackage.ACTION__CONDITIONS:
         return conditions != null && !conditions.isEmpty();
+      case GAMEPackage.ACTION__ECHANGES:
+        return echanges != null && !echanges.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -281,4 +321,4 @@ public class ChoixImpl extends MinimalEObjectImpl.Container implements Choix
     return result.toString();
   }
 
-} //ChoixImpl
+} //ActionImpl

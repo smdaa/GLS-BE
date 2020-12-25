@@ -3,12 +3,16 @@
  */
 package fr.enseeiht.gAME.impl;
 
+import fr.enseeiht.gAME.Condition;
 import fr.enseeiht.gAME.Connaissance;
 import fr.enseeiht.gAME.GAMEPackage;
+import fr.enseeiht.gAME.Visibilite;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -22,6 +26,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.gAME.impl.ConnaissanceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ConnaissanceImpl#getVisibilite <em>Visibilite</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ConnaissanceImpl#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
  * </ul>
  *
  * @generated
@@ -47,6 +53,36 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVisibilite() <em>Visibilite</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibilite()
+   * @generated
+   * @ordered
+   */
+  protected static final Visibilite VISIBILITE_EDEFAULT = Visibilite.VISIBLE;
+
+  /**
+   * The cached value of the '{@link #getVisibilite() <em>Visibilite</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibilite()
+   * @generated
+   * @ordered
+   */
+  protected Visibilite visibilite = VISIBILITE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getConditionsVisibilite() <em>Conditions Visibilite</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConditionsVisibilite()
+   * @generated
+   * @ordered
+   */
+  protected Condition conditionsVisibilite;
 
   /**
    * <!-- begin-user-doc -->
@@ -100,12 +136,107 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
    * @generated
    */
   @Override
+  public Visibilite getVisibilite()
+  {
+    return visibilite;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVisibilite(Visibilite newVisibilite)
+  {
+    Visibilite oldVisibilite = visibilite;
+    visibilite = newVisibilite == null ? VISIBILITE_EDEFAULT : newVisibilite;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.CONNAISSANCE__VISIBILITE, oldVisibilite, visibilite));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Condition getConditionsVisibilite()
+  {
+    return conditionsVisibilite;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConditionsVisibilite(Condition newConditionsVisibilite, NotificationChain msgs)
+  {
+    Condition oldConditionsVisibilite = conditionsVisibilite;
+    conditionsVisibilite = newConditionsVisibilite;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE, oldConditionsVisibilite, newConditionsVisibilite);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConditionsVisibilite(Condition newConditionsVisibilite)
+  {
+    if (newConditionsVisibilite != conditionsVisibilite)
+    {
+      NotificationChain msgs = null;
+      if (conditionsVisibilite != null)
+        msgs = ((InternalEObject)conditionsVisibilite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE, null, msgs);
+      if (newConditionsVisibilite != null)
+        msgs = ((InternalEObject)newConditionsVisibilite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE, null, msgs);
+      msgs = basicSetConditionsVisibilite(newConditionsVisibilite, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE, newConditionsVisibilite, newConditionsVisibilite));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE:
+        return basicSetConditionsVisibilite(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
     {
       case GAMEPackage.CONNAISSANCE__NAME:
         return getName();
+      case GAMEPackage.CONNAISSANCE__VISIBILITE:
+        return getVisibilite();
+      case GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE:
+        return getConditionsVisibilite();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -122,6 +253,12 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
     {
       case GAMEPackage.CONNAISSANCE__NAME:
         setName((String)newValue);
+        return;
+      case GAMEPackage.CONNAISSANCE__VISIBILITE:
+        setVisibilite((Visibilite)newValue);
+        return;
+      case GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE:
+        setConditionsVisibilite((Condition)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -140,6 +277,12 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
       case GAMEPackage.CONNAISSANCE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case GAMEPackage.CONNAISSANCE__VISIBILITE:
+        setVisibilite(VISIBILITE_EDEFAULT);
+        return;
+      case GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE:
+        setConditionsVisibilite((Condition)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -156,6 +299,10 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
     {
       case GAMEPackage.CONNAISSANCE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GAMEPackage.CONNAISSANCE__VISIBILITE:
+        return visibilite != VISIBILITE_EDEFAULT;
+      case GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE:
+        return conditionsVisibilite != null;
     }
     return super.eIsSet(featureID);
   }
@@ -173,6 +320,8 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", visibilite: ");
+    result.append(visibilite);
     result.append(')');
     return result.toString();
   }

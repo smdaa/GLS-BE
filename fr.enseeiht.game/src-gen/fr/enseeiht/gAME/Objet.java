@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.enseeiht.gAME.Objet#getName <em>Name</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Objet#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Objet#getTaille <em>Taille</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Objet#getVisibilite <em>Visibilite</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Objet#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.gAME.GAMEPackage#getObjet()
@@ -82,5 +84,52 @@ public interface Objet extends EObject
    * @generated
    */
   void setTaille(int value);
+
+  /**
+   * Returns the value of the '<em><b>Visibilite</b></em>' attribute.
+   * The literals are from the enumeration {@link fr.enseeiht.gAME.Visibilite}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Visibilite</em>' attribute.
+   * @see fr.enseeiht.gAME.Visibilite
+   * @see #setVisibilite(Visibilite)
+   * @see fr.enseeiht.gAME.GAMEPackage#getObjet_Visibilite()
+   * @model
+   * @generated
+   */
+  Visibilite getVisibilite();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.gAME.Objet#getVisibilite <em>Visibilite</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Visibilite</em>' attribute.
+   * @see fr.enseeiht.gAME.Visibilite
+   * @see #getVisibilite()
+   * @generated
+   */
+  void setVisibilite(Visibilite value);
+
+  /**
+   * Returns the value of the '<em><b>Conditions Visibilite</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Conditions Visibilite</em>' containment reference.
+   * @see #setConditionsVisibilite(Condition)
+   * @see fr.enseeiht.gAME.GAMEPackage#getObjet_ConditionsVisibilite()
+   * @model containment="true"
+   * @generated
+   */
+  Condition getConditionsVisibilite();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.gAME.Objet#getConditionsVisibilite <em>Conditions Visibilite</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Conditions Visibilite</em>' containment reference.
+   * @see #getConditionsVisibilite()
+   * @generated
+   */
+  void setConditionsVisibilite(Condition value);
 
 } // Objet

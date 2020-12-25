@@ -87,13 +87,31 @@ public interface GAMEPackage extends EPackage
   int JEU__EXPLORATEUR = 1;
 
   /**
+   * The feature id for the '<em><b>Point Depart</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEU__POINT_DEPART = 2;
+
+  /**
+   * The feature id for the '<em><b>Point Fin</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEU__POINT_FIN = 3;
+
+  /**
    * The feature id for the '<em><b>Lieux</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JEU__LIEUX = 2;
+  int JEU__LIEUX = 4;
 
   /**
    * The feature id for the '<em><b>Objets</b></em>' containment reference list.
@@ -102,7 +120,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEU__OBJETS = 3;
+  int JEU__OBJETS = 5;
 
   /**
    * The feature id for the '<em><b>Connaissances</b></em>' containment reference list.
@@ -111,7 +129,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEU__CONNAISSANCES = 4;
+  int JEU__CONNAISSANCES = 6;
 
   /**
    * The feature id for the '<em><b>Personnes</b></em>' containment reference list.
@@ -120,7 +138,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEU__PERSONNES = 5;
+  int JEU__PERSONNES = 7;
 
   /**
    * The feature id for the '<em><b>Chemins</b></em>' containment reference list.
@@ -129,7 +147,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEU__CHEMINS = 6;
+  int JEU__CHEMINS = 8;
 
   /**
    * The number of structural features of the '<em>Jeu</em>' class.
@@ -138,7 +156,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEU_FEATURE_COUNT = 7;
+  int JEU_FEATURE_COUNT = 9;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.CheminImpl <em>Chemin</em>}' class.
@@ -205,13 +223,31 @@ public interface GAMEPackage extends EPackage
   int CHEMIN__CONDITIONS_VISIBILITE = 5;
 
   /**
+   * The feature id for the '<em><b>Ouverture</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHEMIN__OUVERTURE = 6;
+
+  /**
+   * The feature id for the '<em><b>Conditions Ouverture</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHEMIN__CONDITIONS_OUVERTURE = 7;
+
+  /**
    * The number of structural features of the '<em>Chemin</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHEMIN_FEATURE_COUNT = 6;
+  int CHEMIN_FEATURE_COUNT = 8;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.PersonneImpl <em>Personne</em>}' class.
@@ -288,13 +324,22 @@ public interface GAMEPackage extends EPackage
   int INTERACTION = 3;
 
   /**
+   * The feature id for the '<em><b>Echanges</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INTERACTION__ECHANGES = 0;
+
+  /**
    * The feature id for the '<em><b>Choix</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INTERACTION__CHOIX = 0;
+  int INTERACTION__CHOIX = 1;
 
   /**
    * The number of structural features of the '<em>Interaction</em>' class.
@@ -303,7 +348,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INTERACTION_FEATURE_COUNT = 1;
+  int INTERACTION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.ChoixImpl <em>Choix</em>}' class.
@@ -325,13 +370,141 @@ public interface GAMEPackage extends EPackage
   int CHOIX__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHOIX__ACTIONS = 1;
+
+  /**
+   * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHOIX__CONDITIONS = 2;
+
+  /**
    * The number of structural features of the '<em>Choix</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHOIX_FEATURE_COUNT = 1;
+  int CHOIX_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link fr.enseeiht.gAME.impl.ActionImpl <em>Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.gAME.impl.ActionImpl
+   * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getAction()
+   * @generated
+   */
+  int ACTION = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Descriptions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__DESCRIPTIONS = 1;
+
+  /**
+   * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__CONDITIONS = 2;
+
+  /**
+   * The feature id for the '<em><b>Echanges</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION__ECHANGES = 3;
+
+  /**
+   * The number of structural features of the '<em>Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ACTION_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link fr.enseeiht.gAME.impl.EchangeImpl <em>Echange</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.gAME.impl.EchangeImpl
+   * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getEchange()
+   * @generated
+   */
+  int ECHANGE = 6;
+
+  /**
+   * The feature id for the '<em><b>Objets Donne</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECHANGE__OBJETS_DONNE = 0;
+
+  /**
+   * The feature id for the '<em><b>Objets Pris</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECHANGE__OBJETS_PRIS = 1;
+
+  /**
+   * The feature id for the '<em><b>Connaissances</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECHANGE__CONNAISSANCES = 2;
+
+  /**
+   * The feature id for the '<em><b>Conditions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECHANGE__CONDITIONS = 3;
+
+  /**
+   * The number of structural features of the '<em>Echange</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ECHANGE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.ObjetImpl <em>Objet</em>}' class.
@@ -341,7 +514,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getObjet()
    * @generated
    */
-  int OBJET = 5;
+  int OBJET = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -371,13 +544,31 @@ public interface GAMEPackage extends EPackage
   int OBJET__TAILLE = 2;
 
   /**
+   * The feature id for the '<em><b>Visibilite</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBJET__VISIBILITE = 3;
+
+  /**
+   * The feature id for the '<em><b>Conditions Visibilite</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBJET__CONDITIONS_VISIBILITE = 4;
+
+  /**
    * The number of structural features of the '<em>Objet</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJET_FEATURE_COUNT = 3;
+  int OBJET_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.DescriptionImpl <em>Description</em>}' class.
@@ -387,7 +578,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getDescription()
    * @generated
    */
-  int DESCRIPTION = 6;
+  int DESCRIPTION = 8;
 
   /**
    * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -415,7 +606,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getCondition()
    * @generated
    */
-  int CONDITION = 7;
+  int CONDITION = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -427,13 +618,31 @@ public interface GAMEPackage extends EPackage
   int CONDITION__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Objets</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__OBJETS = 1;
+
+  /**
+   * The feature id for the '<em><b>Connaissances</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONDITION__CONNAISSANCES = 2;
+
+  /**
    * The number of structural features of the '<em>Condition</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONDITION_FEATURE_COUNT = 1;
+  int CONDITION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.ConnaissanceImpl <em>Connaissance</em>}' class.
@@ -443,7 +652,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getConnaissance()
    * @generated
    */
-  int CONNAISSANCE = 8;
+  int CONNAISSANCE = 10;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -455,13 +664,31 @@ public interface GAMEPackage extends EPackage
   int CONNAISSANCE__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Visibilite</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNAISSANCE__VISIBILITE = 1;
+
+  /**
+   * The feature id for the '<em><b>Conditions Visibilite</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNAISSANCE__CONDITIONS_VISIBILITE = 2;
+
+  /**
    * The number of structural features of the '<em>Connaissance</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONNAISSANCE_FEATURE_COUNT = 1;
+  int CONNAISSANCE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.ExplorateurImpl <em>Explorateur</em>}' class.
@@ -471,7 +698,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getExplorateur()
    * @generated
    */
-  int EXPLORATEUR = 9;
+  int EXPLORATEUR = 11;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -535,7 +762,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getLieu()
    * @generated
    */
-  int LIEU = 10;
+  int LIEU = 12;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -583,13 +810,22 @@ public interface GAMEPackage extends EPackage
   int LIEU__PERSONNES = 4;
 
   /**
+   * The feature id for the '<em><b>Cheminspossible</b></em>' reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIEU__CHEMINSPOSSIBLE = 5;
+
+  /**
    * The number of structural features of the '<em>Lieu</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LIEU_FEATURE_COUNT = 5;
+  int LIEU_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.Visibilite <em>Visibilite</em>}' enum.
@@ -599,7 +835,17 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getVisibilite()
    * @generated
    */
-  int VISIBILITE = 11;
+  int VISIBILITE = 13;
+
+  /**
+   * The meta object id for the '{@link fr.enseeiht.gAME.Ouverture <em>Ouverture</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.gAME.Ouverture
+   * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getOuverture()
+   * @generated
+   */
+  int OUVERTURE = 14;
 
 
   /**
@@ -633,6 +879,28 @@ public interface GAMEPackage extends EPackage
    * @generated
    */
   EReference getJeu_Explorateur();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.enseeiht.gAME.Jeu#getPointDepart <em>Point Depart</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Point Depart</em>'.
+   * @see fr.enseeiht.gAME.Jeu#getPointDepart()
+   * @see #getJeu()
+   * @generated
+   */
+  EReference getJeu_PointDepart();
+
+  /**
+   * Returns the meta object for the reference list '{@link fr.enseeiht.gAME.Jeu#getPointFin <em>Point Fin</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Point Fin</em>'.
+   * @see fr.enseeiht.gAME.Jeu#getPointFin()
+   * @see #getJeu()
+   * @generated
+   */
+  EReference getJeu_PointFin();
 
   /**
    * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Jeu#getLieux <em>Lieux</em>}'.
@@ -766,6 +1034,28 @@ public interface GAMEPackage extends EPackage
   EReference getChemin_ConditionsVisibilite();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Chemin#getOuverture <em>Ouverture</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ouverture</em>'.
+   * @see fr.enseeiht.gAME.Chemin#getOuverture()
+   * @see #getChemin()
+   * @generated
+   */
+  EAttribute getChemin_Ouverture();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.enseeiht.gAME.Chemin#getConditionsOuverture <em>Conditions Ouverture</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Conditions Ouverture</em>'.
+   * @see fr.enseeiht.gAME.Chemin#getConditionsOuverture()
+   * @see #getChemin()
+   * @generated
+   */
+  EReference getChemin_ConditionsOuverture();
+
+  /**
    * Returns the meta object for class '{@link fr.enseeiht.gAME.Personne <em>Personne</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -841,6 +1131,17 @@ public interface GAMEPackage extends EPackage
   EClass getInteraction();
 
   /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Interaction#getEchanges <em>Echanges</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Echanges</em>'.
+   * @see fr.enseeiht.gAME.Interaction#getEchanges()
+   * @see #getInteraction()
+   * @generated
+   */
+  EReference getInteraction_Echanges();
+
+  /**
    * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Interaction#getChoix <em>Choix</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -871,6 +1172,136 @@ public interface GAMEPackage extends EPackage
    * @generated
    */
   EAttribute getChoix_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Choix#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see fr.enseeiht.gAME.Choix#getActions()
+   * @see #getChoix()
+   * @generated
+   */
+  EReference getChoix_Actions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Choix#getConditions <em>Conditions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Conditions</em>'.
+   * @see fr.enseeiht.gAME.Choix#getConditions()
+   * @see #getChoix()
+   * @generated
+   */
+  EReference getChoix_Conditions();
+
+  /**
+   * Returns the meta object for class '{@link fr.enseeiht.gAME.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Action</em>'.
+   * @see fr.enseeiht.gAME.Action
+   * @generated
+   */
+  EClass getAction();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Action#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see fr.enseeiht.gAME.Action#getName()
+   * @see #getAction()
+   * @generated
+   */
+  EAttribute getAction_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Action#getDescriptions <em>Descriptions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Descriptions</em>'.
+   * @see fr.enseeiht.gAME.Action#getDescriptions()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_Descriptions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Action#getConditions <em>Conditions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Conditions</em>'.
+   * @see fr.enseeiht.gAME.Action#getConditions()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_Conditions();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Action#getEchanges <em>Echanges</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Echanges</em>'.
+   * @see fr.enseeiht.gAME.Action#getEchanges()
+   * @see #getAction()
+   * @generated
+   */
+  EReference getAction_Echanges();
+
+  /**
+   * Returns the meta object for class '{@link fr.enseeiht.gAME.Echange <em>Echange</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Echange</em>'.
+   * @see fr.enseeiht.gAME.Echange
+   * @generated
+   */
+  EClass getEchange();
+
+  /**
+   * Returns the meta object for the reference list '{@link fr.enseeiht.gAME.Echange#getObjetsDonne <em>Objets Donne</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Objets Donne</em>'.
+   * @see fr.enseeiht.gAME.Echange#getObjetsDonne()
+   * @see #getEchange()
+   * @generated
+   */
+  EReference getEchange_ObjetsDonne();
+
+  /**
+   * Returns the meta object for the reference list '{@link fr.enseeiht.gAME.Echange#getObjetsPris <em>Objets Pris</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Objets Pris</em>'.
+   * @see fr.enseeiht.gAME.Echange#getObjetsPris()
+   * @see #getEchange()
+   * @generated
+   */
+  EReference getEchange_ObjetsPris();
+
+  /**
+   * Returns the meta object for the reference list '{@link fr.enseeiht.gAME.Echange#getConnaissances <em>Connaissances</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Connaissances</em>'.
+   * @see fr.enseeiht.gAME.Echange#getConnaissances()
+   * @see #getEchange()
+   * @generated
+   */
+  EReference getEchange_Connaissances();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Echange#getConditions <em>Conditions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Conditions</em>'.
+   * @see fr.enseeiht.gAME.Echange#getConditions()
+   * @see #getEchange()
+   * @generated
+   */
+  EReference getEchange_Conditions();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.gAME.Objet <em>Objet</em>}'.
@@ -916,6 +1347,28 @@ public interface GAMEPackage extends EPackage
   EAttribute getObjet_Taille();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Objet#getVisibilite <em>Visibilite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Visibilite</em>'.
+   * @see fr.enseeiht.gAME.Objet#getVisibilite()
+   * @see #getObjet()
+   * @generated
+   */
+  EAttribute getObjet_Visibilite();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.enseeiht.gAME.Objet#getConditionsVisibilite <em>Conditions Visibilite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Conditions Visibilite</em>'.
+   * @see fr.enseeiht.gAME.Objet#getConditionsVisibilite()
+   * @see #getObjet()
+   * @generated
+   */
+  EReference getObjet_ConditionsVisibilite();
+
+  /**
    * Returns the meta object for class '{@link fr.enseeiht.gAME.Description <em>Description</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -958,6 +1411,28 @@ public interface GAMEPackage extends EPackage
   EAttribute getCondition_Name();
 
   /**
+   * Returns the meta object for the reference list '{@link fr.enseeiht.gAME.Condition#getObjets <em>Objets</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Objets</em>'.
+   * @see fr.enseeiht.gAME.Condition#getObjets()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Objets();
+
+  /**
+   * Returns the meta object for the reference list '{@link fr.enseeiht.gAME.Condition#getConnaissances <em>Connaissances</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Connaissances</em>'.
+   * @see fr.enseeiht.gAME.Condition#getConnaissances()
+   * @see #getCondition()
+   * @generated
+   */
+  EReference getCondition_Connaissances();
+
+  /**
    * Returns the meta object for class '{@link fr.enseeiht.gAME.Connaissance <em>Connaissance</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -977,6 +1452,28 @@ public interface GAMEPackage extends EPackage
    * @generated
    */
   EAttribute getConnaissance_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Connaissance#getVisibilite <em>Visibilite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Visibilite</em>'.
+   * @see fr.enseeiht.gAME.Connaissance#getVisibilite()
+   * @see #getConnaissance()
+   * @generated
+   */
+  EAttribute getConnaissance_Visibilite();
+
+  /**
+   * Returns the meta object for the containment reference '{@link fr.enseeiht.gAME.Connaissance#getConditionsVisibilite <em>Conditions Visibilite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Conditions Visibilite</em>'.
+   * @see fr.enseeiht.gAME.Connaissance#getConditionsVisibilite()
+   * @see #getConnaissance()
+   * @generated
+   */
+  EReference getConnaissance_ConditionsVisibilite();
 
   /**
    * Returns the meta object for class '{@link fr.enseeiht.gAME.Explorateur <em>Explorateur</em>}'.
@@ -1109,6 +1606,17 @@ public interface GAMEPackage extends EPackage
   EReference getLieu_Personnes();
 
   /**
+   * Returns the meta object for the reference list '{@link fr.enseeiht.gAME.Lieu#getCheminspossible <em>Cheminspossible</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference list '<em>Cheminspossible</em>'.
+   * @see fr.enseeiht.gAME.Lieu#getCheminspossible()
+   * @see #getLieu()
+   * @generated
+   */
+  EReference getLieu_Cheminspossible();
+
+  /**
    * Returns the meta object for enum '{@link fr.enseeiht.gAME.Visibilite <em>Visibilite</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1117,6 +1625,16 @@ public interface GAMEPackage extends EPackage
    * @generated
    */
   EEnum getVisibilite();
+
+  /**
+   * Returns the meta object for enum '{@link fr.enseeiht.gAME.Ouverture <em>Ouverture</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Ouverture</em>'.
+   * @see fr.enseeiht.gAME.Ouverture
+   * @generated
+   */
+  EEnum getOuverture();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1166,6 +1684,22 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EReference JEU__EXPLORATEUR = eINSTANCE.getJeu_Explorateur();
+
+    /**
+     * The meta object literal for the '<em><b>Point Depart</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference JEU__POINT_DEPART = eINSTANCE.getJeu_PointDepart();
+
+    /**
+     * The meta object literal for the '<em><b>Point Fin</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference JEU__POINT_FIN = eINSTANCE.getJeu_PointFin();
 
     /**
      * The meta object literal for the '<em><b>Lieux</b></em>' containment reference list feature.
@@ -1266,6 +1800,22 @@ public interface GAMEPackage extends EPackage
     EReference CHEMIN__CONDITIONS_VISIBILITE = eINSTANCE.getChemin_ConditionsVisibilite();
 
     /**
+     * The meta object literal for the '<em><b>Ouverture</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CHEMIN__OUVERTURE = eINSTANCE.getChemin_Ouverture();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions Ouverture</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHEMIN__CONDITIONS_OUVERTURE = eINSTANCE.getChemin_ConditionsOuverture();
+
+    /**
      * The meta object literal for the '{@link fr.enseeiht.gAME.impl.PersonneImpl <em>Personne</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1326,6 +1876,14 @@ public interface GAMEPackage extends EPackage
     EClass INTERACTION = eINSTANCE.getInteraction();
 
     /**
+     * The meta object literal for the '<em><b>Echanges</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference INTERACTION__ECHANGES = eINSTANCE.getInteraction_Echanges();
+
+    /**
      * The meta object literal for the '<em><b>Choix</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1350,6 +1908,106 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EAttribute CHOIX__NAME = eINSTANCE.getChoix_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHOIX__ACTIONS = eINSTANCE.getChoix_Actions();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHOIX__CONDITIONS = eINSTANCE.getChoix_Conditions();
+
+    /**
+     * The meta object literal for the '{@link fr.enseeiht.gAME.impl.ActionImpl <em>Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.gAME.impl.ActionImpl
+     * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getAction()
+     * @generated
+     */
+    EClass ACTION = eINSTANCE.getAction();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ACTION__NAME = eINSTANCE.getAction_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Descriptions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__DESCRIPTIONS = eINSTANCE.getAction_Descriptions();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__CONDITIONS = eINSTANCE.getAction_Conditions();
+
+    /**
+     * The meta object literal for the '<em><b>Echanges</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ACTION__ECHANGES = eINSTANCE.getAction_Echanges();
+
+    /**
+     * The meta object literal for the '{@link fr.enseeiht.gAME.impl.EchangeImpl <em>Echange</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.gAME.impl.EchangeImpl
+     * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getEchange()
+     * @generated
+     */
+    EClass ECHANGE = eINSTANCE.getEchange();
+
+    /**
+     * The meta object literal for the '<em><b>Objets Donne</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ECHANGE__OBJETS_DONNE = eINSTANCE.getEchange_ObjetsDonne();
+
+    /**
+     * The meta object literal for the '<em><b>Objets Pris</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ECHANGE__OBJETS_PRIS = eINSTANCE.getEchange_ObjetsPris();
+
+    /**
+     * The meta object literal for the '<em><b>Connaissances</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ECHANGE__CONNAISSANCES = eINSTANCE.getEchange_Connaissances();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ECHANGE__CONDITIONS = eINSTANCE.getEchange_Conditions();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.gAME.impl.ObjetImpl <em>Objet</em>}' class.
@@ -1384,6 +2042,22 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EAttribute OBJET__TAILLE = eINSTANCE.getObjet_Taille();
+
+    /**
+     * The meta object literal for the '<em><b>Visibilite</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OBJET__VISIBILITE = eINSTANCE.getObjet_Visibilite();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions Visibilite</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OBJET__CONDITIONS_VISIBILITE = eINSTANCE.getObjet_ConditionsVisibilite();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.gAME.impl.DescriptionImpl <em>Description</em>}' class.
@@ -1422,6 +2096,22 @@ public interface GAMEPackage extends EPackage
     EAttribute CONDITION__NAME = eINSTANCE.getCondition_Name();
 
     /**
+     * The meta object literal for the '<em><b>Objets</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__OBJETS = eINSTANCE.getCondition_Objets();
+
+    /**
+     * The meta object literal for the '<em><b>Connaissances</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONDITION__CONNAISSANCES = eINSTANCE.getCondition_Connaissances();
+
+    /**
      * The meta object literal for the '{@link fr.enseeiht.gAME.impl.ConnaissanceImpl <em>Connaissance</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1438,6 +2128,22 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EAttribute CONNAISSANCE__NAME = eINSTANCE.getConnaissance_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Visibilite</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CONNAISSANCE__VISIBILITE = eINSTANCE.getConnaissance_Visibilite();
+
+    /**
+     * The meta object literal for the '<em><b>Conditions Visibilite</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONNAISSANCE__CONDITIONS_VISIBILITE = eINSTANCE.getConnaissance_ConditionsVisibilite();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.gAME.impl.ExplorateurImpl <em>Explorateur</em>}' class.
@@ -1540,6 +2246,14 @@ public interface GAMEPackage extends EPackage
     EReference LIEU__PERSONNES = eINSTANCE.getLieu_Personnes();
 
     /**
+     * The meta object literal for the '<em><b>Cheminspossible</b></em>' reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIEU__CHEMINSPOSSIBLE = eINSTANCE.getLieu_Cheminspossible();
+
+    /**
      * The meta object literal for the '{@link fr.enseeiht.gAME.Visibilite <em>Visibilite</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1548,6 +2262,16 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EEnum VISIBILITE = eINSTANCE.getVisibilite();
+
+    /**
+     * The meta object literal for the '{@link fr.enseeiht.gAME.Ouverture <em>Ouverture</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.gAME.Ouverture
+     * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getOuverture()
+     * @generated
+     */
+    EEnum OUVERTURE = eINSTANCE.getOuverture();
 
   }
 

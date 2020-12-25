@@ -8,6 +8,7 @@ import fr.enseeiht.gAME.Condition;
 import fr.enseeiht.gAME.Description;
 import fr.enseeiht.gAME.GAMEPackage;
 import fr.enseeiht.gAME.Lieu;
+import fr.enseeiht.gAME.Ouverture;
 import fr.enseeiht.gAME.Visibilite;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -33,6 +34,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link fr.enseeiht.gAME.impl.CheminImpl#getArrive <em>Arrive</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.CheminImpl#getVisibilite <em>Visibilite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.CheminImpl#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.CheminImpl#getOuverture <em>Ouverture</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.CheminImpl#getConditionsOuverture <em>Conditions Ouverture</em>}</li>
  * </ul>
  *
  * @generated
@@ -118,6 +121,36 @@ public class CheminImpl extends MinimalEObjectImpl.Container implements Chemin
    * @ordered
    */
   protected Condition conditionsVisibilite;
+
+  /**
+   * The default value of the '{@link #getOuverture() <em>Ouverture</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOuverture()
+   * @generated
+   * @ordered
+   */
+  protected static final Ouverture OUVERTURE_EDEFAULT = Ouverture.OUVERT;
+
+  /**
+   * The cached value of the '{@link #getOuverture() <em>Ouverture</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOuverture()
+   * @generated
+   * @ordered
+   */
+  protected Ouverture ouverture = OUVERTURE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getConditionsOuverture() <em>Conditions Ouverture</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConditionsOuverture()
+   * @generated
+   * @ordered
+   */
+  protected Condition conditionsOuverture;
 
   /**
    * <!-- begin-user-doc -->
@@ -386,6 +419,81 @@ public class CheminImpl extends MinimalEObjectImpl.Container implements Chemin
    * @generated
    */
   @Override
+  public Ouverture getOuverture()
+  {
+    return ouverture;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setOuverture(Ouverture newOuverture)
+  {
+    Ouverture oldOuverture = ouverture;
+    ouverture = newOuverture == null ? OUVERTURE_EDEFAULT : newOuverture;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.CHEMIN__OUVERTURE, oldOuverture, ouverture));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Condition getConditionsOuverture()
+  {
+    return conditionsOuverture;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConditionsOuverture(Condition newConditionsOuverture, NotificationChain msgs)
+  {
+    Condition oldConditionsOuverture = conditionsOuverture;
+    conditionsOuverture = newConditionsOuverture;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE, oldConditionsOuverture, newConditionsOuverture);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConditionsOuverture(Condition newConditionsOuverture)
+  {
+    if (newConditionsOuverture != conditionsOuverture)
+    {
+      NotificationChain msgs = null;
+      if (conditionsOuverture != null)
+        msgs = ((InternalEObject)conditionsOuverture).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE, null, msgs);
+      if (newConditionsOuverture != null)
+        msgs = ((InternalEObject)newConditionsOuverture).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE, null, msgs);
+      msgs = basicSetConditionsOuverture(newConditionsOuverture, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE, newConditionsOuverture, newConditionsOuverture));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -394,6 +502,8 @@ public class CheminImpl extends MinimalEObjectImpl.Container implements Chemin
         return basicSetDescriptions(null, msgs);
       case GAMEPackage.CHEMIN__CONDITIONS_VISIBILITE:
         return basicSetConditionsVisibilite(null, msgs);
+      case GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE:
+        return basicSetConditionsOuverture(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -422,6 +532,10 @@ public class CheminImpl extends MinimalEObjectImpl.Container implements Chemin
         return getVisibilite();
       case GAMEPackage.CHEMIN__CONDITIONS_VISIBILITE:
         return getConditionsVisibilite();
+      case GAMEPackage.CHEMIN__OUVERTURE:
+        return getOuverture();
+      case GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE:
+        return getConditionsOuverture();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -453,6 +567,12 @@ public class CheminImpl extends MinimalEObjectImpl.Container implements Chemin
         return;
       case GAMEPackage.CHEMIN__CONDITIONS_VISIBILITE:
         setConditionsVisibilite((Condition)newValue);
+        return;
+      case GAMEPackage.CHEMIN__OUVERTURE:
+        setOuverture((Ouverture)newValue);
+        return;
+      case GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE:
+        setConditionsOuverture((Condition)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -486,6 +606,12 @@ public class CheminImpl extends MinimalEObjectImpl.Container implements Chemin
       case GAMEPackage.CHEMIN__CONDITIONS_VISIBILITE:
         setConditionsVisibilite((Condition)null);
         return;
+      case GAMEPackage.CHEMIN__OUVERTURE:
+        setOuverture(OUVERTURE_EDEFAULT);
+        return;
+      case GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE:
+        setConditionsOuverture((Condition)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -512,6 +638,10 @@ public class CheminImpl extends MinimalEObjectImpl.Container implements Chemin
         return visibilite != VISIBILITE_EDEFAULT;
       case GAMEPackage.CHEMIN__CONDITIONS_VISIBILITE:
         return conditionsVisibilite != null;
+      case GAMEPackage.CHEMIN__OUVERTURE:
+        return ouverture != OUVERTURE_EDEFAULT;
+      case GAMEPackage.CHEMIN__CONDITIONS_OUVERTURE:
+        return conditionsOuverture != null;
     }
     return super.eIsSet(featureID);
   }
@@ -531,6 +661,8 @@ public class CheminImpl extends MinimalEObjectImpl.Container implements Chemin
     result.append(name);
     result.append(", visibilite: ");
     result.append(visibilite);
+    result.append(", ouverture: ");
+    result.append(ouverture);
     result.append(')');
     return result.toString();
   }

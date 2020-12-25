@@ -5,8 +5,8 @@ generate gAME "http://www.enseeiht.fr/GAME"
 Jeu:
 	'jeu' name=ID '{'
 	explorateur=Explorateur
-	'pointDepart' pointDepart = Lieu
-	'pointFin' (pointFin += Lieu)+
+	'pointDepart' pointDepart = [Lieu]
+	'pointFin' (pointFin += [Lieu])+
 	lieux+=Lieu*
 	Objets+=Objet*
 	Connaissances+=Connaissance*
@@ -19,8 +19,8 @@ Chemin:
 	(descriptions=Description)?
 	'de' depart=[Lieu]
 	'vers' arrive=[Lieu]
-	visibilite=Visibilite 'si' conditionsVisibilite=Condition
-	ouverture=Ouverture 'si' conditionsOuverture=Condition
+	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
+	ouverture=Ouverture ('si' conditionsOuverture=Condition)?
 	'}'	
 ;
 
@@ -28,29 +28,44 @@ Personne:
 	'personne' name=ID '{'
 	descriptions=Description
 	interaction=Interaction
-	visibilite=Visibilite 'si' conditionsVisibilite=Condition
+	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 	'}';
 
 Interaction:
 	'interaction' '{'
+	(echanges+=Echange)*
 	(choix+=Choix)+
 	'}';
 
 Choix:
 	'choix' name=ID '{'
 	(actions+=Action)*
+	(conditions+=Condition)*
 	'}';
 
 Action:
 	'action' name=ID '{'
-	
+		(descriptions+=Description)
+		(conditions+=Condition)*
+		(echanges+=Echange)+
+		
 	'}'	
+;
+
+Echange:
+	{Echange} 'echange' '{'
+		('objetsDonne' (objetsDonne+=[Objet])+)?
+		('objetsPris' (objetsPris+=[Objet])+)?
+		('connaissancesDonne' (connaissances+=[Connaissance])+)?
+		(conditions+=Condition)*
+	'}'
 ;
 
 Objet:
 	'objet' name=ID '{' 
 	(descriptions+=Description)? 
 	'taille' taille=INT 
+	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 	'}';
 
 Description:
@@ -59,10 +74,16 @@ Description:
 	'}';
 
 Condition:
-	'condition' name=ID '{' '}';
+	'condition' name=ID '{' 
+		('objets' 'necessaires' (objets+=[Objet])*)?
+		('objets' 'manquants' (objets+=[Objet])*)?
+		('connaissances' 'necessaires' (connaissances+=[Connaissance])*)?	
+	'}';
 
 Connaissance:
-	'connaissance' name=ID '{' '}';
+	'connaissance' name=ID '{' 
+	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
+	'}';
 
 Explorateur:
 	'explorateur' name=ID '{' 
@@ -75,9 +96,10 @@ Explorateur:
 Lieu:
 	'lieu' name=ID '{' 
 		(descriptions+=Description)?
-		('objets' objets+=[Objet])*
-		('connaissances' connaissances+=[Connaissance])*
-		('personnes' personnes+=[Personne])*
+		('objets' 'trouvables' objets+=[Objet])*
+		('connaissances' 'trouvable' connaissances+=[Connaissance])*
+		('personnes' 'trouvable' personnes+=[Personne])*
+		('cheminspossible' (cheminspossible+=[Chemin])+)?
 	'}';
 
 enum Visibilite:

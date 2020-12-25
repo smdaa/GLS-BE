@@ -3,9 +3,11 @@
  */
 package fr.enseeiht.gAME.impl;
 
+import fr.enseeiht.gAME.Condition;
 import fr.enseeiht.gAME.Description;
 import fr.enseeiht.gAME.GAMEPackage;
 import fr.enseeiht.gAME.Objet;
+import fr.enseeiht.gAME.Visibilite;
 
 import java.util.Collection;
 
@@ -34,6 +36,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getTaille <em>Taille</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getVisibilite <em>Visibilite</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
  * </ul>
  *
  * @generated
@@ -89,6 +93,36 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
    * @ordered
    */
   protected int taille = TAILLE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVisibilite() <em>Visibilite</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibilite()
+   * @generated
+   * @ordered
+   */
+  protected static final Visibilite VISIBILITE_EDEFAULT = Visibilite.VISIBLE;
+
+  /**
+   * The cached value of the '{@link #getVisibilite() <em>Visibilite</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVisibilite()
+   * @generated
+   * @ordered
+   */
+  protected Visibilite visibilite = VISIBILITE_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getConditionsVisibilite() <em>Conditions Visibilite</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getConditionsVisibilite()
+   * @generated
+   * @ordered
+   */
+  protected Condition conditionsVisibilite;
 
   /**
    * <!-- begin-user-doc -->
@@ -182,12 +216,89 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
    * @generated
    */
   @Override
+  public Visibilite getVisibilite()
+  {
+    return visibilite;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setVisibilite(Visibilite newVisibilite)
+  {
+    Visibilite oldVisibilite = visibilite;
+    visibilite = newVisibilite == null ? VISIBILITE_EDEFAULT : newVisibilite;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.OBJET__VISIBILITE, oldVisibilite, visibilite));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Condition getConditionsVisibilite()
+  {
+    return conditionsVisibilite;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetConditionsVisibilite(Condition newConditionsVisibilite, NotificationChain msgs)
+  {
+    Condition oldConditionsVisibilite = conditionsVisibilite;
+    conditionsVisibilite = newConditionsVisibilite;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, GAMEPackage.OBJET__CONDITIONS_VISIBILITE, oldConditionsVisibilite, newConditionsVisibilite);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setConditionsVisibilite(Condition newConditionsVisibilite)
+  {
+    if (newConditionsVisibilite != conditionsVisibilite)
+    {
+      NotificationChain msgs = null;
+      if (conditionsVisibilite != null)
+        msgs = ((InternalEObject)conditionsVisibilite).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - GAMEPackage.OBJET__CONDITIONS_VISIBILITE, null, msgs);
+      if (newConditionsVisibilite != null)
+        msgs = ((InternalEObject)newConditionsVisibilite).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - GAMEPackage.OBJET__CONDITIONS_VISIBILITE, null, msgs);
+      msgs = basicSetConditionsVisibilite(newConditionsVisibilite, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.OBJET__CONDITIONS_VISIBILITE, newConditionsVisibilite, newConditionsVisibilite));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
       case GAMEPackage.OBJET__DESCRIPTIONS:
         return ((InternalEList<?>)getDescriptions()).basicRemove(otherEnd, msgs);
+      case GAMEPackage.OBJET__CONDITIONS_VISIBILITE:
+        return basicSetConditionsVisibilite(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -208,6 +319,10 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
         return getDescriptions();
       case GAMEPackage.OBJET__TAILLE:
         return getTaille();
+      case GAMEPackage.OBJET__VISIBILITE:
+        return getVisibilite();
+      case GAMEPackage.OBJET__CONDITIONS_VISIBILITE:
+        return getConditionsVisibilite();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -233,6 +348,12 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
       case GAMEPackage.OBJET__TAILLE:
         setTaille((Integer)newValue);
         return;
+      case GAMEPackage.OBJET__VISIBILITE:
+        setVisibilite((Visibilite)newValue);
+        return;
+      case GAMEPackage.OBJET__CONDITIONS_VISIBILITE:
+        setConditionsVisibilite((Condition)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -256,6 +377,12 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
       case GAMEPackage.OBJET__TAILLE:
         setTaille(TAILLE_EDEFAULT);
         return;
+      case GAMEPackage.OBJET__VISIBILITE:
+        setVisibilite(VISIBILITE_EDEFAULT);
+        return;
+      case GAMEPackage.OBJET__CONDITIONS_VISIBILITE:
+        setConditionsVisibilite((Condition)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -276,6 +403,10 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
         return descriptions != null && !descriptions.isEmpty();
       case GAMEPackage.OBJET__TAILLE:
         return taille != TAILLE_EDEFAULT;
+      case GAMEPackage.OBJET__VISIBILITE:
+        return visibilite != VISIBILITE_EDEFAULT;
+      case GAMEPackage.OBJET__CONDITIONS_VISIBILITE:
+        return conditionsVisibilite != null;
     }
     return super.eIsSet(featureID);
   }
@@ -295,6 +426,8 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
     result.append(name);
     result.append(", taille: ");
     result.append(taille);
+    result.append(", visibilite: ");
+    result.append(visibilite);
     result.append(')');
     return result.toString();
   }

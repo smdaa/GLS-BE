@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.enseeiht.gAME.Lieu#getObjets <em>Objets</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Lieu#getConnaissances <em>Connaissances</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Lieu#getPersonnes <em>Personnes</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Lieu#getCheminspossible <em>Cheminspossible</em>}</li>
  * </ul>
  *
  * @see fr.enseeiht.gAME.GAMEPackage#getLieu()
@@ -98,5 +99,17 @@ public interface Lieu extends EObject
    * @generated
    */
   EList<Personne> getPersonnes();
+
+  /**
+   * Returns the value of the '<em><b>Cheminspossible</b></em>' reference list.
+   * The list contents are of type {@link fr.enseeiht.gAME.Chemin}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Cheminspossible</em>' reference list.
+   * @see fr.enseeiht.gAME.GAMEPackage#getLieu_Cheminspossible()
+   * @model
+   * @generated
+   */
+  EList<Chemin> getCheminspossible();
 
 } // Lieu

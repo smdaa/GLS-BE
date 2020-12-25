@@ -71,6 +71,8 @@ public class GAMEFactoryImpl extends EFactoryImpl implements GAMEFactory
       case GAMEPackage.PERSONNE: return createPersonne();
       case GAMEPackage.INTERACTION: return createInteraction();
       case GAMEPackage.CHOIX: return createChoix();
+      case GAMEPackage.ACTION: return createAction();
+      case GAMEPackage.ECHANGE: return createEchange();
       case GAMEPackage.OBJET: return createObjet();
       case GAMEPackage.DESCRIPTION: return createDescription();
       case GAMEPackage.CONDITION: return createCondition();
@@ -94,6 +96,8 @@ public class GAMEFactoryImpl extends EFactoryImpl implements GAMEFactory
     {
       case GAMEPackage.VISIBILITE:
         return createVisibiliteFromString(eDataType, initialValue);
+      case GAMEPackage.OUVERTURE:
+        return createOuvertureFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -111,6 +115,8 @@ public class GAMEFactoryImpl extends EFactoryImpl implements GAMEFactory
     {
       case GAMEPackage.VISIBILITE:
         return convertVisibiliteToString(eDataType, instanceValue);
+      case GAMEPackage.OUVERTURE:
+        return convertOuvertureToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -174,6 +180,30 @@ public class GAMEFactoryImpl extends EFactoryImpl implements GAMEFactory
   {
     ChoixImpl choix = new ChoixImpl();
     return choix;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Action createAction()
+  {
+    ActionImpl action = new ActionImpl();
+    return action;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Echange createEchange()
+  {
+    EchangeImpl echange = new EchangeImpl();
+    return echange;
   }
 
   /**
@@ -266,6 +296,28 @@ public class GAMEFactoryImpl extends EFactoryImpl implements GAMEFactory
    * @generated
    */
   public String convertVisibiliteToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Ouverture createOuvertureFromString(EDataType eDataType, String initialValue)
+  {
+    Ouverture result = Ouverture.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertOuvertureToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

@@ -101,6 +101,16 @@ public class GAMEAdapterFactory extends AdapterFactoryImpl
         return createChoixAdapter();
       }
       @Override
+      public Adapter caseAction(Action object)
+      {
+        return createActionAdapter();
+      }
+      @Override
+      public Adapter caseEchange(Echange object)
+      {
+        return createEchangeAdapter();
+      }
+      @Override
       public Adapter caseObjet(Objet object)
       {
         return createObjetAdapter();
@@ -223,6 +233,36 @@ public class GAMEAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createChoixAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.gAME.Action <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.gAME.Action
+   * @generated
+   */
+  public Adapter createActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.gAME.Echange <em>Echange</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.gAME.Echange
+   * @generated
+   */
+  public Adapter createEchangeAdapter()
   {
     return null;
   }
