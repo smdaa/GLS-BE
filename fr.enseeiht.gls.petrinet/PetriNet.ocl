@@ -1,0 +1,46 @@
+import 'PetriNet.ecore'
+
+package petrinet
+
+context PetriNet
+--
+-- example invariant with a custom error message to verify that
+-- the 'Element' property of all 'petrinet::PetriNet' instances is non-null
+--
+inv NonNull_Element('The \'Element\' property of "' + self.toString() + '" is null'):
+	Element <> null	
+
+context Arc
+	--un arc doit suivre le modele suivant place arc transition arc place
+	inv Place_Arc_Transition_Arc_Place:
+	(self.from.oclIsTypeOf(Place) and self.to.oclIsTypeOf(Transition)) or (self.from.oclIsTypeOf(Transition) and self.to.oclIsTypeOf(Place))
+
+context Arc	
+	-- le poids d'un arc ne peut pas être nul (sinon l'arc ne sert à rien)
+	inv Weight_positif:
+	self.weight > 0
+
+context Place
+	--le nombre des jetons dans une place est postive
+	inv Nb_jetons_positif:
+	self.token >= 0
+
+context Node
+	--le nom d’une node doit être composé d’au moins un caractère.
+	inv nameOfNodeIsDefined:
+	if self.name.oclIsUndefined() then false 
+	else self.name.size() > 0 endif	
+
+context Node	
+	--deux nodes différentne peuvent pas avoir le même nom.
+	inv NuniqNames: Node.allInstances()
+	-> select(n | n.name = self.name)
+	-> size() = 1
+	
+context PetriNet
+	--le nom d’un réseau Petri doit être composé d’au moins un caractère.
+	inv nameOfPetriNetIsDefined :
+	if self.name.oclIsUndefined() then false 
+	else self.name.size() > 0 endif	
+		
+endpackage

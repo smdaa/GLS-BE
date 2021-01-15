@@ -1,0 +1,18 @@
+module Game2Petri;
+create OUT: petrinet from  IN: game;
+
+-- Traduire un jeu en un PetriNet de même nom
+rule Process2PetriNet {
+	from g: game!Jeu
+	to pn: petrinet!PetriNet (
+		name <- g.name)
+}
+
+-- Traduire un Objet en un motif sur le réseau de Petri
+rule WorkDefinition2PetriNet {
+	from o: game!Objet
+	to p_objet : petrinet!Place(
+		name <- o.name,
+		token <- o.taille)
+}
+	

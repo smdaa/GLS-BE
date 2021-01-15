@@ -1,0 +1,111 @@
+grammar fr.enseeiht.GAME with org.eclipse.xtext.common.Terminals
+
+generate gAME "http://www.enseeiht.fr/GAME"
+
+Jeu:
+	'jeu' name=ID '{'
+	explorateur=Explorateur
+	'pointDepart' pointDepart = [Lieu]
+	'pointFin' (pointFin += [Lieu])+
+	lieux+=Lieu*
+	Objets+=Objet*
+	Connaissances+=Connaissance*
+	personnes+=Personne*
+	chemins+=Chemin*
+	'}';
+
+Chemin:
+	'chemin' name=ID '{'
+	(descriptions=Description)?
+	'de' depart=[Lieu]
+	'vers' arrive=[Lieu]
+	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
+	ouverture=Ouverture ('si' conditionsOuverture=Condition)?
+	'}'	
+;
+
+Personne:
+	'personne' name=ID '{'
+	descriptions=Description
+	interaction=Interaction
+	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
+	'}';
+
+Interaction:
+	'interaction' '{'
+	(echanges+=Echange)*
+	(choix+=Choix)+
+	'}';
+
+Choix:
+	'choix' name=ID '{'
+	(actions+=Action)*
+	(conditions+=Condition)*
+	'}';
+
+Action:
+	'action' name=ID '{'
+		(descriptions+=Description)
+		(conditions+=Condition)*
+		(echanges+=Echange)+
+		
+	'}'	
+;
+
+Echange:
+	{Echange} 'echange' '{'
+		('objetsDonne' (objetsDonne+=[Objet])+)?
+		('objetsPris' (objetsPris+=[Objet])+)?
+		('connaissancesDonne' (connaissances+=[Connaissance])+)?
+		(conditions+=Condition)*
+	'}'
+;
+
+Objet:
+	'objet' name=ID '{' 
+	(descriptions+=Description)? 
+	'taille' taille=INT 
+	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
+	'}';
+
+Description:
+	'description' '{' 
+	text=STRING  
+	'}';
+
+Condition:
+	'condition' name=ID '{' 
+		('objets' 'necessaires' (objets+=[Objet])*)?
+		('objets' 'manquants' (objets+=[Objet])*)?
+		('connaissances' 'necessaires' (connaissances+=[Connaissance])*)?	
+	'}';
+
+Connaissance:
+	'connaissance' name=ID '{' 
+	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
+	'}';
+
+Explorateur:
+	'explorateur' name=ID '{' 
+	'taille' taille=INT 
+	'inventaireO' (objets+=[Objet])* 
+	'inventaireC' (connaissances+=[Connaissance])* 
+	'localisation' localisation=[Lieu] 
+	'}';
+
+Lieu:
+	'lieu' name=ID '{' 
+		(descriptions+=Description)?
+		('objets' 'trouvables' objets+=[Objet])*
+		('connaissances' 'trouvable' connaissances+=[Connaissance])*
+		('personnes' 'trouvable' personnes+=[Personne])*
+		('cheminspossible' (cheminspossible+=[Chemin])+)?
+	'}';
+
+enum Visibilite:
+	Visible='visible'
+	| Invisible='invisible';
+	
+enum Ouverture:
+	Ouvert='ouvert'	
+	| Ferme='ferme';

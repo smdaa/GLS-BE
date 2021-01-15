@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gAME:Jeu xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:gAME="http://www.enseeiht.fr/GAME"
+    xsi:schemaLocation="http://www.enseeiht.fr/GAME GAME.ecore">
+  <explorateur
+      name="toto"/>
+  <lieux name="enigme"/>
+  <lieux name="succes"/>
+  <lieux name="echec"/>
+  <personnes
+      name="sphinx"/>
+  <chemins name="en2s"/>
+  <chemins name="en2e"/>
+</gAME:Jeu>
