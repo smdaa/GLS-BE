@@ -1,0 +1,42 @@
+[comment encoding = UTF-8 /]
+[module toJAVA('http://www.enseeiht.fr/GAME')]
+
+
+[template public JeuToJAVA(aJeu : Jeu)]
+[comment @main/]
+[file (aJeu.name.toUpperFirst().concat('.java'), false, 'UTF-8')]
+public class [aJeu.name.toUpperFirst()/] {
+	public static void main(String['[]'/] args) {
+		[aJeu.eClass().name/] [aJeu.name.toLowerFirst()/] = new [aJeu.eClass().name/]("[aJeu.name/]");
+
+		[aJeu.explorateur.eClass().name/] [aJeu.explorateur.name/] = new [aJeu.explorateur.eClass().name/]("[aJeu.explorateur.name/]");
+		[aJeu.name.toLowerFirst()/].setExplorateur([aJeu.explorateur.name/]);
+
+		[for (l : Lieu | aJeu.lieux)]
+		[l.eClass().name/] [l.name.toLowerFirst()/] = new [l.eClass().name/]("[l.name/]");
+		[aJeu.name.toLowerFirst()/].addLieu([l.name.toLowerFirst()/]);
+		[/for]
+		
+		[for (o : Objet | aJeu.Objets)]
+		[o.eClass().name/] [o.name.toLowerFirst()/] = new [o.eClass().name/]("[o.name/]");
+		[aJeu.name.toLowerFirst()/].addObjet([o.name.toLowerFirst()/]);
+		[/for]
+		
+		[for (c : Connaissance | aJeu.Connaissances)]
+		[c.eClass().name/] [c.name.toLowerFirst()/] = new [c.eClass().name/]("[c.name/]");
+		[aJeu.name.toLowerFirst()/].addConnaissance([c.name.toLowerFirst()/]);
+		[/for]
+		
+		[for (p : Personne | aJeu.personnes)]
+		[p.eClass().name/] [p.name.toLowerFirst()/] = new [p.eClass().name/]("[p.name/]");
+		[aJeu.name.toLowerFirst()/].addPersonne([p.name.toLowerFirst()/]);
+		[/for]
+		
+		[for (ch : Chemin | aJeu.chemins)]
+		[ch.eClass().name/] [ch.name.toLowerFirst()/] = new [ch.eClass().name/]("[ch.name/]");
+		[aJeu.name.toLowerFirst()/].addChemin([ch.name.toLowerFirst()/]);
+		[/for]
+	}
+}
+[/file]
+[/template]

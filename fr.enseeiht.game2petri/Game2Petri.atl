@@ -2,10 +2,11 @@ module Game2Petri;
 create OUT: petrinet from  IN: game;
 
 -- Traduire un jeu en un PetriNet de même nom
-rule Process2PetriNet {
+rule Jeu2PetriNet {
 	from g: game!Jeu
 	to pn: petrinet!PetriNet (
-		name <- g.name)
+		name <- g.name,
+		Element <- g.all)
 }
 
 -- Traduire un Objet en un motif sur le réseau de Petri
