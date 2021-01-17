@@ -82,6 +82,7 @@ Condition:
 
 Connaissance:
 	'connaissance' name=ID '{' 
+	(descriptions+=Description)?
 	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 	'}';
 

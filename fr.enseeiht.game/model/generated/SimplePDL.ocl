@@ -1,0 +1,99 @@
+import 'GAME.ecore'
+
+package gAME
+
+
+--
+-- example invariant with a custom error message to verify that
+-- the 'name' property of all 'gAME::Jeu' 'gAME::Chemin' 'gAME::Personne' 
+-- 'gAME::Choix' 'gAME::Choix' 'gAME::Action' 'gAME::Objet' 'gAME::Condition' 
+-- 'gAME::Connaissance' 'gAME::Explorateur' 'gAME::Lieu' instances is non-null
+
+	
+context Jeu
+
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+	
+context Chemin
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+
+context Personne
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+
+context Choix
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+	
+context Action
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+	
+context Objet
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+	
+context Condition
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+	
+context Explorateur
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+	
+context Lieu
+inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
+	name <> null
+	
+ 
+--E5 Chaque objet est qualifié par sa taille.
+context Objet
+
+	inv TailleObjetIsDefined:
+	self.taille<> null
+ 
+
+--E6 Le nombre d’objets que peut posséder un explorateur est limité 
+--par la taille cumulée desobjets possédés.	
+context Explorateur
+
+	inv TailleLimite('Depassement de la taille limitte de l\'inventaire'): 
+	self.objets->
+	collect(taille) -> 
+	sum()  <= self.taille
+
+--E24 Un choix consiste à proposer à l’explorateur plusieurs actions (Au moins un choix) .
+context Choix
+	inv PlusieursChoix: 
+	self.actions ->
+	notEmpty() 
+	
+	
+
+--E31 Les lieux, chemins, connaissances et objets sont qualifiés par une description textuelle d'au moins un caractère
+
+context Lieu
+	-- Un lieu a au moins une description et chaque description contient au moins un caractère
+	inv LieuDescriptionIsDefined:
+	self.descriptions->notEmpty() and self.descriptions ->forAll(text.size() > 0) 
+
+context Chemin
+	-- Un Chemin a au moins une description et chaque description contient au moins un caractère
+	inv CheminDescriptionIsDefined:
+	self.descriptions->notEmpty() and self.descriptions ->forAll(text.size() > 0) 
+	
+--context Connaissance
+	-- Une Connaissance a au moins une description et chaque description contient au moins un caractère
+	--inv ConnaissanceDescriptionIsDefined:
+	--self.descriptions->notEmpty() and self.descriptions ->forAll(text.size() > 0) 
+
+context Objet
+	-- Un Objet a au moins une description et chaque description contient au moins un caractère
+	inv ObjetDescriptionIsDefined:
+	self.descriptions->notEmpty() and self.descriptions ->forAll(text.size() > 0) 
+	
+		
+
+endpackage
