@@ -1,19 +1,95 @@
 module Game2Petri;
-create OUT: petrinet from  IN: game;
+create OUT: petrinet from IN: game;
 
 -- Traduire un jeu en un PetriNet de même nom
 rule Jeu2PetriNet {
-	from g: game!Jeu
-	to pn: petrinet!PetriNet (
-		name <- g.name,
-		Element <- g.all)
+	from
+		g: game!Jeu
+	to
+		pn: petrinet!PetriNet (
+			name <- g.name
+		)
 }
 
 -- Traduire un Objet en un motif sur le réseau de Petri
-rule WorkDefinition2PetriNet {
-	from o: game!Objet
-	to p_objet : petrinet!Place(
-		name <- o.name,
-		token <- o.taille)
+rule Objet2PetriNet {
+	from
+		o: game!Objet
+	to
+		p_objet: petrinet!Place (
+			name <- o.name,
+			token <- o.taille
+		)
 }
-	
+
+-- Traduire une Personne en un motif sur le réseau de Petri
+rule Personne2PetriNet {
+	from
+		p: game!Personne
+	to
+		t_personne: petrinet!Transition (
+			name <- p.name
+		)
+}
+
+-- Traduire un Lieu en un motif sur le réseau de Petri
+rule Lieu2PetriNet {
+	from
+		l: game!Lieu
+	to
+		p_lieu: petrinet!Place (
+			name <- l.name
+		)
+		do {
+			for(p in l.personnes){
+				arc_personne : petrinet!Arc(
+						from <- p_lieu,
+						to <- thisModule.resolveTemp(p, 't_personne'),
+						weight <- 1,
+						type <- #Normal
+					)
+			}
+		}
+}
+
+-- Traduire un Chemin en un motif sur le réseau de Petri
+rule Chemin2PetriNet {
+	from
+		ch: game!Chemin
+	to
+		t_chemin: petrinet!Transition (
+			name <- ch.name
+		),
+		t_chemin_visible: petrinet!Place (
+			name <- ch.name + 'visible',
+			token <- if ch.visibilite = #Visible then 1 else 0 endif
+		),
+		t_chemin_ouvert : petrinet!Place (
+			name <- ch.name + 'ouvert',
+			token <- if ch.ouverture = #Ouvert then 1 else 0 endif
+		),
+		arc_chv2ch : petrinet!Arc(
+			type <- #Read_arc,
+			weight <- 1,
+			from <- t_chemin_visible,
+			to <- t_chemin
+			),
+		arc_cho2ch : petrinet!Arc(
+			type <- #Read_arc,
+			weight <- 1,
+			from <- t_chemin_ouvert,
+			to <- t_chemin
+			),
+		arcin: petrinet!Arc (
+			type <- #Normal,
+			from <- thisModule.resolveTemp(ch.depart, 'p_lieu'),
+			to <- t_chemin,
+			weight <- 1
+		),
+		arcout: petrinet!Arc (
+			type <- #Normal,
+			from <- t_chemin,
+			to <- thisModule.resolveTemp(ch.arrive, 'p_lieu'),
+			weight <- 1
+		)
+}

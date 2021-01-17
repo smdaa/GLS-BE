@@ -11,6 +11,10 @@
   <lieux name="echec"/>
   <personnes
       name="sphinx"/>
-  <chemins name="en2s"/>
-  <chemins name="en2e"/>
+  <chemins name="en2s"
+      depart="//@lieux.0"
+      arrive="//@lieux.1"/>
+  <chemins name="en2e"
+      depart="//@lieux.0"
+      arrive="//@lieux.2"/>
 </gAME:Jeu>
