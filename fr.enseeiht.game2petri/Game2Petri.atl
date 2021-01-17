@@ -9,6 +9,27 @@ rule Jeu2PetriNet {
 		pn: petrinet!PetriNet (
 			name <- g.name
 		)
+	do{
+		pn.Element <- petrinet!Arc.allInstances();
+		pn.Element <- petrinet!Place.allInstances();
+		pn.Element <- petrinet!Transition.allInstances();
+		}
+}
+
+-- Traduire un Explorateur en un motif sur le réseau de Petri
+rule Explorateur2PetriNet {
+	from
+		e: game!Explorateur
+	to
+		p_explorateur: petrinet!Place (
+			name <- e.name,
+			token <- e.taille
+		)
+	do {
+		for(o in e.objets){
+			p_explorateur.token <- p_explorateur.token - o.taille;
+		}
+	}
 }
 
 -- Traduire un Objet en un motif sur le réseau de Petri
@@ -32,24 +53,39 @@ rule Personne2PetriNet {
 		)
 }
 
+-- Traduire une connaissance en un motif sur le réseau de Petri
+rule Connaissance2PetriNet {
+	from
+		p: game!Connaissance
+	to
+		p_connaissance: petrinet!Place (
+			name <- p.name
+		)
+}
+
 -- Traduire un Lieu en un motif sur le réseau de Petri
-rule Lieu2PetriNet {
+lazy rule Lieu2PetriNet {
 	from
 		l: game!Lieu
 	to
 		p_lieu: petrinet!Place (
 			name <- l.name
 		)
-		do {
-			for(p in l.personnes){
-				arc_personne : petrinet!Arc(
-						from <- p_lieu,
-						to <- thisModule.resolveTemp(p, 't_personne'),
-						weight <- 1,
-						type <- #Normal
-					)
-			}
+	do {
+		for(p in l.personnes){
+				thisModule.aux_pl(p_lieu, p);
 		}
+	}
+}
+
+rule aux_pl(l: petrinet!Place, p: game!Personne){
+	to
+		arc_l2p: petrinet!Arc (
+			from <- l,
+			to <- thisModule.resolveTemp(p, 't_personne'),
+			weight <- 1,
+			type <- #Read_arc
+		)
 }
 
 -- Traduire un Chemin en un motif sur le réseau de Petri
@@ -62,24 +98,32 @@ rule Chemin2PetriNet {
 		),
 		t_chemin_visible: petrinet!Place (
 			name <- ch.name + 'visible',
-			token <- if ch.visibilite = #Visible then 1 else 0 endif
+			token <- if ch.visibilite = #Visible then
+					1
+				else
+					0
+				endif
 		),
-		t_chemin_ouvert : petrinet!Place (
+		t_chemin_ouvert: petrinet!Place (
 			name <- ch.name + 'ouvert',
-			token <- if ch.ouverture = #Ouvert then 1 else 0 endif
+			token <- if ch.ouverture = #Ouvert then
+					1
+				else
+					0
+				endif
 		),
-		arc_chv2ch : petrinet!Arc(
+		arc_chv2ch: petrinet!Arc (
 			type <- #Read_arc,
 			weight <- 1,
 			from <- t_chemin_visible,
 			to <- t_chemin
-			),
-		arc_cho2ch : petrinet!Arc(
+		),
+		arc_cho2ch: petrinet!Arc (
 			type <- #Read_arc,
 			weight <- 1,
 			from <- t_chemin_ouvert,
 			to <- t_chemin
-			),
+		),
 		arcin: petrinet!Arc (
 			type <- #Normal,
 			from <- thisModule.resolveTemp(ch.depart, 'p_lieu'),

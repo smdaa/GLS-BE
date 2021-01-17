@@ -5,10 +5,18 @@
     xmlns:gAME="http://www.enseeiht.fr/GAME"
     xsi:schemaLocation="http://www.enseeiht.fr/GAME GAME.ecore">
   <explorateur
-      name="toto"/>
-  <lieux name="enigme"/>
+      name="toto"
+      taille="3"
+      objets="//@Objets.0"
+      localisation="//@lieux.0"/>
+  <lieux name="enigme"
+      personnes="//@personnes.0"/>
   <lieux name="succes"/>
   <lieux name="echec"/>
+  <Objets name="tentative"
+      taille="3"/>
+  <Connaissances
+      name="reussite"/>
   <personnes
       name="sphinx"/>
   <chemins name="en2s"
