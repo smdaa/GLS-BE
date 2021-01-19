@@ -7,45 +7,45 @@ package gAME
 -- example invariant with a custom error message to verify that
 -- the 'name' property of all 'gAME::Jeu' 'gAME::Chemin' 'gAME::Personne' 
 -- 'gAME::Choix' 'gAME::Choix' 'gAME::Action' 'gAME::Objet' 'gAME::Condition' 
--- 'gAME::Connaissance' 'gAME::Explorateur' 'gAME::Lieu' instances is non-null
+-- 'gAME::Connaissance' 'gAME::Explorateur' 'gAME::Lieu' instances is non-null and not empty
 
 	
 context Jeu
 
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 	
 context Chemin
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 
 context Personne
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 
 context Choix
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 	
 context Action
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 	
 context Objet
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 	
 context Condition
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 	
 context Explorateur
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 	
 context Lieu
 inv NonNull_name('The \'name\' property of "' + self.toString() + '" is null'):
-	name <> null
+	name <> null and name<> ''
 	
  
 --E5 Chaque objet est qualifié par sa taille.
@@ -93,7 +93,17 @@ context Objet
 	-- Un Objet a au moins une description et chaque description contient au moins un caractère
 	inv ObjetDescriptionIsDefined:
 	self.descriptions->notEmpty() and self.descriptions ->forAll(text.size() > 0) 
+
+-- Les lieux et chemins ne doivent pas avoir le meme nom
+context Lieu
+	inv LieuxIdentiques: Lieu.allInstances() -> forAll(a,b|a.name = b.name implies a = b)
+context Chemin
+	inv CheminsIdentiques: Lieu.allInstances() -> forAll(a,b|a.name = b.name implies a = b)
 	
-		
+--Le lieu de depart et d'arrivée doivent etre differents pour un chemin
+context Chemin
+	inv DepartArrive : depart<>arrive 
+	
+
 
 endpackage
