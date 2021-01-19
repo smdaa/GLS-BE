@@ -3,22 +3,48 @@
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:gAME="http://www.enseeiht.fr/GAME"
-    xsi:schemaLocation="http://www.enseeiht.fr/GAME GAME.ecore">
+    xsi:schemaLocation="http://www.enseeiht.fr/GAME GAME.ecore"
+    name="enigme"
+    pointDepart="//@lieux.0">
   <explorateur
       name="toto"
       taille="3"
-      objets="//@Objets.0"
+      objets="//@Objets.0 //@Objets.1 //@Objets.2"
       localisation="//@lieux.0"/>
   <lieux name="enigme"
-      personnes="//@personnes.0"/>
+      personnes="//@personnes.0"
+      cheminspossible="//@chemins.0 //@chemins.1"/>
   <lieux name="succes"/>
   <lieux name="echec"/>
   <Objets name="tentative"
-      taille="3"/>
+      taille="1"/>
+  <Objets name="tentative"
+      taille="1"/>
+  <Objets name="tentative"
+      taille="1"/>
   <Connaissances
       name="reussite"/>
   <personnes
-      name="sphinx"/>
+      name="sphinx">
+    <interaction>
+      <choix
+          name="choix1">
+        <actions
+            name="actionok">
+          <echanges
+              connaissances="//@Connaissances.0"/>
+        </actions>
+        <actions
+            name="actionko">
+          <echanges
+              objetsPris="//@Objets.2"/>
+        </actions>
+      </choix>
+    </interaction>
+    <conditionsVisibilite
+        name="cv"
+        objets="//@Objets.0"/>
+  </personnes>
   <chemins name="en2s"
       depart="//@lieux.0"
       arrive="//@lieux.1"/>

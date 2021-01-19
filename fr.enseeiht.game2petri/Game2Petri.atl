@@ -10,8 +10,8 @@ rule Jeu2PetriNet {
 			name <- g.name
 		)
 	do{
-		pn.Element <- petrinet!Arc.allInstances();
 		pn.Element <- petrinet!Place.allInstances();
+		pn.Element <- petrinet!Arc.allInstances();
 		pn.Element <- petrinet!Transition.allInstances();
 		}
 }
@@ -39,7 +39,8 @@ rule Objet2PetriNet {
 	to
 		p_objet: petrinet!Place (
 			name <- o.name,
-			token <- o.taille
+			--token <- game!Objet.allInstances() -> select(ob | ob.name = o.name) -> size()
+			token <- 1
 		)
 }
 
@@ -52,6 +53,40 @@ rule Personne2PetriNet {
 			name <- p.name
 		)
 }
+
+-- Traduire une Interaction en un motif sur le réseau de Petri
+rule Interaction2PetriNet {
+	from
+		i: game!Interaction
+	to
+		p_interaction: petrinet!Place(
+			name <- 'Interaction',
+			token <- 0
+			)
+		
+}
+
+-- Traduire un Choix en un motif sur le réseau de Petri
+rule Choix2PetriNet {
+	from
+		choix: game!Choix
+	to
+		t_choix: petrinet!Transition (
+			name <- choix.name
+		)
+}
+
+-- Traduire une Action en un motif sur le réseau de Petri
+rule Action2PetriNet {
+	from
+		action: game!Action
+	to
+		p_action: petrinet!Place (
+			name <- action.name,
+			token <- 0
+		)
+}
+
 
 -- Traduire une connaissance en un motif sur le réseau de Petri
 rule Connaissance2PetriNet {
