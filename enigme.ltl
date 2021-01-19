@@ -1,0 +1,9 @@
+[] (end => dead);
+[] <> dead;
+[] (dead => end);
+- <> end;
+
+- <> (win /\ defeat);
+
+[] <> (actionok => win);
+

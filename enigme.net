@@ -1,0 +1,40 @@
+net enigme
+
+pl enigme
+pl echec 
+pl succes
+
+pl sphinx
+
+pl choix
+
+pl actionok
+pl actionko
+
+tr choixactionok choix -> actionok
+tr choixactionko choix -> actionko
+
+tr interactionsphinx sphinx -> choix
+
+tr debutinteraction enigme tentativePossedee?1 reussiteManquante?1 -> sphinx
+
+tr en2e enigme tentativeManquante?1 -> echec
+tr en2s enigme reussitePossedee?1 -> succes
+
+pl tentativeManquante
+pl reussitePossedee
+
+tr transmissionActionko actionko reussiteManquante -> reussitePossedee enigme
+tr transmissionActionok actionok tentativePossedee tentativePossedee?2 -> enigme
+
+tr cheminVersDefaite : chemin enigme tentativeManquante?1 -> echec
+tr cheminVerswin : chemin enigme reussitePossedee?1 -> succes
+
+
+tr win succes -> end
+tr defeat echec -> end
+
+pl start (1)
+tr init start -> tentativePossedee*3 reussiteManquante enigme
+
+

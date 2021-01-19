@@ -16,31 +16,13 @@ rule Jeu2PetriNet {
 		}
 }
 
--- Traduire un Explorateur en un motif sur le réseau de Petri
-rule Explorateur2PetriNet {
+-- Traduire un Lieu en un motif sur le réseau de Petri
+rule Lieu2PetriNet {
 	from
-		e: game!Explorateur
+		l: game!Lieu
 	to
-		p_explorateur: petrinet!Place (
-			name <- e.name,
-			token <- e.taille
-		)
-	do {
-		for(o in e.objets){
-			p_explorateur.token <- p_explorateur.token - o.taille;
-		}
-	}
-}
-
--- Traduire un Objet en un motif sur le réseau de Petri
-rule Objet2PetriNet {
-	from
-		o: game!Objet
-	to
-		p_objet: petrinet!Place (
-			name <- o.name,
-			--token <- game!Objet.allInstances() -> select(ob | ob.name = o.name) -> size()
-			token <- 1
+		p_lieu: petrinet!Place (
+			name <- l.name
 		)
 }
 
@@ -49,30 +31,33 @@ rule Personne2PetriNet {
 	from
 		p: game!Personne
 	to
-		t_personne: petrinet!Transition (
+		p_personne: petrinet!Place (
 			name <- p.name
+		),
+		t_interaction: petrinet!Transition (
+			name <- p.name + 'interaction'
+		),
+		arc_interaction1: petrinet!Arc (
+			weight <- 1,
+			type <- #Normal,
+			from <- p_personne,
+			to <- t_interaction
 		)
+	do {
+		for (c in p.interaction.choix){
+				thisModule.aux2(t_interaction, c);					
+			}
+	}
 }
 
 -- Traduire une Interaction en un motif sur le réseau de Petri
-rule Interaction2PetriNet {
-	from
-		i: game!Interaction
+rule aux2(t: petrinet!Transition, c: game!choix){
 	to
-		p_interaction: petrinet!Place(
-			name <- 'Interaction',
-			token <- 0
-			)
-		
-}
-
--- Traduire un Choix en un motif sur le réseau de Petri
-rule Choix2PetriNet {
-	from
-		choix: game!Choix
-	to
-		t_choix: petrinet!Transition (
-			name <- choix.name
+		arc_interaction2: petrinet!Arc (
+			weight <- 1,
+			type <- #Normal,
+			from <- t,
+			to <- thisModule.resolveTemp(c, 'p_choix')
 		)
 }
 
@@ -82,93 +67,80 @@ rule Action2PetriNet {
 		action: game!Action
 	to
 		p_action: petrinet!Place (
-			name <- action.name,
-			token <- 0
+			name <- action.name
 		)
 }
 
-
--- Traduire une connaissance en un motif sur le réseau de Petri
-rule Connaissance2PetriNet {
+-- Traduire un Choix en un motif sur le réseau de Petri
+rule Choix2PetriNet {
 	from
-		p: game!Connaissance
+		choix: game!Choix
 	to
-		p_connaissance: petrinet!Place (
-			name <- p.name
-		)
-}
-
--- Traduire un Lieu en un motif sur le réseau de Petri
-lazy rule Lieu2PetriNet {
-	from
-		l: game!Lieu
-	to
-		p_lieu: petrinet!Place (
-			name <- l.name
+		p_choix: petrinet!Place (
+			name <- choix.name
 		)
 	do {
-		for(p in l.personnes){
-				thisModule.aux_pl(p_lieu, p);
+		for(a in choix.actions){
+			thisModule.aux1(p_choix, a);
 		}
 	}
 }
 
-rule aux_pl(l: petrinet!Place, p: game!Personne){
+rule aux1(c: petrinet!Place, a: game!Action){
 	to
-		arc_l2p: petrinet!Arc (
-			from <- l,
-			to <- thisModule.resolveTemp(p, 't_personne'),
+		t_aux1: petrinet!Transition (
+			name <- c.name + a.name
+		),
+		arc_aux1: petrinet!Arc (
 			weight <- 1,
-			type <- #Read_arc
+			type <- #Normal,
+			from <- c,
+			to <- t_aux1
+		),
+		arc_aux2: petrinet!Arc (
+			weight <- 1,
+			type <- #Normal,
+			from <- t_aux1,
+			to <- thisModule.resolveTemp(a, 'p_action')
+		)		
+}
+
+-- Traduire une Condition en un motif sur le réseau de Petri
+rule Condition2PetriNet {
+	from
+		condition: game!Condition
+	to
+	do {
+		for (o in condition.objets){
+			thisModule.aux3(o);
+		}
+		for (c in condition.connaissances){
+			thisModule.aux4(c);
+		}
+	}
+}
+
+rule aux3(o: game!Objet){
+	to
+		p_condition_objet: petrinet!Place (
+			name <- o.name + 'Manquante'
 		)
 }
 
--- Traduire un Chemin en un motif sur le réseau de Petri
-rule Chemin2PetriNet {
-	from
-		ch: game!Chemin
+rule aux4(c: game!Connaissance){
 	to
-		t_chemin: petrinet!Transition (
-			name <- ch.name
-		),
-		t_chemin_visible: petrinet!Place (
-			name <- ch.name + 'visible',
-			token <- if ch.visibilite = #Visible then
-					1
-				else
-					0
-				endif
-		),
-		t_chemin_ouvert: petrinet!Place (
-			name <- ch.name + 'ouvert',
-			token <- if ch.ouverture = #Ouvert then
-					1
-				else
-					0
-				endif
-		),
-		arc_chv2ch: petrinet!Arc (
-			type <- #Read_arc,
-			weight <- 1,
-			from <- t_chemin_visible,
-			to <- t_chemin
-		),
-		arc_cho2ch: petrinet!Arc (
-			type <- #Read_arc,
-			weight <- 1,
-			from <- t_chemin_ouvert,
-			to <- t_chemin
-		),
-		arcin: petrinet!Arc (
-			type <- #Normal,
-			from <- thisModule.resolveTemp(ch.depart, 'p_lieu'),
-			to <- t_chemin,
-			weight <- 1
-		),
-		arcout: petrinet!Arc (
-			type <- #Normal,
-			from <- t_chemin,
-			to <- thisModule.resolveTemp(ch.arrive, 'p_lieu'),
-			weight <- 1
+		p_condition_connaissance: petrinet!Place (
+			name <- c.name + 'Possedee'
+		)
+}
+
+-- Traduire un Explorqteur en un motif sur le réseau de Petri
+rule Explorateur2PetriNet {
+	from
+		e: game!Explorateur
+	to
+		p_explorateur: petrinet!Place (
+			name <- 'start',
+			token <- 1
 		)
 }
