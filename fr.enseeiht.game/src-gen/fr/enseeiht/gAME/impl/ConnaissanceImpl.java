@@ -5,17 +5,25 @@ package fr.enseeiht.gAME.impl;
 
 import fr.enseeiht.gAME.Condition;
 import fr.enseeiht.gAME.Connaissance;
+import fr.enseeiht.gAME.Description;
 import fr.enseeiht.gAME.GAMEPackage;
 import fr.enseeiht.gAME.Visibilite;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,6 +34,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.gAME.impl.ConnaissanceImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.ConnaissanceImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.ConnaissanceImpl#getVisibilite <em>Visibilite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.ConnaissanceImpl#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
  * </ul>
@@ -53,6 +62,16 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getDescriptions() <em>Descriptions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDescriptions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Description> descriptions;
 
   /**
    * The default value of the '{@link #getVisibilite() <em>Visibilite</em>}' attribute.
@@ -128,6 +147,21 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.CONNAISSANCE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<Description> getDescriptions()
+  {
+    if (descriptions == null)
+    {
+      descriptions = new EObjectContainmentEList<Description>(Description.class, this, GAMEPackage.CONNAISSANCE__DESCRIPTIONS);
+    }
+    return descriptions;
   }
 
   /**
@@ -215,6 +249,8 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
   {
     switch (featureID)
     {
+      case GAMEPackage.CONNAISSANCE__DESCRIPTIONS:
+        return ((InternalEList<?>)getDescriptions()).basicRemove(otherEnd, msgs);
       case GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE:
         return basicSetConditionsVisibilite(null, msgs);
     }
@@ -233,6 +269,8 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
     {
       case GAMEPackage.CONNAISSANCE__NAME:
         return getName();
+      case GAMEPackage.CONNAISSANCE__DESCRIPTIONS:
+        return getDescriptions();
       case GAMEPackage.CONNAISSANCE__VISIBILITE:
         return getVisibilite();
       case GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE:
@@ -246,6 +284,7 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -253,6 +292,10 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
     {
       case GAMEPackage.CONNAISSANCE__NAME:
         setName((String)newValue);
+        return;
+      case GAMEPackage.CONNAISSANCE__DESCRIPTIONS:
+        getDescriptions().clear();
+        getDescriptions().addAll((Collection<? extends Description>)newValue);
         return;
       case GAMEPackage.CONNAISSANCE__VISIBILITE:
         setVisibilite((Visibilite)newValue);
@@ -277,6 +320,9 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
       case GAMEPackage.CONNAISSANCE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case GAMEPackage.CONNAISSANCE__DESCRIPTIONS:
+        getDescriptions().clear();
+        return;
       case GAMEPackage.CONNAISSANCE__VISIBILITE:
         setVisibilite(VISIBILITE_EDEFAULT);
         return;
@@ -299,6 +345,8 @@ public class ConnaissanceImpl extends MinimalEObjectImpl.Container implements Co
     {
       case GAMEPackage.CONNAISSANCE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GAMEPackage.CONNAISSANCE__DESCRIPTIONS:
+        return descriptions != null && !descriptions.isEmpty();
       case GAMEPackage.CONNAISSANCE__VISIBILITE:
         return visibilite != VISIBILITE_EDEFAULT;
       case GAMEPackage.CONNAISSANCE__CONDITIONS_VISIBILITE:

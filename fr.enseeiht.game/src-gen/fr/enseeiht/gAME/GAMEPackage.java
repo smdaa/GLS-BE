@@ -544,13 +544,22 @@ public interface GAMEPackage extends EPackage
   int OBJET__TAILLE = 2;
 
   /**
+   * The feature id for the '<em><b>Quantite</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBJET__QUANTITE = 3;
+
+  /**
    * The feature id for the '<em><b>Visibilite</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJET__VISIBILITE = 3;
+  int OBJET__VISIBILITE = 4;
 
   /**
    * The feature id for the '<em><b>Conditions Visibilite</b></em>' containment reference.
@@ -559,7 +568,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OBJET__CONDITIONS_VISIBILITE = 4;
+  int OBJET__CONDITIONS_VISIBILITE = 5;
 
   /**
    * The number of structural features of the '<em>Objet</em>' class.
@@ -568,7 +577,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OBJET_FEATURE_COUNT = 5;
+  int OBJET_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.DescriptionImpl <em>Description</em>}' class.
@@ -664,13 +673,22 @@ public interface GAMEPackage extends EPackage
   int CONNAISSANCE__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Descriptions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONNAISSANCE__DESCRIPTIONS = 1;
+
+  /**
    * The feature id for the '<em><b>Visibilite</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONNAISSANCE__VISIBILITE = 1;
+  int CONNAISSANCE__VISIBILITE = 2;
 
   /**
    * The feature id for the '<em><b>Conditions Visibilite</b></em>' containment reference.
@@ -679,7 +697,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONNAISSANCE__CONDITIONS_VISIBILITE = 2;
+  int CONNAISSANCE__CONDITIONS_VISIBILITE = 3;
 
   /**
    * The number of structural features of the '<em>Connaissance</em>' class.
@@ -688,7 +706,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CONNAISSANCE_FEATURE_COUNT = 3;
+  int CONNAISSANCE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.ExplorateurImpl <em>Explorateur</em>}' class.
@@ -1347,6 +1365,17 @@ public interface GAMEPackage extends EPackage
   EAttribute getObjet_Taille();
 
   /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Objet#getQuantite <em>Quantite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Quantite</em>'.
+   * @see fr.enseeiht.gAME.Objet#getQuantite()
+   * @see #getObjet()
+   * @generated
+   */
+  EAttribute getObjet_Quantite();
+
+  /**
    * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Objet#getVisibilite <em>Visibilite</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1452,6 +1481,17 @@ public interface GAMEPackage extends EPackage
    * @generated
    */
   EAttribute getConnaissance_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Connaissance#getDescriptions <em>Descriptions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Descriptions</em>'.
+   * @see fr.enseeiht.gAME.Connaissance#getDescriptions()
+   * @see #getConnaissance()
+   * @generated
+   */
+  EReference getConnaissance_Descriptions();
 
   /**
    * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Connaissance#getVisibilite <em>Visibilite</em>}'.
@@ -2044,6 +2084,14 @@ public interface GAMEPackage extends EPackage
     EAttribute OBJET__TAILLE = eINSTANCE.getObjet_Taille();
 
     /**
+     * The meta object literal for the '<em><b>Quantite</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OBJET__QUANTITE = eINSTANCE.getObjet_Quantite();
+
+    /**
      * The meta object literal for the '<em><b>Visibilite</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2128,6 +2176,14 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EAttribute CONNAISSANCE__NAME = eINSTANCE.getConnaissance_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Descriptions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONNAISSANCE__DESCRIPTIONS = eINSTANCE.getConnaissance_Descriptions();
 
     /**
      * The meta object literal for the '<em><b>Visibilite</b></em>' attribute feature.

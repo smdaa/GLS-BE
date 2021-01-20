@@ -1038,12 +1038,34 @@ ruleObjet returns [EObject current=null]
 				}
 			)
 		)
+		otherlv_6='quantite'
+		{
+			newLeafNode(otherlv_6, grammarAccess.getObjetAccess().getQuantiteKeyword_6());
+		}
+		(
+			(
+				lv_quantite_7_0=RULE_INT
+				{
+					newLeafNode(lv_quantite_7_0, grammarAccess.getObjetAccess().getQuantiteINTTerminalRuleCall_7_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getObjetRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"quantite",
+						lv_quantite_7_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getObjetAccess().getVisibiliteVisibiliteEnumRuleCall_6_0());
+					newCompositeNode(grammarAccess.getObjetAccess().getVisibiliteVisibiliteEnumRuleCall_8_0());
 				}
-				lv_visibilite_6_0=ruleVisibilite
+				lv_visibilite_8_0=ruleVisibilite
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getObjetRule());
@@ -1051,23 +1073,23 @@ ruleObjet returns [EObject current=null]
 					set(
 						$current,
 						"visibilite",
-						lv_visibilite_6_0,
+						lv_visibilite_8_0,
 						"fr.enseeiht.GAME.Visibilite");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_7='si'
+			otherlv_9='si'
 			{
-				newLeafNode(otherlv_7, grammarAccess.getObjetAccess().getSiKeyword_7_0());
+				newLeafNode(otherlv_9, grammarAccess.getObjetAccess().getSiKeyword_9_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getObjetAccess().getConditionsVisibiliteConditionParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getObjetAccess().getConditionsVisibiliteConditionParserRuleCall_9_1_0());
 					}
-					lv_conditionsVisibilite_8_0=ruleCondition
+					lv_conditionsVisibilite_10_0=ruleCondition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getObjetRule());
@@ -1075,16 +1097,16 @@ ruleObjet returns [EObject current=null]
 						set(
 							$current,
 							"conditionsVisibilite",
-							lv_conditionsVisibilite_8_0,
+							lv_conditionsVisibilite_10_0,
 							"fr.enseeiht.GAME.Condition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_9='}'
+		otherlv_11='}'
 		{
-			newLeafNode(otherlv_9, grammarAccess.getObjetAccess().getRightCurlyBracketKeyword_8());
+			newLeafNode(otherlv_11, grammarAccess.getObjetAccess().getRightCurlyBracketKeyword_10());
 		}
 	)
 ;
@@ -1301,9 +1323,28 @@ ruleConnaissance returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getConnaissanceAccess().getVisibiliteVisibiliteEnumRuleCall_3_0());
+					newCompositeNode(grammarAccess.getConnaissanceAccess().getDescriptionsDescriptionParserRuleCall_3_0());
 				}
-				lv_visibilite_3_0=ruleVisibilite
+				lv_descriptions_3_0=ruleDescription
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getConnaissanceRule());
+					}
+					add(
+						$current,
+						"descriptions",
+						lv_descriptions_3_0,
+						"fr.enseeiht.GAME.Description");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)?
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getConnaissanceAccess().getVisibiliteVisibiliteEnumRuleCall_4_0());
+				}
+				lv_visibilite_4_0=ruleVisibilite
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getConnaissanceRule());
@@ -1311,23 +1352,23 @@ ruleConnaissance returns [EObject current=null]
 					set(
 						$current,
 						"visibilite",
-						lv_visibilite_3_0,
+						lv_visibilite_4_0,
 						"fr.enseeiht.GAME.Visibilite");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_4='si'
+			otherlv_5='si'
 			{
-				newLeafNode(otherlv_4, grammarAccess.getConnaissanceAccess().getSiKeyword_4_0());
+				newLeafNode(otherlv_5, grammarAccess.getConnaissanceAccess().getSiKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getConnaissanceAccess().getConditionsVisibiliteConditionParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getConnaissanceAccess().getConditionsVisibiliteConditionParserRuleCall_5_1_0());
 					}
-					lv_conditionsVisibilite_5_0=ruleCondition
+					lv_conditionsVisibilite_6_0=ruleCondition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getConnaissanceRule());
@@ -1335,16 +1376,16 @@ ruleConnaissance returns [EObject current=null]
 						set(
 							$current,
 							"conditionsVisibilite",
-							lv_conditionsVisibilite_5_0,
+							lv_conditionsVisibilite_6_0,
 							"fr.enseeiht.GAME.Condition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_6='}'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getConnaissanceAccess().getRightCurlyBracketKeyword_5());
+			newLeafNode(otherlv_7, grammarAccess.getConnaissanceAccess().getRightCurlyBracketKeyword_6());
 		}
 	)
 ;

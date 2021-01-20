@@ -149,7 +149,7 @@ public class GAMESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Connaissance returns Connaissance
 	 *
 	 * Constraint:
-	 *     (name=ID visibilite=Visibilite conditionsVisibilite=Condition?)
+	 *     (name=ID descriptions+=Description? visibilite=Visibilite conditionsVisibilite=Condition?)
 	 */
 	protected void sequence_Connaissance(ISerializationContext context, Connaissance semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -256,7 +256,14 @@ public class GAMESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Objet returns Objet
 	 *
 	 * Constraint:
-	 *     (name=ID descriptions+=Description? taille=INT visibilite=Visibilite conditionsVisibilite=Condition?)
+	 *     (
+	 *         name=ID 
+	 *         descriptions+=Description? 
+	 *         taille=INT 
+	 *         quantite=INT 
+	 *         visibilite=Visibilite 
+	 *         conditionsVisibilite=Condition?
+	 *     )
 	 */
 	protected void sequence_Objet(ISerializationContext context, Objet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

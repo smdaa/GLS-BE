@@ -4,6 +4,3 @@
 - <> end;
 
 - <> (win /\ defeat);
-
-[] <> (actionok => win);
-

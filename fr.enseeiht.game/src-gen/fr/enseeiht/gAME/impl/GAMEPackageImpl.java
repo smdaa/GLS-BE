@@ -717,7 +717,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
    * @generated
    */
   @Override
-  public EAttribute getObjet_Visibilite()
+  public EAttribute getObjet_Quantite()
   {
     return (EAttribute)objetEClass.getEStructuralFeatures().get(3);
   }
@@ -728,9 +728,20 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
    * @generated
    */
   @Override
+  public EAttribute getObjet_Visibilite()
+  {
+    return (EAttribute)objetEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getObjet_ConditionsVisibilite()
   {
-    return (EReference)objetEClass.getEStructuralFeatures().get(4);
+    return (EReference)objetEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -827,9 +838,20 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
    * @generated
    */
   @Override
+  public EReference getConnaissance_Descriptions()
+  {
+    return (EReference)connaissanceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getConnaissance_Visibilite()
   {
-    return (EAttribute)connaissanceEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)connaissanceEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -840,7 +862,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
   @Override
   public EReference getConnaissance_ConditionsVisibilite()
   {
-    return (EReference)connaissanceEClass.getEStructuralFeatures().get(2);
+    return (EReference)connaissanceEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1092,6 +1114,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
     createEAttribute(objetEClass, OBJET__NAME);
     createEReference(objetEClass, OBJET__DESCRIPTIONS);
     createEAttribute(objetEClass, OBJET__TAILLE);
+    createEAttribute(objetEClass, OBJET__QUANTITE);
     createEAttribute(objetEClass, OBJET__VISIBILITE);
     createEReference(objetEClass, OBJET__CONDITIONS_VISIBILITE);
 
@@ -1105,6 +1128,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
 
     connaissanceEClass = createEClass(CONNAISSANCE);
     createEAttribute(connaissanceEClass, CONNAISSANCE__NAME);
+    createEReference(connaissanceEClass, CONNAISSANCE__DESCRIPTIONS);
     createEAttribute(connaissanceEClass, CONNAISSANCE__VISIBILITE);
     createEReference(connaissanceEClass, CONNAISSANCE__CONDITIONS_VISIBILITE);
 
@@ -1212,6 +1236,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
     initEAttribute(getObjet_Name(), ecorePackage.getEString(), "name", null, 0, 1, Objet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getObjet_Descriptions(), this.getDescription(), null, "descriptions", null, 0, -1, Objet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getObjet_Taille(), ecorePackage.getEInt(), "taille", null, 0, 1, Objet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getObjet_Quantite(), ecorePackage.getEInt(), "quantite", null, 0, 1, Objet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getObjet_Visibilite(), this.getVisibilite(), "visibilite", null, 0, 1, Objet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getObjet_ConditionsVisibilite(), this.getCondition(), null, "conditionsVisibilite", null, 0, 1, Objet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1225,6 +1250,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
 
     initEClass(connaissanceEClass, Connaissance.class, "Connaissance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getConnaissance_Name(), ecorePackage.getEString(), "name", null, 0, 1, Connaissance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConnaissance_Descriptions(), this.getDescription(), null, "descriptions", null, 0, -1, Connaissance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getConnaissance_Visibilite(), this.getVisibilite(), "visibilite", null, 0, 1, Connaissance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConnaissance_ConditionsVisibilite(), this.getCondition(), null, "conditionsVisibilite", null, 0, 1, Connaissance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

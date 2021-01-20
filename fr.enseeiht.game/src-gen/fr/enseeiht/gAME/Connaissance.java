@@ -3,6 +3,8 @@
  */
 package fr.enseeiht.gAME;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.gAME.Connaissance#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Connaissance#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Connaissance#getVisibilite <em>Visibilite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Connaissance#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
  * </ul>
@@ -46,6 +49,18 @@ public interface Connaissance extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Descriptions</b></em>' containment reference list.
+   * The list contents are of type {@link fr.enseeiht.gAME.Description}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Descriptions</em>' containment reference list.
+   * @see fr.enseeiht.gAME.GAMEPackage#getConnaissance_Descriptions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Description> getDescriptions();
 
   /**
    * Returns the value of the '<em><b>Visibilite</b></em>' attribute.

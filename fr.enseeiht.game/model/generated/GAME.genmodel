@@ -67,6 +67,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Objet/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Objet/descriptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Objet/taille"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Objet/quantite"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Objet/visibilite"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Objet/conditionsVisibilite"/>
     </genClasses>
@@ -80,6 +81,7 @@
     </genClasses>
     <genClasses ecoreClass="GAME.ecore#//Connaissance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Connaissance/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Connaissance/descriptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Connaissance/visibilite"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Connaissance/conditionsVisibilite"/>
     </genClasses>

@@ -79,6 +79,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptions" upperBound="-1"
         eType="#//Description" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="taille" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibilite" eType="#//Visibilite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionsVisibilite" eType="#//Condition"
         containment="true"/>
@@ -95,6 +96,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connaissance">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="descriptions" upperBound="-1"
+        eType="#//Description" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibilite" eType="#//Visibilite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionsVisibilite" eType="#//Condition"
         containment="true"/>

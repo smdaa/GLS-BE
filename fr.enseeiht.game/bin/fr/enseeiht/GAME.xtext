@@ -65,6 +65,7 @@ Objet:
 	'objet' name=ID '{' 
 	(descriptions+=Description)? 
 	'taille' taille=INT 
+	'quantite' quantite=INT 
 	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 	'}';
 

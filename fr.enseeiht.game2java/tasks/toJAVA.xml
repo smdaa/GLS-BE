@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project default="toJAVA" name="fr.enseeiht.game2java">
-    <property name="ECLIPSE_HOME" value="../../../../../../programs/gls-v2019/eclipse-gls"/>
-    <property name="ECLIPSE_WORKSPACE" value="../../../../../programmation avancé et test/workspace gls"/>
+    <property name="ECLIPSE_HOME" value="../../../../gls-v2019/eclipse-gls"/>
+    <property name="ECLIPSE_WORKSPACE" value="../../../../eclipse-workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
     <path id="fr.enseeiht.game2java.libraryclasspath">
