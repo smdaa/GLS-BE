@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.gAME.Personne#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Personne#getLocalisation <em>Localisation</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Personne#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Personne#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Personne#getVisibilite <em>Visibilite</em>}</li>
@@ -48,6 +49,28 @@ public interface Personne extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Localisation</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Localisation</em>' reference.
+   * @see #setLocalisation(Lieu)
+   * @see fr.enseeiht.gAME.GAMEPackage#getPersonne_Localisation()
+   * @model
+   * @generated
+   */
+  Lieu getLocalisation();
+
+  /**
+   * Sets the value of the '{@link fr.enseeiht.gAME.Personne#getLocalisation <em>Localisation</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Localisation</em>' reference.
+   * @see #getLocalisation()
+   * @generated
+   */
+  void setLocalisation(Lieu value);
 
   /**
    * Returns the value of the '<em><b>Descriptions</b></em>' containment reference.

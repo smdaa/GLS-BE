@@ -27,6 +27,7 @@ Chemin:
 
 Personne:
 	'personne' name=ID '{'
+	'localisation' localisation=[Lieu]
 	descriptions=Description
 	interaction=Interaction
 	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?

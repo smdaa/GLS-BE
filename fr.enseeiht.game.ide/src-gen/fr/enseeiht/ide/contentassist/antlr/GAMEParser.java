@@ -38,7 +38,7 @@ public class GAMEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCheminAccess().getGroup_9(), "rule__Chemin__Group_9__0");
 			builder.put(grammarAccess.getCheminAccess().getGroup_11(), "rule__Chemin__Group_11__0");
 			builder.put(grammarAccess.getPersonneAccess().getGroup(), "rule__Personne__Group__0");
-			builder.put(grammarAccess.getPersonneAccess().getGroup_6(), "rule__Personne__Group_6__0");
+			builder.put(grammarAccess.getPersonneAccess().getGroup_8(), "rule__Personne__Group_8__0");
 			builder.put(grammarAccess.getInteractionAccess().getGroup(), "rule__Interaction__Group__0");
 			builder.put(grammarAccess.getChoixAccess().getGroup(), "rule__Choix__Group__0");
 			builder.put(grammarAccess.getActionAccess().getGroup(), "rule__Action__Group__0");
@@ -81,10 +81,11 @@ public class GAMEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getCheminAccess().getOuvertureAssignment_10(), "rule__Chemin__OuvertureAssignment_10");
 			builder.put(grammarAccess.getCheminAccess().getConditionsOuvertureAssignment_11_1(), "rule__Chemin__ConditionsOuvertureAssignment_11_1");
 			builder.put(grammarAccess.getPersonneAccess().getNameAssignment_1(), "rule__Personne__NameAssignment_1");
-			builder.put(grammarAccess.getPersonneAccess().getDescriptionsAssignment_3(), "rule__Personne__DescriptionsAssignment_3");
-			builder.put(grammarAccess.getPersonneAccess().getInteractionAssignment_4(), "rule__Personne__InteractionAssignment_4");
-			builder.put(grammarAccess.getPersonneAccess().getVisibiliteAssignment_5(), "rule__Personne__VisibiliteAssignment_5");
-			builder.put(grammarAccess.getPersonneAccess().getConditionsVisibiliteAssignment_6_1(), "rule__Personne__ConditionsVisibiliteAssignment_6_1");
+			builder.put(grammarAccess.getPersonneAccess().getLocalisationAssignment_4(), "rule__Personne__LocalisationAssignment_4");
+			builder.put(grammarAccess.getPersonneAccess().getDescriptionsAssignment_5(), "rule__Personne__DescriptionsAssignment_5");
+			builder.put(grammarAccess.getPersonneAccess().getInteractionAssignment_6(), "rule__Personne__InteractionAssignment_6");
+			builder.put(grammarAccess.getPersonneAccess().getVisibiliteAssignment_7(), "rule__Personne__VisibiliteAssignment_7");
+			builder.put(grammarAccess.getPersonneAccess().getConditionsVisibiliteAssignment_8_1(), "rule__Personne__ConditionsVisibiliteAssignment_8_1");
 			builder.put(grammarAccess.getInteractionAccess().getEchangesAssignment_2(), "rule__Interaction__EchangesAssignment_2");
 			builder.put(grammarAccess.getInteractionAccess().getChoixAssignment_3(), "rule__Interaction__ChoixAssignment_3");
 			builder.put(grammarAccess.getChoixAccess().getNameAssignment_1(), "rule__Choix__NameAssignment_1");

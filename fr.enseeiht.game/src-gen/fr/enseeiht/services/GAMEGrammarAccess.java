@@ -290,28 +290,32 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDescriptionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDescriptionsDescriptionParserRuleCall_3_0 = (RuleCall)cDescriptionsAssignment_3.eContents().get(0);
-		private final Assignment cInteractionAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cInteractionInteractionParserRuleCall_4_0 = (RuleCall)cInteractionAssignment_4.eContents().get(0);
-		private final Assignment cVisibiliteAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cVisibiliteVisibiliteEnumRuleCall_5_0 = (RuleCall)cVisibiliteAssignment_5.eContents().get(0);
-		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
-		private final Keyword cSiKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cConditionsVisibiliteAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cConditionsVisibiliteConditionParserRuleCall_6_1_0 = (RuleCall)cConditionsVisibiliteAssignment_6_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cLocalisationKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cLocalisationAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final CrossReference cLocalisationLieuCrossReference_4_0 = (CrossReference)cLocalisationAssignment_4.eContents().get(0);
+		private final RuleCall cLocalisationLieuIDTerminalRuleCall_4_0_1 = (RuleCall)cLocalisationLieuCrossReference_4_0.eContents().get(1);
+		private final Assignment cDescriptionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDescriptionsDescriptionParserRuleCall_5_0 = (RuleCall)cDescriptionsAssignment_5.eContents().get(0);
+		private final Assignment cInteractionAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cInteractionInteractionParserRuleCall_6_0 = (RuleCall)cInteractionAssignment_6.eContents().get(0);
+		private final Assignment cVisibiliteAssignment_7 = (Assignment)cGroup.eContents().get(7);
+		private final RuleCall cVisibiliteVisibiliteEnumRuleCall_7_0 = (RuleCall)cVisibiliteAssignment_7.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cSiKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Assignment cConditionsVisibiliteAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
+		private final RuleCall cConditionsVisibiliteConditionParserRuleCall_8_1_0 = (RuleCall)cConditionsVisibiliteAssignment_8_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Personne:
 		//	'personne' name=ID '{'
-		//	descriptions=Description
+		//	'localisation' localisation=[Lieu] descriptions=Description
 		//	interaction=Interaction
 		//	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'personne' name=ID '{' descriptions=Description interaction=Interaction visibilite=Visibilite ('si'
-		//conditionsVisibilite=Condition)? '}'
+		//'personne' name=ID '{' 'localisation' localisation=[Lieu] descriptions=Description interaction=Interaction
+		//visibilite=Visibilite ('si' conditionsVisibilite=Condition)? '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'personne'
@@ -326,38 +330,50 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 		
+		//'localisation'
+		public Keyword getLocalisationKeyword_3() { return cLocalisationKeyword_3; }
+		
+		//localisation=[Lieu]
+		public Assignment getLocalisationAssignment_4() { return cLocalisationAssignment_4; }
+		
+		//[Lieu]
+		public CrossReference getLocalisationLieuCrossReference_4_0() { return cLocalisationLieuCrossReference_4_0; }
+		
+		//ID
+		public RuleCall getLocalisationLieuIDTerminalRuleCall_4_0_1() { return cLocalisationLieuIDTerminalRuleCall_4_0_1; }
+		
 		//descriptions=Description
-		public Assignment getDescriptionsAssignment_3() { return cDescriptionsAssignment_3; }
+		public Assignment getDescriptionsAssignment_5() { return cDescriptionsAssignment_5; }
 		
 		//Description
-		public RuleCall getDescriptionsDescriptionParserRuleCall_3_0() { return cDescriptionsDescriptionParserRuleCall_3_0; }
+		public RuleCall getDescriptionsDescriptionParserRuleCall_5_0() { return cDescriptionsDescriptionParserRuleCall_5_0; }
 		
 		//interaction=Interaction
-		public Assignment getInteractionAssignment_4() { return cInteractionAssignment_4; }
+		public Assignment getInteractionAssignment_6() { return cInteractionAssignment_6; }
 		
 		//Interaction
-		public RuleCall getInteractionInteractionParserRuleCall_4_0() { return cInteractionInteractionParserRuleCall_4_0; }
+		public RuleCall getInteractionInteractionParserRuleCall_6_0() { return cInteractionInteractionParserRuleCall_6_0; }
 		
 		//visibilite=Visibilite
-		public Assignment getVisibiliteAssignment_5() { return cVisibiliteAssignment_5; }
+		public Assignment getVisibiliteAssignment_7() { return cVisibiliteAssignment_7; }
 		
 		//Visibilite
-		public RuleCall getVisibiliteVisibiliteEnumRuleCall_5_0() { return cVisibiliteVisibiliteEnumRuleCall_5_0; }
+		public RuleCall getVisibiliteVisibiliteEnumRuleCall_7_0() { return cVisibiliteVisibiliteEnumRuleCall_7_0; }
 		
 		//('si' conditionsVisibilite=Condition)?
-		public Group getGroup_6() { return cGroup_6; }
+		public Group getGroup_8() { return cGroup_8; }
 		
 		//'si'
-		public Keyword getSiKeyword_6_0() { return cSiKeyword_6_0; }
+		public Keyword getSiKeyword_8_0() { return cSiKeyword_8_0; }
 		
 		//conditionsVisibilite=Condition
-		public Assignment getConditionsVisibiliteAssignment_6_1() { return cConditionsVisibiliteAssignment_6_1; }
+		public Assignment getConditionsVisibiliteAssignment_8_1() { return cConditionsVisibiliteAssignment_8_1; }
 		
 		//Condition
-		public RuleCall getConditionsVisibiliteConditionParserRuleCall_6_1_0() { return cConditionsVisibiliteConditionParserRuleCall_6_1_0; }
+		public RuleCall getConditionsVisibiliteConditionParserRuleCall_8_1_0() { return cConditionsVisibiliteConditionParserRuleCall_8_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 	public class InteractionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.GAME.Interaction");
@@ -1350,7 +1366,7 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Personne:
 	//	'personne' name=ID '{'
-	//	descriptions=Description
+	//	'localisation' localisation=[Lieu] descriptions=Description
 	//	interaction=Interaction
 	//	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 	//	'}';

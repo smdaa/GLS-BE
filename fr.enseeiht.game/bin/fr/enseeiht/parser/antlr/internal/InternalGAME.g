@@ -509,12 +509,29 @@ rulePersonne returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getPersonneAccess().getLeftCurlyBracketKeyword_2());
 		}
+		otherlv_3='localisation'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getPersonneAccess().getLocalisationKeyword_3());
+		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPersonneAccess().getDescriptionsDescriptionParserRuleCall_3_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPersonneRule());
+					}
 				}
-				lv_descriptions_3_0=ruleDescription
+				otherlv_4=RULE_ID
+				{
+					newLeafNode(otherlv_4, grammarAccess.getPersonneAccess().getLocalisationLieuCrossReference_4_0());
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPersonneAccess().getDescriptionsDescriptionParserRuleCall_5_0());
+				}
+				lv_descriptions_5_0=ruleDescription
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPersonneRule());
@@ -522,7 +539,7 @@ rulePersonne returns [EObject current=null]
 					set(
 						$current,
 						"descriptions",
-						lv_descriptions_3_0,
+						lv_descriptions_5_0,
 						"fr.enseeiht.GAME.Description");
 					afterParserOrEnumRuleCall();
 				}
@@ -531,9 +548,9 @@ rulePersonne returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPersonneAccess().getInteractionInteractionParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getPersonneAccess().getInteractionInteractionParserRuleCall_6_0());
 				}
-				lv_interaction_4_0=ruleInteraction
+				lv_interaction_6_0=ruleInteraction
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPersonneRule());
@@ -541,7 +558,7 @@ rulePersonne returns [EObject current=null]
 					set(
 						$current,
 						"interaction",
-						lv_interaction_4_0,
+						lv_interaction_6_0,
 						"fr.enseeiht.GAME.Interaction");
 					afterParserOrEnumRuleCall();
 				}
@@ -550,9 +567,9 @@ rulePersonne returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getPersonneAccess().getVisibiliteVisibiliteEnumRuleCall_5_0());
+					newCompositeNode(grammarAccess.getPersonneAccess().getVisibiliteVisibiliteEnumRuleCall_7_0());
 				}
-				lv_visibilite_5_0=ruleVisibilite
+				lv_visibilite_7_0=ruleVisibilite
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getPersonneRule());
@@ -560,23 +577,23 @@ rulePersonne returns [EObject current=null]
 					set(
 						$current,
 						"visibilite",
-						lv_visibilite_5_0,
+						lv_visibilite_7_0,
 						"fr.enseeiht.GAME.Visibilite");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_6='si'
+			otherlv_8='si'
 			{
-				newLeafNode(otherlv_6, grammarAccess.getPersonneAccess().getSiKeyword_6_0());
+				newLeafNode(otherlv_8, grammarAccess.getPersonneAccess().getSiKeyword_8_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPersonneAccess().getConditionsVisibiliteConditionParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getPersonneAccess().getConditionsVisibiliteConditionParserRuleCall_8_1_0());
 					}
-					lv_conditionsVisibilite_7_0=ruleCondition
+					lv_conditionsVisibilite_9_0=ruleCondition
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPersonneRule());
@@ -584,16 +601,16 @@ rulePersonne returns [EObject current=null]
 						set(
 							$current,
 							"conditionsVisibilite",
-							lv_conditionsVisibilite_7_0,
+							lv_conditionsVisibilite_9_0,
 							"fr.enseeiht.GAME.Condition");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-		otherlv_8='}'
+		otherlv_10='}'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getPersonneAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_10, grammarAccess.getPersonneAccess().getRightCurlyBracketKeyword_9());
 		}
 	)
 ;

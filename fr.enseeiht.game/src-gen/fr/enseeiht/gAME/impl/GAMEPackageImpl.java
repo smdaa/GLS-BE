@@ -461,7 +461,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
    * @generated
    */
   @Override
-  public EReference getPersonne_Descriptions()
+  public EReference getPersonne_Localisation()
   {
     return (EReference)personneEClass.getEStructuralFeatures().get(1);
   }
@@ -472,7 +472,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
    * @generated
    */
   @Override
-  public EReference getPersonne_Interaction()
+  public EReference getPersonne_Descriptions()
   {
     return (EReference)personneEClass.getEStructuralFeatures().get(2);
   }
@@ -483,9 +483,20 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
    * @generated
    */
   @Override
+  public EReference getPersonne_Interaction()
+  {
+    return (EReference)personneEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EAttribute getPersonne_Visibilite()
   {
-    return (EAttribute)personneEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)personneEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -496,7 +507,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
   @Override
   public EReference getPersonne_ConditionsVisibilite()
   {
-    return (EReference)personneEClass.getEStructuralFeatures().get(4);
+    return (EReference)personneEClass.getEStructuralFeatures().get(5);
   }
 
   /**
@@ -1137,6 +1148,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
 
     personneEClass = createEClass(PERSONNE);
     createEAttribute(personneEClass, PERSONNE__NAME);
+    createEReference(personneEClass, PERSONNE__LOCALISATION);
     createEReference(personneEClass, PERSONNE__DESCRIPTIONS);
     createEReference(personneEClass, PERSONNE__INTERACTION);
     createEAttribute(personneEClass, PERSONNE__VISIBILITE);
@@ -1264,6 +1276,7 @@ public class GAMEPackageImpl extends EPackageImpl implements GAMEPackage
 
     initEClass(personneEClass, Personne.class, "Personne", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPersonne_Name(), ecorePackage.getEString(), "name", null, 0, 1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPersonne_Localisation(), this.getLieu(), null, "localisation", null, 0, 1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPersonne_Descriptions(), this.getDescription(), null, "descriptions", null, 0, 1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPersonne_Interaction(), this.getInteraction(), null, "interaction", null, 0, 1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getPersonne_Visibilite(), this.getVisibilite(), "visibilite", null, 0, 1, Personne.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

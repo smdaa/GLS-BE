@@ -297,7 +297,14 @@ public class GAMESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Personne returns Personne
 	 *
 	 * Constraint:
-	 *     (name=ID descriptions=Description interaction=Interaction visibilite=Visibilite conditionsVisibilite=Condition?)
+	 *     (
+	 *         name=ID 
+	 *         localisation=[Lieu|ID] 
+	 *         descriptions=Description 
+	 *         interaction=Interaction 
+	 *         visibilite=Visibilite 
+	 *         conditionsVisibilite=Condition?
+	 *     )
 	 */
 	protected void sequence_Personne(ISerializationContext context, Personne semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

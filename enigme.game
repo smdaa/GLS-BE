@@ -39,6 +39,7 @@ jeu enigme {
 		visible
 	}
 	personne sphinx {
+		localisation enigme
 		description {
 			"texte de la question : "
 		}

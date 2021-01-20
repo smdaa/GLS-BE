@@ -7,6 +7,7 @@ import fr.enseeiht.gAME.Condition;
 import fr.enseeiht.gAME.Description;
 import fr.enseeiht.gAME.GAMEPackage;
 import fr.enseeiht.gAME.Interaction;
+import fr.enseeiht.gAME.Lieu;
 import fr.enseeiht.gAME.Personne;
 import fr.enseeiht.gAME.Visibilite;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link fr.enseeiht.gAME.impl.PersonneImpl#getName <em>Name</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.PersonneImpl#getLocalisation <em>Localisation</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.PersonneImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.PersonneImpl#getInteraction <em>Interaction</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.PersonneImpl#getVisibilite <em>Visibilite</em>}</li>
@@ -57,6 +59,16 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getLocalisation() <em>Localisation</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLocalisation()
+   * @generated
+   * @ordered
+   */
+  protected Lieu localisation;
 
   /**
    * The cached value of the '{@link #getDescriptions() <em>Descriptions</em>}' containment reference.
@@ -152,6 +164,51 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.PERSONNE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Lieu getLocalisation()
+  {
+    if (localisation != null && localisation.eIsProxy())
+    {
+      InternalEObject oldLocalisation = (InternalEObject)localisation;
+      localisation = (Lieu)eResolveProxy(oldLocalisation);
+      if (localisation != oldLocalisation)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, GAMEPackage.PERSONNE__LOCALISATION, oldLocalisation, localisation));
+      }
+    }
+    return localisation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Lieu basicGetLocalisation()
+  {
+    return localisation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setLocalisation(Lieu newLocalisation)
+  {
+    Lieu oldLocalisation = localisation;
+    localisation = newLocalisation;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.PERSONNE__LOCALISATION, oldLocalisation, localisation));
   }
 
   /**
@@ -361,6 +418,9 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
     {
       case GAMEPackage.PERSONNE__NAME:
         return getName();
+      case GAMEPackage.PERSONNE__LOCALISATION:
+        if (resolve) return getLocalisation();
+        return basicGetLocalisation();
       case GAMEPackage.PERSONNE__DESCRIPTIONS:
         return getDescriptions();
       case GAMEPackage.PERSONNE__INTERACTION:
@@ -385,6 +445,9 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
     {
       case GAMEPackage.PERSONNE__NAME:
         setName((String)newValue);
+        return;
+      case GAMEPackage.PERSONNE__LOCALISATION:
+        setLocalisation((Lieu)newValue);
         return;
       case GAMEPackage.PERSONNE__DESCRIPTIONS:
         setDescriptions((Description)newValue);
@@ -415,6 +478,9 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
       case GAMEPackage.PERSONNE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case GAMEPackage.PERSONNE__LOCALISATION:
+        setLocalisation((Lieu)null);
+        return;
       case GAMEPackage.PERSONNE__DESCRIPTIONS:
         setDescriptions((Description)null);
         return;
@@ -443,6 +509,8 @@ public class PersonneImpl extends MinimalEObjectImpl.Container implements Person
     {
       case GAMEPackage.PERSONNE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case GAMEPackage.PERSONNE__LOCALISATION:
+        return localisation != null;
       case GAMEPackage.PERSONNE__DESCRIPTIONS:
         return descriptions != null;
       case GAMEPackage.PERSONNE__INTERACTION:

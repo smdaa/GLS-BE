@@ -278,13 +278,22 @@ public interface GAMEPackage extends EPackage
   int PERSONNE__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Localisation</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PERSONNE__LOCALISATION = 1;
+
+  /**
    * The feature id for the '<em><b>Descriptions</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PERSONNE__DESCRIPTIONS = 1;
+  int PERSONNE__DESCRIPTIONS = 2;
 
   /**
    * The feature id for the '<em><b>Interaction</b></em>' containment reference.
@@ -293,7 +302,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PERSONNE__INTERACTION = 2;
+  int PERSONNE__INTERACTION = 3;
 
   /**
    * The feature id for the '<em><b>Visibilite</b></em>' attribute.
@@ -302,7 +311,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PERSONNE__VISIBILITE = 3;
+  int PERSONNE__VISIBILITE = 4;
 
   /**
    * The feature id for the '<em><b>Conditions Visibilite</b></em>' containment reference.
@@ -311,7 +320,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PERSONNE__CONDITIONS_VISIBILITE = 4;
+  int PERSONNE__CONDITIONS_VISIBILITE = 5;
 
   /**
    * The number of structural features of the '<em>Personne</em>' class.
@@ -320,7 +329,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PERSONNE_FEATURE_COUNT = 5;
+  int PERSONNE_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.InteractionImpl <em>Interaction</em>}' class.
@@ -1152,6 +1161,17 @@ public interface GAMEPackage extends EPackage
   EAttribute getPersonne_Name();
 
   /**
+   * Returns the meta object for the reference '{@link fr.enseeiht.gAME.Personne#getLocalisation <em>Localisation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Localisation</em>'.
+   * @see fr.enseeiht.gAME.Personne#getLocalisation()
+   * @see #getPersonne()
+   * @generated
+   */
+  EReference getPersonne_Localisation();
+
+  /**
    * Returns the meta object for the containment reference '{@link fr.enseeiht.gAME.Personne#getDescriptions <em>Descriptions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1969,6 +1989,14 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EAttribute PERSONNE__NAME = eINSTANCE.getPersonne_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Localisation</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PERSONNE__LOCALISATION = eINSTANCE.getPersonne_Localisation();
 
     /**
      * The meta object literal for the '<em><b>Descriptions</b></em>' containment reference feature.
