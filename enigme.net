@@ -1,40 +1,29 @@
 net enigme
 
 pl enigme
-pl echec 
 pl succes
-
-pl sphinx
+pl echec
 
 pl choix
 
-pl actionok
-pl actionko
+tr sphinx enigme -> choix
 
-tr choixactionok choix -> actionok
-tr choixactionko choix -> actionko
+tr actionok choix tentative?1 -> finchoix win
+tr actionkoantoher choix tentative -> choix 
+tr actionko choix tentative?0 tentative?-1 -> finchoix tentative*0
 
-tr interactionsphinx sphinx -> choix
-
-tr debutinteraction enigme tentativePossedee?1 reussiteManquante?1 -> sphinx
-
-tr en2e enigme tentativeManquante?1 -> echec
-tr en2s enigme reussitePossedee?1 -> succes
-
-pl tentativeManquante
-pl reussitePossedee
-
-tr transmissionActionko actionko reussiteManquante -> reussitePossedee enigme
-tr transmissionActionok actionok tentativePossedee tentativePossedee?2 -> enigme
-
-tr cheminVersDefaite : chemin enigme tentativeManquante?1 -> echec
-tr cheminVerswin : chemin enigme reussitePossedee?1 -> succes
-
-
-tr win succes -> end
-tr defeat echec -> end
+pl tentative (3)
+pl reussite (1)
 
 pl start (1)
-tr init start -> tentativePossedee*3 reussiteManquante enigme
+
+tr init start -> enigme
+tr succes echec -> end
+
+tr bonchemin finchoix bonchemin_visible reussite?1 -> succes
+tr mauvaischemin finchoix mauvaischemin_visible tentative?0 tentative?-1 -> echec tentative*0
+
+pl bonchemin_visible (1)
+pl mauvaischemin_visible (1)
 
 
