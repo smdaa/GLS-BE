@@ -12,6 +12,8 @@
         eType="#//Lieu" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Objets" upperBound="-1"
         eType="#//Objet" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ObjetAvecQuantite" upperBound="-1"
+        eType="#//ObjetAvecQuantite" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Connaissances" upperBound="-1"
         eType="#//Connaissance" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="personnes" upperBound="-1"
@@ -79,7 +81,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="descriptions" upperBound="-1"
         eType="#//Description" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="taille" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="visibilite" eType="#//Visibilite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditionsVisibilite" eType="#//Condition"
         containment="true"/>
@@ -106,10 +107,15 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="taille" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="objets" unique="false"
-        upperBound="-1" eType="#//Objet"/>
+        upperBound="-1" eType="#//ObjetAvecQuantite"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="connaissances" unique="false"
         upperBound="-1" eType="#//Connaissance"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="localisation" eType="#//Lieu"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjetAvecQuantite">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="objet" eType="#//Objet"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantite" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Lieu">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -132,6 +132,15 @@ public interface GAMEFactory extends EFactory
   Explorateur createExplorateur();
 
   /**
+   * Returns a new object of class '<em>Objet Avec Quantite</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Objet Avec Quantite</em>'.
+   * @generated
+   */
+  ObjetAvecQuantite createObjetAvecQuantite();
+
+  /**
    * Returns a new object of class '<em>Lieu</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

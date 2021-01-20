@@ -48,13 +48,15 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cLieuxLieuParserRuleCall_8_0 = (RuleCall)cLieuxAssignment_8.eContents().get(0);
 		private final Assignment cObjetsAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cObjetsObjetParserRuleCall_9_0 = (RuleCall)cObjetsAssignment_9.eContents().get(0);
-		private final Assignment cConnaissancesAssignment_10 = (Assignment)cGroup.eContents().get(10);
-		private final RuleCall cConnaissancesConnaissanceParserRuleCall_10_0 = (RuleCall)cConnaissancesAssignment_10.eContents().get(0);
-		private final Assignment cPersonnesAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cPersonnesPersonneParserRuleCall_11_0 = (RuleCall)cPersonnesAssignment_11.eContents().get(0);
-		private final Assignment cCheminsAssignment_12 = (Assignment)cGroup.eContents().get(12);
-		private final RuleCall cCheminsCheminParserRuleCall_12_0 = (RuleCall)cCheminsAssignment_12.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_13 = (Keyword)cGroup.eContents().get(13);
+		private final Assignment cObjetAvecQuantiteAssignment_10 = (Assignment)cGroup.eContents().get(10);
+		private final RuleCall cObjetAvecQuantiteObjetAvecQuantiteParserRuleCall_10_0 = (RuleCall)cObjetAvecQuantiteAssignment_10.eContents().get(0);
+		private final Assignment cConnaissancesAssignment_11 = (Assignment)cGroup.eContents().get(11);
+		private final RuleCall cConnaissancesConnaissanceParserRuleCall_11_0 = (RuleCall)cConnaissancesAssignment_11.eContents().get(0);
+		private final Assignment cPersonnesAssignment_12 = (Assignment)cGroup.eContents().get(12);
+		private final RuleCall cPersonnesPersonneParserRuleCall_12_0 = (RuleCall)cPersonnesAssignment_12.eContents().get(0);
+		private final Assignment cCheminsAssignment_13 = (Assignment)cGroup.eContents().get(13);
+		private final RuleCall cCheminsCheminParserRuleCall_13_0 = (RuleCall)cCheminsAssignment_13.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_14 = (Keyword)cGroup.eContents().get(14);
 		
 		//Jeu:
 		//	'jeu' name=ID '{'
@@ -63,6 +65,7 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		//	'pointFin' pointFin+=[Lieu]+
 		//	lieux+=Lieu*
 		//	Objets+=Objet*
+		//	ObjetAvecQuantite+=ObjetAvecQuantite*
 		//	Connaissances+=Connaissance*
 		//	personnes+=Personne*
 		//	chemins+=Chemin*
@@ -70,7 +73,8 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'jeu' name=ID '{' explorateur=Explorateur 'pointDepart' pointDepart=[Lieu] 'pointFin' pointFin+=[Lieu]+ lieux+=Lieu*
-		//Objets+=Objet* Connaissances+=Connaissance* personnes+=Personne* chemins+=Chemin* '}'
+		//Objets+=Objet* ObjetAvecQuantite+=ObjetAvecQuantite* Connaissances+=Connaissance* personnes+=Personne*
+		//chemins+=Chemin* '}'
 		public Group getGroup() { return cGroup; }
 		
 		//'jeu'
@@ -127,26 +131,32 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		//Objet
 		public RuleCall getObjetsObjetParserRuleCall_9_0() { return cObjetsObjetParserRuleCall_9_0; }
 		
+		//ObjetAvecQuantite+=ObjetAvecQuantite*
+		public Assignment getObjetAvecQuantiteAssignment_10() { return cObjetAvecQuantiteAssignment_10; }
+		
+		//ObjetAvecQuantite
+		public RuleCall getObjetAvecQuantiteObjetAvecQuantiteParserRuleCall_10_0() { return cObjetAvecQuantiteObjetAvecQuantiteParserRuleCall_10_0; }
+		
 		//Connaissances+=Connaissance*
-		public Assignment getConnaissancesAssignment_10() { return cConnaissancesAssignment_10; }
+		public Assignment getConnaissancesAssignment_11() { return cConnaissancesAssignment_11; }
 		
 		//Connaissance
-		public RuleCall getConnaissancesConnaissanceParserRuleCall_10_0() { return cConnaissancesConnaissanceParserRuleCall_10_0; }
+		public RuleCall getConnaissancesConnaissanceParserRuleCall_11_0() { return cConnaissancesConnaissanceParserRuleCall_11_0; }
 		
 		//personnes+=Personne*
-		public Assignment getPersonnesAssignment_11() { return cPersonnesAssignment_11; }
+		public Assignment getPersonnesAssignment_12() { return cPersonnesAssignment_12; }
 		
 		//Personne
-		public RuleCall getPersonnesPersonneParserRuleCall_11_0() { return cPersonnesPersonneParserRuleCall_11_0; }
+		public RuleCall getPersonnesPersonneParserRuleCall_12_0() { return cPersonnesPersonneParserRuleCall_12_0; }
 		
 		//chemins+=Chemin*
-		public Assignment getCheminsAssignment_12() { return cCheminsAssignment_12; }
+		public Assignment getCheminsAssignment_13() { return cCheminsAssignment_13; }
 		
 		//Chemin
-		public RuleCall getCheminsCheminParserRuleCall_12_0() { return cCheminsCheminParserRuleCall_12_0; }
+		public RuleCall getCheminsCheminParserRuleCall_13_0() { return cCheminsCheminParserRuleCall_13_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_13() { return cRightCurlyBracketKeyword_13; }
+		public Keyword getRightCurlyBracketKeyword_14() { return cRightCurlyBracketKeyword_14; }
 	}
 	public class CheminElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.GAME.Chemin");
@@ -610,27 +620,23 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cTailleKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cTailleAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cTailleINTTerminalRuleCall_5_0 = (RuleCall)cTailleAssignment_5.eContents().get(0);
-		private final Keyword cQuantiteKeyword_6 = (Keyword)cGroup.eContents().get(6);
-		private final Assignment cQuantiteAssignment_7 = (Assignment)cGroup.eContents().get(7);
-		private final RuleCall cQuantiteINTTerminalRuleCall_7_0 = (RuleCall)cQuantiteAssignment_7.eContents().get(0);
-		private final Assignment cVisibiliteAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final RuleCall cVisibiliteVisibiliteEnumRuleCall_8_0 = (RuleCall)cVisibiliteAssignment_8.eContents().get(0);
-		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
-		private final Keyword cSiKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cConditionsVisibiliteAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cConditionsVisibiliteConditionParserRuleCall_9_1_0 = (RuleCall)cConditionsVisibiliteAssignment_9_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Assignment cVisibiliteAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cVisibiliteVisibiliteEnumRuleCall_6_0 = (RuleCall)cVisibiliteAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cSiKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cConditionsVisibiliteAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cConditionsVisibiliteConditionParserRuleCall_7_1_0 = (RuleCall)cConditionsVisibiliteAssignment_7_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//Objet:
 		//	'objet' name=ID '{'
 		//	descriptions+=Description?
 		//	'taille' taille=INT
-		//	'quantite' quantite=INT
 		//	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'objet' name=ID '{' descriptions+=Description? 'taille' taille=INT 'quantite' quantite=INT visibilite=Visibilite ('si'
+		//'objet' name=ID '{' descriptions+=Description? 'taille' taille=INT visibilite=Visibilite ('si'
 		//conditionsVisibilite=Condition)? '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -661,35 +667,26 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getTailleINTTerminalRuleCall_5_0() { return cTailleINTTerminalRuleCall_5_0; }
 		
-		//'quantite'
-		public Keyword getQuantiteKeyword_6() { return cQuantiteKeyword_6; }
-		
-		//quantite=INT
-		public Assignment getQuantiteAssignment_7() { return cQuantiteAssignment_7; }
-		
-		//INT
-		public RuleCall getQuantiteINTTerminalRuleCall_7_0() { return cQuantiteINTTerminalRuleCall_7_0; }
-		
 		//visibilite=Visibilite
-		public Assignment getVisibiliteAssignment_8() { return cVisibiliteAssignment_8; }
+		public Assignment getVisibiliteAssignment_6() { return cVisibiliteAssignment_6; }
 		
 		//Visibilite
-		public RuleCall getVisibiliteVisibiliteEnumRuleCall_8_0() { return cVisibiliteVisibiliteEnumRuleCall_8_0; }
+		public RuleCall getVisibiliteVisibiliteEnumRuleCall_6_0() { return cVisibiliteVisibiliteEnumRuleCall_6_0; }
 		
 		//('si' conditionsVisibilite=Condition)?
-		public Group getGroup_9() { return cGroup_9; }
+		public Group getGroup_7() { return cGroup_7; }
 		
 		//'si'
-		public Keyword getSiKeyword_9_0() { return cSiKeyword_9_0; }
+		public Keyword getSiKeyword_7_0() { return cSiKeyword_7_0; }
 		
 		//conditionsVisibilite=Condition
-		public Assignment getConditionsVisibiliteAssignment_9_1() { return cConditionsVisibiliteAssignment_9_1; }
+		public Assignment getConditionsVisibiliteAssignment_7_1() { return cConditionsVisibiliteAssignment_7_1; }
 		
 		//Condition
-		public RuleCall getConditionsVisibiliteConditionParserRuleCall_9_1_0() { return cConditionsVisibiliteConditionParserRuleCall_9_1_0; }
+		public RuleCall getConditionsVisibiliteConditionParserRuleCall_7_1_0() { return cConditionsVisibiliteConditionParserRuleCall_7_1_0; }
 		
 		//'}'
-		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
+		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 	public class DescriptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.GAME.Description");
@@ -908,8 +905,8 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTailleINTTerminalRuleCall_4_0 = (RuleCall)cTailleAssignment_4.eContents().get(0);
 		private final Keyword cInventaireOKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cObjetsAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final CrossReference cObjetsObjetCrossReference_6_0 = (CrossReference)cObjetsAssignment_6.eContents().get(0);
-		private final RuleCall cObjetsObjetIDTerminalRuleCall_6_0_1 = (RuleCall)cObjetsObjetCrossReference_6_0.eContents().get(1);
+		private final CrossReference cObjetsObjetAvecQuantiteCrossReference_6_0 = (CrossReference)cObjetsAssignment_6.eContents().get(0);
+		private final RuleCall cObjetsObjetAvecQuantiteIDTerminalRuleCall_6_0_1 = (RuleCall)cObjetsObjetAvecQuantiteCrossReference_6_0.eContents().get(1);
 		private final Keyword cInventaireCKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cConnaissancesAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final CrossReference cConnaissancesConnaissanceCrossReference_8_0 = (CrossReference)cConnaissancesAssignment_8.eContents().get(0);
@@ -923,13 +920,13 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		//Explorateur:
 		//	'explorateur' name=ID '{'
 		//	'taille' taille=INT
-		//	'inventaireO' objets+=[Objet]*
+		//	'inventaireO' objets+=[ObjetAvecQuantite]*
 		//	'inventaireC' connaissances+=[Connaissance]*
 		//	'localisation' localisation=[Lieu]
 		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'explorateur' name=ID '{' 'taille' taille=INT 'inventaireO' objets+=[Objet]* 'inventaireC'
+		//'explorateur' name=ID '{' 'taille' taille=INT 'inventaireO' objets+=[ObjetAvecQuantite]* 'inventaireC'
 		//connaissances+=[Connaissance]* 'localisation' localisation=[Lieu] '}'
 		public Group getGroup() { return cGroup; }
 		
@@ -957,14 +954,14 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		//'inventaireO'
 		public Keyword getInventaireOKeyword_5() { return cInventaireOKeyword_5; }
 		
-		//objets+=[Objet]*
+		//objets+=[ObjetAvecQuantite]*
 		public Assignment getObjetsAssignment_6() { return cObjetsAssignment_6; }
 		
-		//[Objet]
-		public CrossReference getObjetsObjetCrossReference_6_0() { return cObjetsObjetCrossReference_6_0; }
+		//[ObjetAvecQuantite]
+		public CrossReference getObjetsObjetAvecQuantiteCrossReference_6_0() { return cObjetsObjetAvecQuantiteCrossReference_6_0; }
 		
 		//ID
-		public RuleCall getObjetsObjetIDTerminalRuleCall_6_0_1() { return cObjetsObjetIDTerminalRuleCall_6_0_1; }
+		public RuleCall getObjetsObjetAvecQuantiteIDTerminalRuleCall_6_0_1() { return cObjetsObjetAvecQuantiteIDTerminalRuleCall_6_0_1; }
 		
 		//'inventaireC'
 		public Keyword getInventaireCKeyword_7() { return cInventaireCKeyword_7; }
@@ -992,6 +989,63 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+	}
+	public class ObjetAvecQuantiteElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.GAME.ObjetAvecQuantite");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cObjetavecquantiteKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cObjetAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final CrossReference cObjetObjetCrossReference_3_0 = (CrossReference)cObjetAssignment_3.eContents().get(0);
+		private final RuleCall cObjetObjetIDTerminalRuleCall_3_0_1 = (RuleCall)cObjetObjetCrossReference_3_0.eContents().get(1);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cQuantiteAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cQuantiteINTTerminalRuleCall_5_0 = (RuleCall)cQuantiteAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//ObjetAvecQuantite:
+		//	'objetavecquantite' name=ID '{'
+		//	objet=[Objet] "," quantite=INT
+		//	'}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'objetavecquantite' name=ID '{' objet=[Objet] "," quantite=INT '}'
+		public Group getGroup() { return cGroup; }
+		
+		//'objetavecquantite'
+		public Keyword getObjetavecquantiteKeyword_0() { return cObjetavecquantiteKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		
+		//objet=[Objet]
+		public Assignment getObjetAssignment_3() { return cObjetAssignment_3; }
+		
+		//[Objet]
+		public CrossReference getObjetObjetCrossReference_3_0() { return cObjetObjetCrossReference_3_0; }
+		
+		//ID
+		public RuleCall getObjetObjetIDTerminalRuleCall_3_0_1() { return cObjetObjetIDTerminalRuleCall_3_0_1; }
+		
+		//","
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+		
+		//quantite=INT
+		public Assignment getQuantiteAssignment_5() { return cQuantiteAssignment_5; }
+		
+		//INT
+		public RuleCall getQuantiteINTTerminalRuleCall_5_0() { return cQuantiteINTTerminalRuleCall_5_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 	public class LieuElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "fr.enseeiht.GAME.Lieu");
@@ -1200,6 +1254,7 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 	private final ConditionElements pCondition;
 	private final ConnaissanceElements pConnaissance;
 	private final ExplorateurElements pExplorateur;
+	private final ObjetAvecQuantiteElements pObjetAvecQuantite;
 	private final LieuElements pLieu;
 	private final VisibiliteElements eVisibilite;
 	private final OuvertureElements eOuverture;
@@ -1225,6 +1280,7 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 		this.pCondition = new ConditionElements();
 		this.pConnaissance = new ConnaissanceElements();
 		this.pExplorateur = new ExplorateurElements();
+		this.pObjetAvecQuantite = new ObjetAvecQuantiteElements();
 		this.pLieu = new LieuElements();
 		this.eVisibilite = new VisibiliteElements();
 		this.eOuverture = new OuvertureElements();
@@ -1264,6 +1320,7 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 	//	'pointFin' pointFin+=[Lieu]+
 	//	lieux+=Lieu*
 	//	Objets+=Objet*
+	//	ObjetAvecQuantite+=ObjetAvecQuantite*
 	//	Connaissances+=Connaissance*
 	//	personnes+=Personne*
 	//	chemins+=Chemin*
@@ -1361,7 +1418,6 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 	//	'objet' name=ID '{'
 	//	descriptions+=Description?
 	//	'taille' taille=INT
-	//	'quantite' quantite=INT
 	//	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 	//	'}';
 	public ObjetElements getObjetAccess() {
@@ -1412,7 +1468,7 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 	//Explorateur:
 	//	'explorateur' name=ID '{'
 	//	'taille' taille=INT
-	//	'inventaireO' objets+=[Objet]*
+	//	'inventaireO' objets+=[ObjetAvecQuantite]*
 	//	'inventaireC' connaissances+=[Connaissance]*
 	//	'localisation' localisation=[Lieu]
 	//	'}';
@@ -1422,6 +1478,18 @@ public class GAMEGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getExplorateurRule() {
 		return getExplorateurAccess().getRule();
+	}
+	
+	//ObjetAvecQuantite:
+	//	'objetavecquantite' name=ID '{'
+	//	objet=[Objet] "," quantite=INT
+	//	'}';
+	public ObjetAvecQuantiteElements getObjetAvecQuantiteAccess() {
+		return pObjetAvecQuantite;
+	}
+	
+	public ParserRule getObjetAvecQuantiteRule() {
+		return getObjetAvecQuantiteAccess().getRule();
 	}
 	
 	//Lieu:

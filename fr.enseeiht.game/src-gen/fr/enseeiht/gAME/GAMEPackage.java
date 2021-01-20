@@ -123,13 +123,22 @@ public interface GAMEPackage extends EPackage
   int JEU__OBJETS = 5;
 
   /**
+   * The feature id for the '<em><b>Objet Avec Quantite</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int JEU__OBJET_AVEC_QUANTITE = 6;
+
+  /**
    * The feature id for the '<em><b>Connaissances</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int JEU__CONNAISSANCES = 6;
+  int JEU__CONNAISSANCES = 7;
 
   /**
    * The feature id for the '<em><b>Personnes</b></em>' containment reference list.
@@ -138,7 +147,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEU__PERSONNES = 7;
+  int JEU__PERSONNES = 8;
 
   /**
    * The feature id for the '<em><b>Chemins</b></em>' containment reference list.
@@ -147,7 +156,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEU__CHEMINS = 8;
+  int JEU__CHEMINS = 9;
 
   /**
    * The number of structural features of the '<em>Jeu</em>' class.
@@ -156,7 +165,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int JEU_FEATURE_COUNT = 9;
+  int JEU_FEATURE_COUNT = 10;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.CheminImpl <em>Chemin</em>}' class.
@@ -544,22 +553,13 @@ public interface GAMEPackage extends EPackage
   int OBJET__TAILLE = 2;
 
   /**
-   * The feature id for the '<em><b>Quantite</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int OBJET__QUANTITE = 3;
-
-  /**
    * The feature id for the '<em><b>Visibilite</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int OBJET__VISIBILITE = 4;
+  int OBJET__VISIBILITE = 3;
 
   /**
    * The feature id for the '<em><b>Conditions Visibilite</b></em>' containment reference.
@@ -568,7 +568,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OBJET__CONDITIONS_VISIBILITE = 5;
+  int OBJET__CONDITIONS_VISIBILITE = 4;
 
   /**
    * The number of structural features of the '<em>Objet</em>' class.
@@ -577,7 +577,7 @@ public interface GAMEPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OBJET_FEATURE_COUNT = 6;
+  int OBJET_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.DescriptionImpl <em>Description</em>}' class.
@@ -773,6 +773,52 @@ public interface GAMEPackage extends EPackage
   int EXPLORATEUR_FEATURE_COUNT = 5;
 
   /**
+   * The meta object id for the '{@link fr.enseeiht.gAME.impl.ObjetAvecQuantiteImpl <em>Objet Avec Quantite</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see fr.enseeiht.gAME.impl.ObjetAvecQuantiteImpl
+   * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getObjetAvecQuantite()
+   * @generated
+   */
+  int OBJET_AVEC_QUANTITE = 12;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBJET_AVEC_QUANTITE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Objet</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBJET_AVEC_QUANTITE__OBJET = 1;
+
+  /**
+   * The feature id for the '<em><b>Quantite</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBJET_AVEC_QUANTITE__QUANTITE = 2;
+
+  /**
+   * The number of structural features of the '<em>Objet Avec Quantite</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OBJET_AVEC_QUANTITE_FEATURE_COUNT = 3;
+
+  /**
    * The meta object id for the '{@link fr.enseeiht.gAME.impl.LieuImpl <em>Lieu</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -780,7 +826,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getLieu()
    * @generated
    */
-  int LIEU = 12;
+  int LIEU = 13;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -853,7 +899,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getVisibilite()
    * @generated
    */
-  int VISIBILITE = 13;
+  int VISIBILITE = 14;
 
   /**
    * The meta object id for the '{@link fr.enseeiht.gAME.Ouverture <em>Ouverture</em>}' enum.
@@ -863,7 +909,7 @@ public interface GAMEPackage extends EPackage
    * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getOuverture()
    * @generated
    */
-  int OUVERTURE = 14;
+  int OUVERTURE = 15;
 
 
   /**
@@ -941,6 +987,17 @@ public interface GAMEPackage extends EPackage
    * @generated
    */
   EReference getJeu_Objets();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Jeu#getObjetAvecQuantite <em>Objet Avec Quantite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Objet Avec Quantite</em>'.
+   * @see fr.enseeiht.gAME.Jeu#getObjetAvecQuantite()
+   * @see #getJeu()
+   * @generated
+   */
+  EReference getJeu_ObjetAvecQuantite();
 
   /**
    * Returns the meta object for the containment reference list '{@link fr.enseeiht.gAME.Jeu#getConnaissances <em>Connaissances</em>}'.
@@ -1365,17 +1422,6 @@ public interface GAMEPackage extends EPackage
   EAttribute getObjet_Taille();
 
   /**
-   * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Objet#getQuantite <em>Quantite</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Quantite</em>'.
-   * @see fr.enseeiht.gAME.Objet#getQuantite()
-   * @see #getObjet()
-   * @generated
-   */
-  EAttribute getObjet_Quantite();
-
-  /**
    * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.Objet#getVisibilite <em>Visibilite</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1581,6 +1627,49 @@ public interface GAMEPackage extends EPackage
   EReference getExplorateur_Localisation();
 
   /**
+   * Returns the meta object for class '{@link fr.enseeiht.gAME.ObjetAvecQuantite <em>Objet Avec Quantite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Objet Avec Quantite</em>'.
+   * @see fr.enseeiht.gAME.ObjetAvecQuantite
+   * @generated
+   */
+  EClass getObjetAvecQuantite();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.ObjetAvecQuantite#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see fr.enseeiht.gAME.ObjetAvecQuantite#getName()
+   * @see #getObjetAvecQuantite()
+   * @generated
+   */
+  EAttribute getObjetAvecQuantite_Name();
+
+  /**
+   * Returns the meta object for the reference '{@link fr.enseeiht.gAME.ObjetAvecQuantite#getObjet <em>Objet</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Objet</em>'.
+   * @see fr.enseeiht.gAME.ObjetAvecQuantite#getObjet()
+   * @see #getObjetAvecQuantite()
+   * @generated
+   */
+  EReference getObjetAvecQuantite_Objet();
+
+  /**
+   * Returns the meta object for the attribute '{@link fr.enseeiht.gAME.ObjetAvecQuantite#getQuantite <em>Quantite</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Quantite</em>'.
+   * @see fr.enseeiht.gAME.ObjetAvecQuantite#getQuantite()
+   * @see #getObjetAvecQuantite()
+   * @generated
+   */
+  EAttribute getObjetAvecQuantite_Quantite();
+
+  /**
    * Returns the meta object for class '{@link fr.enseeiht.gAME.Lieu <em>Lieu</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1756,6 +1845,14 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EReference JEU__OBJETS = eINSTANCE.getJeu_Objets();
+
+    /**
+     * The meta object literal for the '<em><b>Objet Avec Quantite</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference JEU__OBJET_AVEC_QUANTITE = eINSTANCE.getJeu_ObjetAvecQuantite();
 
     /**
      * The meta object literal for the '<em><b>Connaissances</b></em>' containment reference list feature.
@@ -2084,14 +2181,6 @@ public interface GAMEPackage extends EPackage
     EAttribute OBJET__TAILLE = eINSTANCE.getObjet_Taille();
 
     /**
-     * The meta object literal for the '<em><b>Quantite</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute OBJET__QUANTITE = eINSTANCE.getObjet_Quantite();
-
-    /**
      * The meta object literal for the '<em><b>Visibilite</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2250,6 +2339,40 @@ public interface GAMEPackage extends EPackage
      * @generated
      */
     EReference EXPLORATEUR__LOCALISATION = eINSTANCE.getExplorateur_Localisation();
+
+    /**
+     * The meta object literal for the '{@link fr.enseeiht.gAME.impl.ObjetAvecQuantiteImpl <em>Objet Avec Quantite</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see fr.enseeiht.gAME.impl.ObjetAvecQuantiteImpl
+     * @see fr.enseeiht.gAME.impl.GAMEPackageImpl#getObjetAvecQuantite()
+     * @generated
+     */
+    EClass OBJET_AVEC_QUANTITE = eINSTANCE.getObjetAvecQuantite();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OBJET_AVEC_QUANTITE__NAME = eINSTANCE.getObjetAvecQuantite_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Objet</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference OBJET_AVEC_QUANTITE__OBJET = eINSTANCE.getObjetAvecQuantite_Objet();
+
+    /**
+     * The meta object literal for the '<em><b>Quantite</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OBJET_AVEC_QUANTITE__QUANTITE = eINSTANCE.getObjetAvecQuantite_Quantite();
 
     /**
      * The meta object literal for the '{@link fr.enseeiht.gAME.impl.LieuImpl <em>Lieu</em>}' class.

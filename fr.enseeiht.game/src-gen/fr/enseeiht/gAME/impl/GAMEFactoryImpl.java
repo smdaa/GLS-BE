@@ -78,6 +78,7 @@ public class GAMEFactoryImpl extends EFactoryImpl implements GAMEFactory
       case GAMEPackage.CONDITION: return createCondition();
       case GAMEPackage.CONNAISSANCE: return createConnaissance();
       case GAMEPackage.EXPLORATEUR: return createExplorateur();
+      case GAMEPackage.OBJET_AVEC_QUANTITE: return createObjetAvecQuantite();
       case GAMEPackage.LIEU: return createLieu();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -264,6 +265,18 @@ public class GAMEFactoryImpl extends EFactoryImpl implements GAMEFactory
   {
     ExplorateurImpl explorateur = new ExplorateurImpl();
     return explorateur;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ObjetAvecQuantite createObjetAvecQuantite()
+  {
+    ObjetAvecQuantiteImpl objetAvecQuantite = new ObjetAvecQuantiteImpl();
+    return objetAvecQuantite;
   }
 
   /**

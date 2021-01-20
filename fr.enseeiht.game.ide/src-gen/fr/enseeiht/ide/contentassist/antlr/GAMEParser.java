@@ -47,7 +47,7 @@ public class GAMEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getEchangeAccess().getGroup_4(), "rule__Echange__Group_4__0");
 			builder.put(grammarAccess.getEchangeAccess().getGroup_5(), "rule__Echange__Group_5__0");
 			builder.put(grammarAccess.getObjetAccess().getGroup(), "rule__Objet__Group__0");
-			builder.put(grammarAccess.getObjetAccess().getGroup_9(), "rule__Objet__Group_9__0");
+			builder.put(grammarAccess.getObjetAccess().getGroup_7(), "rule__Objet__Group_7__0");
 			builder.put(grammarAccess.getDescriptionAccess().getGroup(), "rule__Description__Group__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup(), "rule__Condition__Group__0");
 			builder.put(grammarAccess.getConditionAccess().getGroup_3(), "rule__Condition__Group_3__0");
@@ -56,6 +56,7 @@ public class GAMEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getConnaissanceAccess().getGroup(), "rule__Connaissance__Group__0");
 			builder.put(grammarAccess.getConnaissanceAccess().getGroup_5(), "rule__Connaissance__Group_5__0");
 			builder.put(grammarAccess.getExplorateurAccess().getGroup(), "rule__Explorateur__Group__0");
+			builder.put(grammarAccess.getObjetAvecQuantiteAccess().getGroup(), "rule__ObjetAvecQuantite__Group__0");
 			builder.put(grammarAccess.getLieuAccess().getGroup(), "rule__Lieu__Group__0");
 			builder.put(grammarAccess.getLieuAccess().getGroup_4(), "rule__Lieu__Group_4__0");
 			builder.put(grammarAccess.getLieuAccess().getGroup_5(), "rule__Lieu__Group_5__0");
@@ -67,9 +68,10 @@ public class GAMEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getJeuAccess().getPointFinAssignment_7(), "rule__Jeu__PointFinAssignment_7");
 			builder.put(grammarAccess.getJeuAccess().getLieuxAssignment_8(), "rule__Jeu__LieuxAssignment_8");
 			builder.put(grammarAccess.getJeuAccess().getObjetsAssignment_9(), "rule__Jeu__ObjetsAssignment_9");
-			builder.put(grammarAccess.getJeuAccess().getConnaissancesAssignment_10(), "rule__Jeu__ConnaissancesAssignment_10");
-			builder.put(grammarAccess.getJeuAccess().getPersonnesAssignment_11(), "rule__Jeu__PersonnesAssignment_11");
-			builder.put(grammarAccess.getJeuAccess().getCheminsAssignment_12(), "rule__Jeu__CheminsAssignment_12");
+			builder.put(grammarAccess.getJeuAccess().getObjetAvecQuantiteAssignment_10(), "rule__Jeu__ObjetAvecQuantiteAssignment_10");
+			builder.put(grammarAccess.getJeuAccess().getConnaissancesAssignment_11(), "rule__Jeu__ConnaissancesAssignment_11");
+			builder.put(grammarAccess.getJeuAccess().getPersonnesAssignment_12(), "rule__Jeu__PersonnesAssignment_12");
+			builder.put(grammarAccess.getJeuAccess().getCheminsAssignment_13(), "rule__Jeu__CheminsAssignment_13");
 			builder.put(grammarAccess.getCheminAccess().getNameAssignment_1(), "rule__Chemin__NameAssignment_1");
 			builder.put(grammarAccess.getCheminAccess().getDescriptionsAssignment_3(), "rule__Chemin__DescriptionsAssignment_3");
 			builder.put(grammarAccess.getCheminAccess().getDepartAssignment_5(), "rule__Chemin__DepartAssignment_5");
@@ -99,9 +101,8 @@ public class GAMEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getObjetAccess().getNameAssignment_1(), "rule__Objet__NameAssignment_1");
 			builder.put(grammarAccess.getObjetAccess().getDescriptionsAssignment_3(), "rule__Objet__DescriptionsAssignment_3");
 			builder.put(grammarAccess.getObjetAccess().getTailleAssignment_5(), "rule__Objet__TailleAssignment_5");
-			builder.put(grammarAccess.getObjetAccess().getQuantiteAssignment_7(), "rule__Objet__QuantiteAssignment_7");
-			builder.put(grammarAccess.getObjetAccess().getVisibiliteAssignment_8(), "rule__Objet__VisibiliteAssignment_8");
-			builder.put(grammarAccess.getObjetAccess().getConditionsVisibiliteAssignment_9_1(), "rule__Objet__ConditionsVisibiliteAssignment_9_1");
+			builder.put(grammarAccess.getObjetAccess().getVisibiliteAssignment_6(), "rule__Objet__VisibiliteAssignment_6");
+			builder.put(grammarAccess.getObjetAccess().getConditionsVisibiliteAssignment_7_1(), "rule__Objet__ConditionsVisibiliteAssignment_7_1");
 			builder.put(grammarAccess.getDescriptionAccess().getTextAssignment_2(), "rule__Description__TextAssignment_2");
 			builder.put(grammarAccess.getConditionAccess().getNameAssignment_1(), "rule__Condition__NameAssignment_1");
 			builder.put(grammarAccess.getConditionAccess().getObjetsAssignment_3_2(), "rule__Condition__ObjetsAssignment_3_2");
@@ -116,6 +117,9 @@ public class GAMEParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getExplorateurAccess().getObjetsAssignment_6(), "rule__Explorateur__ObjetsAssignment_6");
 			builder.put(grammarAccess.getExplorateurAccess().getConnaissancesAssignment_8(), "rule__Explorateur__ConnaissancesAssignment_8");
 			builder.put(grammarAccess.getExplorateurAccess().getLocalisationAssignment_10(), "rule__Explorateur__LocalisationAssignment_10");
+			builder.put(grammarAccess.getObjetAvecQuantiteAccess().getNameAssignment_1(), "rule__ObjetAvecQuantite__NameAssignment_1");
+			builder.put(grammarAccess.getObjetAvecQuantiteAccess().getObjetAssignment_3(), "rule__ObjetAvecQuantite__ObjetAssignment_3");
+			builder.put(grammarAccess.getObjetAvecQuantiteAccess().getQuantiteAssignment_5(), "rule__ObjetAvecQuantite__QuantiteAssignment_5");
 			builder.put(grammarAccess.getLieuAccess().getNameAssignment_1(), "rule__Lieu__NameAssignment_1");
 			builder.put(grammarAccess.getLieuAccess().getDescriptionsAssignment_3(), "rule__Lieu__DescriptionsAssignment_3");
 			builder.put(grammarAccess.getLieuAccess().getObjetsAssignment_4_2(), "rule__Lieu__ObjetsAssignment_4_2");

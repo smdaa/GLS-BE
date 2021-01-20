@@ -16,6 +16,7 @@ import fr.enseeiht.gAME.Interaction;
 import fr.enseeiht.gAME.Jeu;
 import fr.enseeiht.gAME.Lieu;
 import fr.enseeiht.gAME.Objet;
+import fr.enseeiht.gAME.ObjetAvecQuantite;
 import fr.enseeiht.gAME.Personne;
 import fr.enseeiht.services.GAMEGrammarAccess;
 import java.util.Set;
@@ -78,6 +79,9 @@ public class GAMESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 				return; 
 			case GAMEPackage.OBJET:
 				sequence_Objet(context, (Objet) semanticObject); 
+				return; 
+			case GAMEPackage.OBJET_AVEC_QUANTITE:
+				sequence_ObjetAvecQuantite(context, (ObjetAvecQuantite) semanticObject); 
 				return; 
 			case GAMEPackage.PERSONNE:
 				sequence_Personne(context, (Personne) semanticObject); 
@@ -191,7 +195,7 @@ public class GAMESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Explorateur returns Explorateur
 	 *
 	 * Constraint:
-	 *     (name=ID taille=INT objets+=[Objet|ID]* connaissances+=[Connaissance|ID]* localisation=[Lieu|ID])
+	 *     (name=ID taille=INT objets+=[ObjetAvecQuantite|ID]* connaissances+=[Connaissance|ID]* localisation=[Lieu|ID])
 	 */
 	protected void sequence_Explorateur(ISerializationContext context, Explorateur semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -222,6 +226,7 @@ public class GAMESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *         pointFin+=[Lieu|ID]+ 
 	 *         lieux+=Lieu* 
 	 *         Objets+=Objet* 
+	 *         ObjetAvecQuantite+=ObjetAvecQuantite* 
 	 *         Connaissances+=Connaissance* 
 	 *         personnes+=Personne* 
 	 *         chemins+=Chemin*
@@ -253,17 +258,34 @@ public class GAMESemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
+	 *     ObjetAvecQuantite returns ObjetAvecQuantite
+	 *
+	 * Constraint:
+	 *     (name=ID objet=[Objet|ID] quantite=INT)
+	 */
+	protected void sequence_ObjetAvecQuantite(ISerializationContext context, ObjetAvecQuantite semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, GAMEPackage.Literals.OBJET_AVEC_QUANTITE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GAMEPackage.Literals.OBJET_AVEC_QUANTITE__NAME));
+			if (transientValues.isValueTransient(semanticObject, GAMEPackage.Literals.OBJET_AVEC_QUANTITE__OBJET) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GAMEPackage.Literals.OBJET_AVEC_QUANTITE__OBJET));
+			if (transientValues.isValueTransient(semanticObject, GAMEPackage.Literals.OBJET_AVEC_QUANTITE__QUANTITE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, GAMEPackage.Literals.OBJET_AVEC_QUANTITE__QUANTITE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getObjetAvecQuantiteAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getObjetAvecQuantiteAccess().getObjetObjetIDTerminalRuleCall_3_0_1(), semanticObject.eGet(GAMEPackage.Literals.OBJET_AVEC_QUANTITE__OBJET, false));
+		feeder.accept(grammarAccess.getObjetAvecQuantiteAccess().getQuantiteINTTerminalRuleCall_5_0(), semanticObject.getQuantite());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Objet returns Objet
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         descriptions+=Description? 
-	 *         taille=INT 
-	 *         quantite=INT 
-	 *         visibilite=Visibilite 
-	 *         conditionsVisibilite=Condition?
-	 *     )
+	 *     (name=ID descriptions+=Description? taille=INT visibilite=Visibilite conditionsVisibilite=Condition?)
 	 */
 	protected void sequence_Objet(ISerializationContext context, Objet semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -7,7 +7,7 @@ import fr.enseeiht.gAME.Connaissance;
 import fr.enseeiht.gAME.Explorateur;
 import fr.enseeiht.gAME.GAMEPackage;
 import fr.enseeiht.gAME.Lieu;
-import fr.enseeiht.gAME.Objet;
+import fr.enseeiht.gAME.ObjetAvecQuantite;
 
 import java.util.Collection;
 
@@ -90,7 +90,7 @@ public class ExplorateurImpl extends MinimalEObjectImpl.Container implements Exp
    * @generated
    * @ordered
    */
-  protected EList<Objet> objets;
+  protected EList<ObjetAvecQuantite> objets;
 
   /**
    * The cached value of the '{@link #getConnaissances() <em>Connaissances</em>}' reference list.
@@ -189,11 +189,11 @@ public class ExplorateurImpl extends MinimalEObjectImpl.Container implements Exp
    * @generated
    */
   @Override
-  public EList<Objet> getObjets()
+  public EList<ObjetAvecQuantite> getObjets()
   {
     if (objets == null)
     {
-      objets = new EObjectResolvingEList<Objet>(Objet.class, this, GAMEPackage.EXPLORATEUR__OBJETS);
+      objets = new EObjectResolvingEList<ObjetAvecQuantite>(ObjetAvecQuantite.class, this, GAMEPackage.EXPLORATEUR__OBJETS);
     }
     return objets;
   }
@@ -302,7 +302,7 @@ public class ExplorateurImpl extends MinimalEObjectImpl.Container implements Exp
         return;
       case GAMEPackage.EXPLORATEUR__OBJETS:
         getObjets().clear();
-        getObjets().addAll((Collection<? extends Objet>)newValue);
+        getObjets().addAll((Collection<? extends ObjetAvecQuantite>)newValue);
         return;
       case GAMEPackage.EXPLORATEUR__CONNAISSANCES:
         getConnaissances().clear();

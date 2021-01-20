@@ -1,7 +1,7 @@
 jeu enigme {
 	explorateur toto {
 		taille 3
-		inventaireO  tentative 
+		inventaireO  tentative3
 		inventaireC
 		localisation enigme
 	}
@@ -30,8 +30,10 @@ jeu enigme {
 			"une tentative pour repondre a l'enigme"
 		}
 		taille 1
-		quantite 3
 		visible
+	}
+	objetavecquantite tentative3 {
+		tentative , 3
 	}
 	connaissance reussite {
 		visible

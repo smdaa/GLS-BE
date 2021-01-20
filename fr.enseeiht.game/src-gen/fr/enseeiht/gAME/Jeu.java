@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.enseeiht.gAME.Jeu#getPointFin <em>Point Fin</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getLieux <em>Lieux</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getObjets <em>Objets</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.Jeu#getObjetAvecQuantite <em>Objet Avec Quantite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getConnaissances <em>Connaissances</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getPersonnes <em>Personnes</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Jeu#getChemins <em>Chemins</em>}</li>
@@ -134,6 +135,18 @@ public interface Jeu extends EObject
    * @generated
    */
   EList<Objet> getObjets();
+
+  /**
+   * Returns the value of the '<em><b>Objet Avec Quantite</b></em>' containment reference list.
+   * The list contents are of type {@link fr.enseeiht.gAME.ObjetAvecQuantite}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Objet Avec Quantite</em>' containment reference list.
+   * @see fr.enseeiht.gAME.GAMEPackage#getJeu_ObjetAvecQuantite()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ObjetAvecQuantite> getObjetAvecQuantite();
 
   /**
    * Returns the value of the '<em><b>Connaissances</b></em>' containment reference list.

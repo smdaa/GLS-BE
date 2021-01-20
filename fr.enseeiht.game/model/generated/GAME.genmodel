@@ -21,6 +21,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GAME.ecore#//Jeu/pointFin"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Jeu/lieux"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Jeu/Objets"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Jeu/ObjetAvecQuantite"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Jeu/Connaissances"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Jeu/personnes"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Jeu/chemins"/>
@@ -67,7 +68,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Objet/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Objet/descriptions"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Objet/taille"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Objet/quantite"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Objet/visibilite"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GAME.ecore#//Objet/conditionsVisibilite"/>
     </genClasses>
@@ -91,6 +91,11 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GAME.ecore#//Explorateur/objets"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GAME.ecore#//Explorateur/connaissances"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GAME.ecore#//Explorateur/localisation"/>
+    </genClasses>
+    <genClasses ecoreClass="GAME.ecore#//ObjetAvecQuantite">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//ObjetAvecQuantite/name"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GAME.ecore#//ObjetAvecQuantite/objet"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//ObjetAvecQuantite/quantite"/>
     </genClasses>
     <genClasses ecoreClass="GAME.ecore#//Lieu">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GAME.ecore#//Lieu/name"/>

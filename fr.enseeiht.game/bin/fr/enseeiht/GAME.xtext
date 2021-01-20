@@ -9,6 +9,7 @@ Jeu:
 	'pointFin' (pointFin += [Lieu])+
 	lieux+=Lieu*
 	Objets+=Objet*
+	ObjetAvecQuantite += ObjetAvecQuantite*
 	Connaissances+=Connaissance*
 	personnes+=Personne*
 	chemins+=Chemin*
@@ -65,7 +66,6 @@ Objet:
 	'objet' name=ID '{' 
 	(descriptions+=Description)? 
 	'taille' taille=INT 
-	'quantite' quantite=INT 
 	visibilite=Visibilite ('si' conditionsVisibilite=Condition)?
 	'}';
 
@@ -90,10 +90,16 @@ Connaissance:
 Explorateur:
 	'explorateur' name=ID '{' 
 	'taille' taille=INT 
-	'inventaireO' (objets+=[Objet])* 
+	'inventaireO' (objets+=[ObjetAvecQuantite])* 
 	'inventaireC' (connaissances+=[Connaissance])* 
 	'localisation' localisation=[Lieu] 
 	'}';
+
+ObjetAvecQuantite:
+	'objetavecquantite' name=ID '{'
+		objet=[Objet] "," quantite=INT 
+	'}'
+;
 
 Lieu:
 	'lieu' name=ID '{' 

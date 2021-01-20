@@ -75,7 +75,7 @@ public interface Explorateur extends EObject
 
   /**
    * Returns the value of the '<em><b>Objets</b></em>' reference list.
-   * The list contents are of type {@link fr.enseeiht.gAME.Objet}.
+   * The list contents are of type {@link fr.enseeiht.gAME.ObjetAvecQuantite}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the value of the '<em>Objets</em>' reference list.
@@ -83,7 +83,7 @@ public interface Explorateur extends EObject
    * @model
    * @generated
    */
-  EList<Objet> getObjets();
+  EList<ObjetAvecQuantite> getObjets();
 
   /**
    * Returns the value of the '<em><b>Connaissances</b></em>' reference list.

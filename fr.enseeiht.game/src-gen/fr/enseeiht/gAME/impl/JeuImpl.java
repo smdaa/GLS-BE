@@ -10,6 +10,7 @@ import fr.enseeiht.gAME.GAMEPackage;
 import fr.enseeiht.gAME.Jeu;
 import fr.enseeiht.gAME.Lieu;
 import fr.enseeiht.gAME.Objet;
+import fr.enseeiht.gAME.ObjetAvecQuantite;
 import fr.enseeiht.gAME.Personne;
 
 import java.util.Collection;
@@ -43,6 +44,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getPointFin <em>Point Fin</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getLieux <em>Lieux</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getObjets <em>Objets</em>}</li>
+ *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getObjetAvecQuantite <em>Objet Avec Quantite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getConnaissances <em>Connaissances</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getPersonnes <em>Personnes</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.JeuImpl#getChemins <em>Chemins</em>}</li>
@@ -121,6 +123,16 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
    * @ordered
    */
   protected EList<Objet> objets;
+
+  /**
+   * The cached value of the '{@link #getObjetAvecQuantite() <em>Objet Avec Quantite</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getObjetAvecQuantite()
+   * @generated
+   * @ordered
+   */
+  protected EList<ObjetAvecQuantite> objetAvecQuantite;
 
   /**
    * The cached value of the '{@link #getConnaissances() <em>Connaissances</em>}' containment reference list.
@@ -344,6 +356,21 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
    * @generated
    */
   @Override
+  public EList<ObjetAvecQuantite> getObjetAvecQuantite()
+  {
+    if (objetAvecQuantite == null)
+    {
+      objetAvecQuantite = new EObjectContainmentEList<ObjetAvecQuantite>(ObjetAvecQuantite.class, this, GAMEPackage.JEU__OBJET_AVEC_QUANTITE);
+    }
+    return objetAvecQuantite;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Connaissance> getConnaissances()
   {
     if (connaissances == null)
@@ -399,6 +426,8 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
         return ((InternalEList<?>)getLieux()).basicRemove(otherEnd, msgs);
       case GAMEPackage.JEU__OBJETS:
         return ((InternalEList<?>)getObjets()).basicRemove(otherEnd, msgs);
+      case GAMEPackage.JEU__OBJET_AVEC_QUANTITE:
+        return ((InternalEList<?>)getObjetAvecQuantite()).basicRemove(otherEnd, msgs);
       case GAMEPackage.JEU__CONNAISSANCES:
         return ((InternalEList<?>)getConnaissances()).basicRemove(otherEnd, msgs);
       case GAMEPackage.JEU__PERSONNES:
@@ -432,6 +461,8 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
         return getLieux();
       case GAMEPackage.JEU__OBJETS:
         return getObjets();
+      case GAMEPackage.JEU__OBJET_AVEC_QUANTITE:
+        return getObjetAvecQuantite();
       case GAMEPackage.JEU__CONNAISSANCES:
         return getConnaissances();
       case GAMEPackage.JEU__PERSONNES:
@@ -473,6 +504,10 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
       case GAMEPackage.JEU__OBJETS:
         getObjets().clear();
         getObjets().addAll((Collection<? extends Objet>)newValue);
+        return;
+      case GAMEPackage.JEU__OBJET_AVEC_QUANTITE:
+        getObjetAvecQuantite().clear();
+        getObjetAvecQuantite().addAll((Collection<? extends ObjetAvecQuantite>)newValue);
         return;
       case GAMEPackage.JEU__CONNAISSANCES:
         getConnaissances().clear();
@@ -518,6 +553,9 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
       case GAMEPackage.JEU__OBJETS:
         getObjets().clear();
         return;
+      case GAMEPackage.JEU__OBJET_AVEC_QUANTITE:
+        getObjetAvecQuantite().clear();
+        return;
       case GAMEPackage.JEU__CONNAISSANCES:
         getConnaissances().clear();
         return;
@@ -553,6 +591,8 @@ public class JeuImpl extends MinimalEObjectImpl.Container implements Jeu
         return lieux != null && !lieux.isEmpty();
       case GAMEPackage.JEU__OBJETS:
         return objets != null && !objets.isEmpty();
+      case GAMEPackage.JEU__OBJET_AVEC_QUANTITE:
+        return objetAvecQuantite != null && !objetAvecQuantite.isEmpty();
       case GAMEPackage.JEU__CONNAISSANCES:
         return connaissances != null && !connaissances.isEmpty();
       case GAMEPackage.JEU__PERSONNES:

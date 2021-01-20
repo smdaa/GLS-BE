@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link fr.enseeiht.gAME.Objet#getName <em>Name</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Objet#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Objet#getTaille <em>Taille</em>}</li>
- *   <li>{@link fr.enseeiht.gAME.Objet#getQuantite <em>Quantite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Objet#getVisibilite <em>Visibilite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.Objet#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
  * </ul>
@@ -85,28 +84,6 @@ public interface Objet extends EObject
    * @generated
    */
   void setTaille(int value);
-
-  /**
-   * Returns the value of the '<em><b>Quantite</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Quantite</em>' attribute.
-   * @see #setQuantite(int)
-   * @see fr.enseeiht.gAME.GAMEPackage#getObjet_Quantite()
-   * @model
-   * @generated
-   */
-  int getQuantite();
-
-  /**
-   * Sets the value of the '{@link fr.enseeiht.gAME.Objet#getQuantite <em>Quantite</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Quantite</em>' attribute.
-   * @see #getQuantite()
-   * @generated
-   */
-  void setQuantite(int value);
 
   /**
    * Returns the value of the '<em><b>Visibilite</b></em>' attribute.

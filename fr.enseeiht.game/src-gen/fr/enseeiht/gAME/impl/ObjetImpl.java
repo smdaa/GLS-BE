@@ -36,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getName <em>Name</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getDescriptions <em>Descriptions</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getTaille <em>Taille</em>}</li>
- *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getQuantite <em>Quantite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getVisibilite <em>Visibilite</em>}</li>
  *   <li>{@link fr.enseeiht.gAME.impl.ObjetImpl#getConditionsVisibilite <em>Conditions Visibilite</em>}</li>
  * </ul>
@@ -94,26 +93,6 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
    * @ordered
    */
   protected int taille = TAILLE_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getQuantite() <em>Quantite</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQuantite()
-   * @generated
-   * @ordered
-   */
-  protected static final int QUANTITE_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getQuantite() <em>Quantite</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQuantite()
-   * @generated
-   * @ordered
-   */
-  protected int quantite = QUANTITE_EDEFAULT;
 
   /**
    * The default value of the '{@link #getVisibilite() <em>Visibilite</em>}' attribute.
@@ -237,31 +216,6 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
    * @generated
    */
   @Override
-  public int getQuantite()
-  {
-    return quantite;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void setQuantite(int newQuantite)
-  {
-    int oldQuantite = quantite;
-    quantite = newQuantite;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, GAMEPackage.OBJET__QUANTITE, oldQuantite, quantite));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
   public Visibilite getVisibilite()
   {
     return visibilite;
@@ -365,8 +319,6 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
         return getDescriptions();
       case GAMEPackage.OBJET__TAILLE:
         return getTaille();
-      case GAMEPackage.OBJET__QUANTITE:
-        return getQuantite();
       case GAMEPackage.OBJET__VISIBILITE:
         return getVisibilite();
       case GAMEPackage.OBJET__CONDITIONS_VISIBILITE:
@@ -395,9 +347,6 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
         return;
       case GAMEPackage.OBJET__TAILLE:
         setTaille((Integer)newValue);
-        return;
-      case GAMEPackage.OBJET__QUANTITE:
-        setQuantite((Integer)newValue);
         return;
       case GAMEPackage.OBJET__VISIBILITE:
         setVisibilite((Visibilite)newValue);
@@ -428,9 +377,6 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
       case GAMEPackage.OBJET__TAILLE:
         setTaille(TAILLE_EDEFAULT);
         return;
-      case GAMEPackage.OBJET__QUANTITE:
-        setQuantite(QUANTITE_EDEFAULT);
-        return;
       case GAMEPackage.OBJET__VISIBILITE:
         setVisibilite(VISIBILITE_EDEFAULT);
         return;
@@ -457,8 +403,6 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
         return descriptions != null && !descriptions.isEmpty();
       case GAMEPackage.OBJET__TAILLE:
         return taille != TAILLE_EDEFAULT;
-      case GAMEPackage.OBJET__QUANTITE:
-        return quantite != QUANTITE_EDEFAULT;
       case GAMEPackage.OBJET__VISIBILITE:
         return visibilite != VISIBILITE_EDEFAULT;
       case GAMEPackage.OBJET__CONDITIONS_VISIBILITE:
@@ -482,8 +426,6 @@ public class ObjetImpl extends MinimalEObjectImpl.Container implements Objet
     result.append(name);
     result.append(", taille: ");
     result.append(taille);
-    result.append(", quantite: ");
-    result.append(quantite);
     result.append(", visibilite: ");
     result.append(visibilite);
     result.append(')');

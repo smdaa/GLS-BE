@@ -136,6 +136,11 @@ public class GAMEAdapterFactory extends AdapterFactoryImpl
         return createExplorateurAdapter();
       }
       @Override
+      public Adapter caseObjetAvecQuantite(ObjetAvecQuantite object)
+      {
+        return createObjetAvecQuantiteAdapter();
+      }
+      @Override
       public Adapter caseLieu(Lieu object)
       {
         return createLieuAdapter();
@@ -338,6 +343,21 @@ public class GAMEAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExplorateurAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link fr.enseeiht.gAME.ObjetAvecQuantite <em>Objet Avec Quantite</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see fr.enseeiht.gAME.ObjetAvecQuantite
+   * @generated
+   */
+  public Adapter createObjetAvecQuantiteAdapter()
   {
     return null;
   }
