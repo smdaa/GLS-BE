@@ -1,6 +1,5 @@
 # GLS-BE
 
-## OCL : TODO
 
 ## M2M : TODO
 
