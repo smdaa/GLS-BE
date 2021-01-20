@@ -1,6 +1,8 @@
-[] (end => dead);
-[] <> dead;
-[] (dead => end);
-- <> end;
+op finished = succes \/ echec;
+[]	(finished => dead);
+[]	<> dead;
+[]	(dead => finished);
+-	<> finished;
 
-- <> (win /\ defeat);
+<>  (enigme + succes + echec = 1);
+

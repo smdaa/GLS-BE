@@ -1,0 +1,144 @@
+jeu chifoumi {
+	explorateur toto {
+		taille 3
+		inventaireO  tentative3
+		inventaireC
+		localisation battle
+	}
+	pointDepart battle
+	pointFin win defait
+	lieu battle {
+		personnes trouvable tata
+		cheminspossible b2w b2d
+	}	
+	lieu win {
+		
+	}
+	lieu defait {
+		
+	}
+	objet tentative {
+		description {
+			"une tentative pour participer au jeu"
+		}
+		taille 1
+		visible
+	}
+	objetavecquantite tentative3 {
+		tentative , 3
+	}
+	connaissance reussite {
+		visible
+	}
+	personne tata {
+		localisation battle
+		description {
+			"Pierre-papier-ciseaux"
+		}
+		interaction {
+			choix choixpierre {
+				action pierre {
+					description {
+						"draw"
+					}
+					echange {
+						
+					}				
+				}
+				action papier {
+					description {
+						"you win"
+					}
+					echange {
+						connaissancesDonne reussite
+					}				
+				}
+				action ciseaux {
+					description {
+						"you lose"
+					}
+					echange {
+						objetsPris tentative
+					}				
+				}
+			}
+			choix choixpapier {
+				action pierre {
+					description {
+						"you lose"
+					}
+					echange {
+						objetsPris tentative
+					}				
+				}
+				action papier {
+					description {
+						"draw"
+					}
+					echange {
+						
+					}				
+				}
+				action ciseaux {
+					description {
+						"you win"
+					}
+					echange {
+						connaissancesDonne reussite
+					}				
+				}				
+			}
+			choix choixciseaux {
+				action pierre {
+					description {
+						"you win"
+					}
+					echange {
+						connaissancesDonne reussite
+					}				
+				}
+				action papier {
+					description {
+						"you lose"
+					}
+					echange {
+						objetsPris tentative
+					}				
+				}
+				action ciseaux {
+					description {
+						"draw"
+					}
+					echange {
+						
+					}				
+				}				
+			}
+		}
+		visible si condition c {
+			objets necessaires tentative
+		}		
+	}
+	chemin b2w {
+		description {
+			"chemin battle vers win"
+		}
+		de battle
+		vers win
+		visible si condition c2 {
+			connaissances necessaires reussite
+		} 
+		ouvert
+	}
+	chemin b2d {
+		description {
+			"chemin battle vers defait"
+		}
+		de battle
+		vers defait
+		visible si condition c3 {
+			objets manquants tentative
+		}
+		ouvert
+	}	
+}
